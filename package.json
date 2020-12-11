@@ -1,13 +1,16 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "@aexol/next-js-starter",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "zeus":"zeus https://linktoyourschema.com/graphql --ts ./"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^14.14.12",
     "@types/react": "^17.0.0",
+    "graphql-zeus": "^3.0.0-13",
     "typescript": "^4.1.2"
   }
 }

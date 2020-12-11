@@ -4,11 +4,7 @@
   margin: 3rem auto 6rem;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .headerImage {
   width: 6rem;

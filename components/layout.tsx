@@ -3,6 +3,7 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import React from "react";
+import styled from "@emotion/styled";
 
 const name = "[Your Name]";
 export const siteTitle = "Next.js Sample Website";
@@ -10,6 +11,12 @@ export const siteTitle = "Next.js Sample Website";
 interface LayoutProps {
   home?: boolean;
 }
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Layout: React.FC<LayoutProps> = ({ children, home }) => {
   return (
@@ -29,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Header>
         {home ? (
           <>
             <img
@@ -57,7 +64,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, home }) => {
             </h2>
           </>
         )}
-      </header>
+      </Header>
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
