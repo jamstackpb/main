@@ -1,6 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
-
+/// <reference types="optimized-images-loader" />
 type UnwrapStaticProps<T> = "props" extends keyof ReturnType<T>
   ? ReturnType<T>["props"]
   : never;
