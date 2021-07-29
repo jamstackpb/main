@@ -1,20 +1,13 @@
 import { Layout } from '../../layouts/layout';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
-import Head from '@/Users/arcuspro/Desktop/Projekty/nextjs-starter/src/components/node_modules/next/head';
-import { Date } from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
-import { GetStaticProps } from 'next';
 
 export default ({ postData }: UnwrapStaticPromiseProps<typeof getStaticProps>) => {
     return (
-        <Layout>
-            <Head>
-                <title>{postData.title}</title>
-            </Head>
+        <Layout pageTitle={postData.title}>
             <article>
-                <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-                <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date} />
+                <h1>{postData.title}</h1>
+                <div>
+                    <p>{postData.date}</p>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
