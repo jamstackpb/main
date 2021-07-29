@@ -6,8 +6,8 @@ interface SvgProps {
 }
 
 const Svg = styled.svg`
-    width: 60px;
-    height: 60px;
+    width: 300px;
+    height: 300px;
     cursor: pointer;
 `;
 

@@ -1,21 +1,24 @@
-import Head from 'next/head';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 import React from 'react';
 import styled from '@emotion/styled';
+import { CustomHelmet } from '@/src/components';
 
-const name = '[Your Name]';
 export const siteTitle = 'Next.js Sample Website';
 
 interface LayoutProps {
     home?: boolean;
+    pageTitle?: string;
 }
 
 const Header = styled.header`
     display: flex;
-    flex-direction: column;
+    height: 150px;
+    width: 100%;
+    background-color: aliceblue;
     align-items: center;
+
+    p {
+        margin-right: 25px;
+    }
 `;
 
 const Container = styled.div`
@@ -24,23 +27,16 @@ const Container = styled.div`
     align-items: center;
 `;
 
-export const Layout: React.FC<LayoutProps> = ({ children, home }) => {
+export const Layout: React.FC<LayoutProps> = ({ children, home, pageTitle }) => {
     return (
-        <div className={styles.container}>
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content="Learn how to build a personal website using Next.js" />
-                <meta
-                    property="og:image"
-                    content={`https://og-image.now.sh/${encodeURI(
-                        siteTitle,
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-                />
-                <meta name="og:title" content={siteTitle} />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Head>
+        <div>
+            <CustomHelmet pageTitle={pageTitle ? pageTitle : undefined} />
             <Header>
-                <p>Your Header</p>
+                <p>Nav Link</p>
+                <p>Nav Link</p>
+                <p>Nav Link</p>
+                <p>Nav Link</p>
+                <p>Nav Link</p>
             </Header>
             <Container>{children}</Container>
         </div>
