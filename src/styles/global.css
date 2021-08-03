@@ -37,6 +37,8 @@ select {
 /* this ensures that 1rem = 10px, makes responsiveness a lot easier with below settings */
 html {
     font-size: 62.5%;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
 }
 @media (max-width: 1230px) {
     html {
