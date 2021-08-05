@@ -1,27 +1,48 @@
+import { Button } from '@/src/components/atoms/Button';
+import { Header } from '@/src/components/atoms/Header';
+import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
-import { LogoAexol } from '@/src/assets';
-import { TestMolecules } from '@/src/components';
-import aexol_logo from '@/public/images/aexol_logo.svg';
-import aexol_full_logo from '@/public/images/aexol_full_logo.png';
-import Link from 'next/link';
 import styled from '@emotion/styled';
 
-const ALink = styled.div`
-    a {
-        color: black;
-    }
-`;
+const SubTitle = styled.p`
+    color: #fff;
+    font-weight:300;
+    font-size:18px;;
+    margin-bottom:25px;
+`
+
+const Title = styled.h1`
+    font-weight:900;
+    color:#fff;
+    line-height:1.2;
+    font-size:48px;
+    margin-bottom:25px;
+`
+
+const Motto = styled.div`
+    max-width:640px;
+    padding:20px;
+`
+
+const InputContainer = styled.div`
+    display:flex;
+    max-width:100%;
+    align-items:stretch;
+`
 
 const HomePage = () => {
     return (
         <Layout pageTitle="HomePage">
-            <TestMolecules />
-            <LogoAexol />
-            <ALink>
-                <Link href="/posts/first">Dynamic Route Post Example</Link>
-            </ALink>
-            <img src={aexol_logo.src} alt="" />
-            <img src={aexol_full_logo.src} alt="" />
+            <Header>
+                <Motto>
+                    <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
+                    <Title>Naucz się robić front-end wśród najlepszych </Title> 
+                    <InputContainer>
+                        <Input style={{flex:1}} placeholder="podaj email" />
+                        <Button>Zapisz się</Button>
+                    </InputContainer>
+                </Motto>
+           </Header>
         </Layout>
     );
 };
