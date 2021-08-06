@@ -2,6 +2,7 @@ import { Button } from '@/src/components/atoms/Button';
 import { Header } from '@/src/components/atoms/Header';
 import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
+import { Signup } from '../components/molecules/Signup';
 import styled from '@emotion/styled';
 
 const SubTitle = styled.p`
@@ -43,6 +44,7 @@ const HomePage = () => {
                     </InputContainer>
                 </Motto>
            </Header>
+           <Signup />
         </Layout>
     );
 };
