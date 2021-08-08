@@ -2,6 +2,7 @@ import { Button } from '@/src/components/atoms/Button';
 import { Full_Logo, Header } from '@/src/components/atoms/Header';
 import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
+import { Footer } from '../components/molecules/Footer';
 import styled from '@emotion/styled';
 
 const SubTitle = styled.p`
@@ -44,6 +45,7 @@ const HomePage = () => {
                     </InputContainer>
                 </Motto>
            </Header>
+           <Footer></Footer>
         </Layout>
     );
 };
