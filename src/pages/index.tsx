@@ -1,5 +1,5 @@
 import { Button } from '@/src/components/atoms/Button';
-import { Header } from '@/src/components/atoms/Header';
+import { Full_Logo, Header } from '@/src/components/atoms/Header';
 import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
 import styled from '@emotion/styled';
@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 const SubTitle = styled.p`
     color: #fff;
     font-weight:300;
-    font-size:18px;;
+    font-size:18px;
     margin-bottom:25px;
 `
 
@@ -34,6 +34,7 @@ const HomePage = () => {
     return (
         <Layout pageTitle="HomePage">
             <Header>
+                <Full_Logo></Full_Logo>
                 <Motto>
                     <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                     <Title>Naucz się robić front-end wśród najlepszych </Title> 
