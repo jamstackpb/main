@@ -35,7 +35,7 @@ const HomePage = () => {
     return (
         <Layout pageTitle="HomePage">
             <Header>
-                <Full_Logo></Full_Logo>
+                <Full_Logo/>
                 <Motto>
                     <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                     <Title>Naucz się robić front-end wśród najlepszych </Title> 
@@ -45,7 +45,7 @@ const HomePage = () => {
                     </InputContainer>
                 </Motto>
            </Header>
-           <Footer></Footer>
+           <Footer/>
         </Layout>
     );
 };

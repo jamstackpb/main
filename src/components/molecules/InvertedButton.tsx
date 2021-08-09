@@ -21,7 +21,7 @@ export const InvertedButton = ({ahref, icon}: Param) => {
 
     return(
         <a href={ahref} style={{height:50, width:50}}>
-            <Icon></Icon>
+            <Icon/>
         </a>
     )
 }
