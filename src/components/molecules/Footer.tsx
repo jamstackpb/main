@@ -61,16 +61,16 @@ export const Footer = () => {
 
     return (
         <GrandFooter>
-            <div style={{width:"100%", height:100}}></div>
-            <Logo></Logo>
-            <div style={{width:"100%", height:50}}></div>
+            <div style={{width:"100%", height:100}}/>
+            <Logo/>
+            <div style={{width:"100%", height:50}}/>
             <FootNavWords>
                 <a href="https://github.com/aexol" style={{color:colors.footer_text}}>Prowadzący</a>
                 <a href="https://github.com/jamstackpb" style={{color:colors.footer_text}}>Pages</a>
                 <a href="https://github.com/jamstackpb" style={{color:colors.footer_text}}>Legal</a>
                 <a href="https://github.com/jamstackpb" style={{color:colors.footer_text}}>Resources</a>
             </FootNavWords>
-            <div style={{width:"100%", height:35}}></div>
+            <div style={{width:"100%", height:35}}/>
             <FootIcons>
                 <InvertedButton ahref="https://www.facebook.com" icon={fb_icon.src}> </InvertedButton>
                 <InvertedButton ahref="https://twitter.com/?lang=pl" icon={tw_icon.src}> </InvertedButton>
@@ -78,9 +78,9 @@ export const Footer = () => {
                 <InvertedButton ahref="https://www.facebook.com" icon={fb_icon.src}> </InvertedButton>
                 <InvertedButton ahref="https://pl.linkedin.com/" icon={in_icon.src}> </InvertedButton>
             </FootIcons>
-            <div style={{width:"100%", height:45}}></div>
+            <div style={{width:"100%", height:45}}/>
             <CopyRights><p>All rights reserved © JAMstack PB 2021</p></CopyRights>
-            <div style={{width:"100%", height:48, zIndex:2, background:colors.footer_color}}></div>
+            <div style={{width:"100%", height:48, zIndex:2, background:colors.footer_color}}/>
         </GrandFooter>
     );
 }
