@@ -11,7 +11,7 @@ const Title = styled.div`
     font:bold;
     color:#25acd9;
     margin-top:10px;
-    margin-bottom:6px;
+    margin-bottom:5px;
     font-weight:600;
 `;
 const SubTitle = styled.div`
@@ -41,6 +41,7 @@ const Input = styled.input`
     font-size:14px;
     border:0
 `;
+
 
 export const Signup = () => {
     return (
