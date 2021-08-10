@@ -11,7 +11,7 @@ const Title = styled.div`
     font:bold;
     color:#25acd9;
     margin-top:10px;
-    margin-bottom:5px;
+    margin-bottom:6px;
     font-weight:600;
 `;
 const SubTitle = styled.div`
