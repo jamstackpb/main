@@ -1,27 +1,24 @@
-import styled from "@emotion/styled";
- 
+import styled from '@emotion/styled';
 
-type Param = {
-    children: string,
-    ahref: any,
-    icon: any
-}
-
-export const InvertedButton = ({ahref, icon}: Param) => {
-    const Icon = styled.div`
-    background-image: url(${icon});
+const Icon = styled.div<{ imagIcon: any }>`
+    background-image: url(${({ imagIcon }) => imagIcon});
     background-position: center;
-    width:100%;
-    height:100%;
-    :hover{
+    width: 100%;
+    height: 100%;
+    :hover {
         filter: invert(3%);
-        box-shadow:6px 6px 6px -1px black;
+        box-shadow: 6px 6px 6px -1px black;
     }
-    `
+`;
+type Param = {
+    ahref: any;
+    imagIcon: any;
+};
 
-    return(
-        <a href={ahref} style={{height:50, width:50}}>
-            <Icon/>
+export const InvertedButton = ({ ahref, imagIcon }: Param) => {
+    return (
+        <a href={ahref} style={{ height: 50, width: 50 }}>
+            <Icon imagIcon={imagIcon} />
         </a>
-    )
-}
+    );
+};
