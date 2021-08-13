@@ -2,6 +2,7 @@ import { Button } from '@/src/components/atoms/Button';
 import { Full_Logo, Header } from '@/src/components/atoms/Header';
 import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
+import { Footer } from '../components/molecules/Footer';
 import styled from '@emotion/styled';
 
 const SubTitle = styled.p`
@@ -34,7 +35,7 @@ const HomePage = () => {
     return (
         <Layout pageTitle="HomePage">
             <Header>
-                <Full_Logo></Full_Logo>
+                <Full_Logo/>
                 <Motto>
                     <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                     <Title>Naucz się robić front-end wśród najlepszych </Title> 
@@ -44,6 +45,7 @@ const HomePage = () => {
                     </InputContainer>
                 </Motto>
            </Header>
+           <Footer/>
         </Layout>
     );
 };
