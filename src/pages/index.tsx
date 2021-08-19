@@ -1,6 +1,7 @@
 import { Button } from '@/src/components/atoms/Button';
 import { Full_Logo, Header } from '@/src/components/atoms/Header';
 import { Input } from '@/src/components/atoms/Input';
+import { Cards } from '../components/atoms/Cards';
 import { Layout } from '@/src/layouts';
 import { Footer } from '../components/molecules/Footer';
 import styled from '@emotion/styled';
@@ -45,6 +46,7 @@ const HomePage = () => {
                     </InputContainer>
                 </Motto>
            </Header>
+           <Cards/>
            <Footer/>
         </Layout>
     );
