@@ -44,7 +44,7 @@ const FootIcons = styled.div`
     align-items: center;
 `;
 
-const CopyRights = styled.div`
+export const CopyRights = styled.div`
     width: 100%;
     height: 80px;
     color: ${colors.rights_text};
@@ -87,7 +87,7 @@ export const Footer = () => {
             </FootIcons>
             <div style={{ width: '100%', height: 45 }} />
             <CopyRights>
-                <p>All rights reserved © JAMstack PB 2021</p>
+                <p>All rights reserved &copy; JAMstack PB 2021</p>
             </CopyRights>
             <div style={{ width: '100%', height: 48, zIndex: 2, background: colors.footer_color }} />
         </GrandFooter>
