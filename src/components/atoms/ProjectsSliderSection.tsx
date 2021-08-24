@@ -88,9 +88,10 @@ const SectionDescriptionContainer = styled.div`
     flex-direction: column;
     padding-left: 25%;
 `;
-const Descrition = styled.div`
+const Description = styled.div`
     font-size: 1.5rem;
     font-weight: 500;
+    color: ${colors.footer_text};
 `;
 const Arrows = styled.div<{ whichArrow?: string }>`
     &.arrow {
@@ -216,7 +217,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
             <SectionImgContainer imgUrl={projects[current].imageUrl} />
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
-                <Descrition>{projects[current].description}</Descrition>
+                <Description>{projects[current].description}</Description>
             </SectionDescriptionContainer>
         </ProjectsSection>
     );
