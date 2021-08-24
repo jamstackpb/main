@@ -1,0 +1,30 @@
+name: Node.js CI
+
+on:
+    push:
+        branches: [gh-pages]
+    pull_request:
+        branches: [gh-pages]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [14.x]
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: npm ci
+            - run: npm run build
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@4.1.4
+              with:
+                  branch: master
+                  folder: out
