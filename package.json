@@ -2,11 +2,13 @@
     "name": "@aexol/next-js-starter",
     "version": "0.0.0",
     "private": true,
+    "homepage": "https://jamstackpb.github.io/main",
     "scripts": {
         "dev": "next dev",
         "build": "next build && next export",
         "start": "next start",
-        "zeus": "zeus https://linktoyourschema.com/graphql --ts ./"
+        "zeus": "zeus https://linktoyourschema.com/graphql --ts ./",
+        "deploy": "gh-pages -d out"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
