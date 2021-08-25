@@ -7,6 +7,8 @@ import in_icon from '@/public/images/in_icon.svg';
 import { colors } from '@/src/styles';
 import { InvertedButton } from './InvertedButton';
 
+const prefix = '/main';
+
 const GrandFooter = styled.div`
     background: ${colors.footer_color};
     height: 470px;
@@ -18,7 +20,7 @@ const GrandFooter = styled.div`
 `;
 
 const Logo = styled.div`
-    background-image: url(${logo1.src});
+    background-image: url(${prefix + logo1.src});
     width: 52px;
     height: 50px;
 `;

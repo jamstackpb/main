@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+const prefix = '/main';
+
 const Icon = styled.div<{ imagIcon: any }>`
     background-image: url(${({ imagIcon }) => imagIcon});
     background-position: center;
@@ -17,7 +19,7 @@ type Param = {
 
 export const InvertedButton = ({ ahref, imagIcon }: Param) => {
     return (
-        <a href={ahref} style={{ height: 50, width: 50 }}>
+        <a href={prefix + ahref} style={{ height: 50, width: 50 }}>
             <Icon imagIcon={imagIcon} />
         </a>
     );
