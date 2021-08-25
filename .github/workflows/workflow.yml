@@ -9,7 +9,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            NEXT_PUBLIC_BASE_PATH: /stronka
+            NEXT_PUBLIC_BASE_PATH: /main
         strategy:
             matrix:
                 node-version: [14.x]
