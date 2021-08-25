@@ -1,3 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 
-module.exports = withPlugins([{ trailingSlash: true }]);
+module.exports = {
+    basePath: '/main',
+    assetPrefix: '/main',
+    withPlugins([{ trailingSlash: True }])
+}
