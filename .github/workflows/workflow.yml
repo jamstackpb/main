@@ -8,10 +8,11 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
+        env:
+            NEXT_PUBLIC_BASE_PATH: /stronka
         strategy:
             matrix:
-                node-version: [15.x]
+                node-version: [14.x]
 
         steps:
             - name: Checkout (Sprawdzenie)

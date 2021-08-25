@@ -19,8 +19,8 @@ type Param = {
 
 export const InvertedButton = ({ ahref, imagIcon }: Param) => {
     return (
-        <a href={prefix + ahref} style={{ height: 50, width: 50 }}>
-            <Icon imagIcon={imagIcon} />
+        <a href={ahref} style={{ height: 50, width: 50 }}>
+            <Icon imagIcon={prefix + imagIcon} />
         </a>
     );
 };
