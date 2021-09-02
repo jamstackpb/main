@@ -18,8 +18,8 @@ const GrandFooter = styled.div`
     flex-direction: column;
 `;
 
-const Logo = styled.div`
-    background-image: url(${prefix() + logo1.src});
+const Logo = styled.div<{ imgSrc: string }>`
+    background-image: url(${({ imgSrc }) => `${prefix() + imgSrc}`});
     width: 52px;
     height: 50px;
 `;
@@ -63,7 +63,7 @@ export const Footer = () => {
     return (
         <GrandFooter>
             <div style={{ width: '100%', height: 100 }} />
-            <Logo />
+            <Logo imgSrc={logo1.src} />
             <div style={{ width: '100%', height: 50 }} />
             <FootNavWords>
                 <a href="https://github.com/aexol" style={{ color: colors.footer_text }}>
