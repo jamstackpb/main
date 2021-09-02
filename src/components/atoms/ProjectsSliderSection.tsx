@@ -213,7 +213,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 </ButtonsContainer>
             </SectionHeader>
 
-            <SectionImgContainer src={projects[current].imageUrl} />
+            <SectionImgContainer src={`${projects[current].imageUrl}`} />
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
