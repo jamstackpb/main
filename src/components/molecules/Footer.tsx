@@ -6,6 +6,7 @@ import git_icon from './../../../public/images/git_icon.svg';
 import in_icon from '@/public/images/in_icon.svg';
 import { colors } from '@/src/styles';
 import { InvertedButton } from './InvertedButton';
+import { imageUrl } from '@/src/pages';
 
 const GrandFooter = styled.div`
     background: ${colors.footer_color};
@@ -79,11 +80,11 @@ export const Footer = () => {
                 </a>
             </FootNavWords>
             <FootIcons>
-                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon.src} />
-                <InvertedButton ahref="https://twitter.com/?lang=pl" imagIcon={tw_icon.src} />
-                <InvertedButton ahref="https://github.com/jamstackpb" imagIcon={git_icon.src} />
-                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon.src} />
-                <InvertedButton ahref="https://pl.linkedin.com/" imagIcon={in_icon.src} />
+                <InvertedButton ahref="https://www.facebook.com" imagIcon={imageUrl(fb_icon.src)} />
+                <InvertedButton ahref="https://twitter.com/?lang=pl" imagIcon={imageUrl(tw_icon.src)} />
+                <InvertedButton ahref="https://github.com/jamstackpb" imagIcon={imageUrl(git_icon.src)} />
+                <InvertedButton ahref="https://www.facebook.com" imagIcon={imageUrl(fb_icon.src)} />
+                <InvertedButton ahref="https://pl.linkedin.com/" imagIcon={imageUrl(in_icon.src)} />
             </FootIcons>
             <div style={{ width: '100%', height: 45 }} />
             <CopyRights>
