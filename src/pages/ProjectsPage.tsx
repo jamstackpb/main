@@ -2,7 +2,7 @@ import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
 import { CopyRights } from '../components/molecules/Footer';
 import ProjectsSectionSlider from '@/src/components/atoms/ProjectsSliderSection';
-import projekt1 from '@/public/images/ProjectsSiteImgs/projekt1.png';
+import projekt1 from '@/src/assets/projekt1.png';
 import projekt2 from '@/public/images/ProjectsSiteImgs/projekt2.jpg';
 import projekt3 from '@/public/images/ProjectsSiteImgs/projekt3.jpg';
 import projekt4 from '@/public/images/ProjectsSiteImgs/projekt4.jpg';
