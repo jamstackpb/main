@@ -4,7 +4,7 @@ module.exports = withPlugins([
     {
         trailingSlash: true,
         basePath: process.env.NEXT_PUBLIC_BASE_PATH, //potrzebny
-        assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH, //dziala
+        assetPrefix: 'https://jamstackpb.github.io/main', //process.env.NEXT_PUBLIC_BASE_PATH, //dziala
         devIndicators: {
             autoPrerender: false,
         },

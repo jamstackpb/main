@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Icon = styled.div<{ imagIcon: any }>`
-    background-image: url(.${({ imagIcon }) => imagIcon});
+    background-image: url(${({ imagIcon }) => imagIcon});
     background-position: center;
     width: 100%;
     height: 100%;
