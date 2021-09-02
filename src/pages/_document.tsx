@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="pl-PL">
                 <Head>
+                <link rel="shortcut icon" href={process.env.NEXT_PUBLIC_BASE_PATH + '/favicon.ico'} />
                     {/* enable analytics script only for production */}
                     {/* {isProduction && (
             <>
@@ -34,7 +35,7 @@ export default class MyDocument extends Document {
             </>
           )} */}
                 </Head>
-                <body>
+                <body style={{margin: 0}}>
                     <Main />
                     <NextScript />
                 </body>
