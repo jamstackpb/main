@@ -4,6 +4,7 @@ import { Input } from '@/src/components/atoms/Input';
 import { Layout } from '@/src/layouts';
 import { Footer } from '../components/molecules/Footer';
 import styled from '@emotion/styled';
+import { CTA } from '../components/organisms/CTA';
 
 const SubTitle = styled.p`
     color: #fff;
