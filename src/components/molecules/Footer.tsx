@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import logo1 from '@/public/images/logo1.svg';
-import fb_icon from '@/public/images/fb_icon.svg';
-import tw_icon from '@/public/images/tw_icon.svg';
-import git_icon from '@/public/images/git_icon.svg';
-import in_icon from '@/public/images/in_icon.svg';
+const fb_icon = 'images/fb_icon.svg';
+const tw_icon = 'images/tw_icon.svg';
+const git_icon = 'images/git_icon.svg';
+const in_icon = 'images/in_icon.svg';
 import { colors } from '@/src/styles';
 import { InvertedButton } from './InvertedButton';
-import { prefix } from '@/src/pages';
+import { TinyLogo } from './TinyLogo';
 
 const GrandFooter = styled.div`
     background: ${colors.footer_color};
@@ -18,23 +17,15 @@ const GrandFooter = styled.div`
     flex-direction: column;
 `;
 
-const Logo = styled.div<{ imgSrc: string }>`
-    background-image: url(${({ imgSrc }) => `${prefix() + imgSrc}`});
-    width: 52px;
-    height: 50px;
-`;
-
 const FootNavWords = styled.div`
-    color: ${colors.footer_text};
-    font-size: 12px;
-    font-weight: 500;
     height: 12px;
     width: 380px;
+    font-size: 12px;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
-
 const FootIcons = styled.div`
     margin-top: 35px;
     width: 320px;
@@ -44,7 +35,6 @@ const FootIcons = styled.div`
     justify-content: space-between;
     align-items: center;
 `;
-
 export const CopyRights = styled.div`
     width: 100%;
     height: 80px;
@@ -58,12 +48,11 @@ export const CopyRights = styled.div`
     box-shadow: 0px 2px 6px -1px black;
     z-index: 1;
 `;
-
 export const Footer = () => {
     return (
         <GrandFooter>
             <div style={{ width: '100%', height: 100 }} />
-            <Logo imgSrc={logo1.src} />
+            <TinyLogo />
             <div style={{ width: '100%', height: 50 }} />
             <FootNavWords>
                 <a href="https://github.com/aexol" style={{ color: colors.footer_text }}>
@@ -80,11 +69,11 @@ export const Footer = () => {
                 </a>
             </FootNavWords>
             <FootIcons>
-                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon.src} />
-                <InvertedButton ahref="https://twitter.com/?lang=pl" imagIcon={tw_icon.src} />
-                <InvertedButton ahref="https://github.com/jamstackpb" imagIcon={git_icon.src} />
-                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon.src} />
-                <InvertedButton ahref="https://pl.linkedin.com/" imagIcon={in_icon.src} />
+                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon} />
+                <InvertedButton ahref="https://twitter.com/?lang=pl" imagIcon={tw_icon} />
+                <InvertedButton ahref="https://github.com/jamstackpb" imagIcon={git_icon} />
+                <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon} />
+                <InvertedButton ahref="https://pl.linkedin.com/" imagIcon={in_icon} />
             </FootIcons>
             <div style={{ width: '100%', height: 45 }} />
             <CopyRights>

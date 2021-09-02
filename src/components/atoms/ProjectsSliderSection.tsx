@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { colors } from '@/src/styles';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { prefix } from '@/src/pages';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
@@ -77,11 +76,10 @@ const Btn = styled.div`
     }
 `;
 
-const SectionImgContainer = styled.div<{ imgUrl: string }>`
-    background-image: url(${({ imgUrl }) => prefix() + imgUrl});
+const SectionImgContainer = styled.img`
     height: 40vh;
     width: 100%;
-    background-position: center;
+    //background-position: center;
 `;
 const SectionDescriptionContainer = styled.div`
     padding-top: 5vh;
@@ -215,7 +213,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 </ButtonsContainer>
             </SectionHeader>
 
-            <SectionImgContainer imgUrl={projects[current].imageUrl} />
+            <SectionImgContainer src={projects[current].imageUrl} />
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>

@@ -2,15 +2,14 @@ import styled from '@emotion/styled';
 import { Input } from '../atoms/Input';
 import { colors } from '@/src/styles';
 import { Button } from '../atoms/Button';
-import full_logo1 from '@/public/images/full_logo1.svg';
+import { Logo } from '@/src/components/molecules/Logo';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
 import { css } from '@emotion/react';
-import { prefix } from '@/src/pages';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
     background: ${colors.nav_color};
-    color: #fff;
+    color: ${colors.white};
     font-size: 18px;
     ${({ isHomepage }) =>
         isHomepage &&
@@ -21,37 +20,20 @@ const Container = styled.div<{ isHomepage: boolean }>`
             align-items: center;
         `};
 `;
-const Logo = styled.div<{ isHomepage?: boolean; prefix?: string }>`
-    background-image: url(${({ prefix }) => (prefix ? prefix + full_logo1.src : full_logo1.src)});
-    ${({ isHomepage }) =>
-        isHomepage
-            ? css`
-                  width: 168px;
-                  height: 50px;
-                  margin: 28px;
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-              `
-            : css`
-                  width: 168px;
-                  height: 50px;
-                  margin-left: 30px;
-              `};
-`;
+
 const Motto = styled.div`
     max-width: 640px;
     padding: 20px;
 `;
 const SubTitle = styled.p`
-    color: #fff;
+    color: ${colors.white};
     font-weight: 300;
     font-size: 18px;
     margin-bottom: 25px;
 `;
 const Title = styled.h1`
     font-weight: 900;
-    color: #fff;
+    color: ${colors.white};
     line-height: 1.2;
     font-size: 48px;
     margin-bottom: 25px;
@@ -81,7 +63,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
-                        <Logo isHomepage={isHomepage} prefix={prefix()} />
+                        <Logo />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                             <Title>Naucz się robić front-end wśród najlepszych </Title>
@@ -89,13 +71,11 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                                 <Input style={{ flex: 1 }} placeholder="podaj email" />
                                 <Button>Zapisz się</Button>
                             </InputContainer>
-                        </Motto>{' '}
+                        </Motto>
                     </>
                 ) : (
                     <>
-                        {' '}
                         <Nav>
-                            <Logo />
                             <MenuIcon />
                         </Nav>
                         <h1
