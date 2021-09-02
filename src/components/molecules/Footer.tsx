@@ -6,6 +6,7 @@ import git_icon from '@/public/images/git_icon.svg';
 import in_icon from '@/public/images/in_icon.svg';
 import { colors } from '@/src/styles';
 import { InvertedButton } from './InvertedButton';
+import { prefix } from '@/src/pages';
 
 const GrandFooter = styled.div`
     background: ${colors.footer_color};
@@ -17,8 +18,8 @@ const GrandFooter = styled.div`
     flex-direction: column;
 `;
 
-const Logo = styled.div`
-    background-image: url(${logo1.src});
+const Logo = styled.div<{ imgSrc: string }>`
+    background-image: url(${({ imgSrc }) => `${prefix() + imgSrc}`});
     width: 52px;
     height: 50px;
 `;
@@ -44,7 +45,7 @@ const FootIcons = styled.div`
     align-items: center;
 `;
 
-const CopyRights = styled.div`
+export const CopyRights = styled.div`
     width: 100%;
     height: 80px;
     color: ${colors.rights_text};
@@ -62,7 +63,7 @@ export const Footer = () => {
     return (
         <GrandFooter>
             <div style={{ width: '100%', height: 100 }} />
-            <Logo />
+            <Logo imgSrc={logo1.src} />
             <div style={{ width: '100%', height: 50 }} />
             <FootNavWords>
                 <a href="https://github.com/aexol" style={{ color: colors.footer_text }}>
@@ -87,7 +88,7 @@ export const Footer = () => {
             </FootIcons>
             <div style={{ width: '100%', height: 45 }} />
             <CopyRights>
-                <p>All rights reserved © JAMstack PB 2021</p>
+                <p>All rights reserved &copy; JAMstack PB 2021</p>
             </CopyRights>
             <div style={{ width: '100%', height: 48, zIndex: 2, background: colors.footer_color }} />
         </GrandFooter>

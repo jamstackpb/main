@@ -2,47 +2,53 @@ import styled from '@emotion/styled';
 import { Button } from '@/src/components/atoms/Button';
 
 const Background = styled.div`
+<<<<<<< HEAD
     background-color:#fff;
     display:flex;
     flex-direction:column;
     padding:30px 50px;
     `;
+=======
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+`;
+>>>>>>> 0dfae8409781d9b318957a40c2b5c4fbbc2dafc4
 const Title = styled.div`
-    font-size:15px;
-    font:bold;
-    color:#25acd9;
-    margin-top:10px;
-    margin-bottom:5px;
-    font-weight:600;
+    font-size: 15px;
+    font: bold;
+    color: #25acd9;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
 `;
 const SubTitle = styled.div`
-    color:blue;
-    font-size:23px;
-    font-weight:900;
-    margin-bottom:10px;
+    color: blue;
+    font-size: 23px;
+    font-weight: 900;
+    margin-bottom: 10px;
 `;
 const Opis = styled.div`
     font-size: 15px;
-    color:#878787;
-    margin-bottom:15px;
-    width:250px;
+    color: #878787;
+    margin-bottom: 15px;
+    width: 250px;
 `;
 const InputContainer = styled.div`
-    display:flex;
-    max-width:100%;
-    align-items:stretch;
-    flex-direction:column;
-    text-align:center;
+    display: flex;
+    max-width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    text-align: center;
 `;
 
 const Input = styled.input`
     background: #edf3f5;
-    padding:15px 10px;
-    color:#25acd9;
-    font-size:14px;
-    border:0
+    padding: 15px 10px;
+    color: #25acd9;
+    font-size: 14px;
+    border: 0;
 `;
-
 
 export const Signup = () => {
     return (
