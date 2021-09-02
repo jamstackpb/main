@@ -19,7 +19,7 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Install and build (Instalacja i budowa)
-              run: npm install && npm run build
+              run: npm install && npm run build && touch ./out/.nojekyll
 
             - name: Deploy 🚀 (Deplojojowanie strony 😃)
               uses: JamesIves/github-pages-deploy-action@4.1.4
