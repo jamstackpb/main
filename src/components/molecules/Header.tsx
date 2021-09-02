@@ -21,8 +21,8 @@ const Container = styled.div<{ isHomepage: boolean }>`
             align-items: center;
         `};
 `;
-const Logo = styled.div<{ isHomepage?: boolean }>`
-    background-image: url(${prefix() + full_logo1.src});
+const Logo = styled.div<{ isHomepage?: boolean; prefix?: string }>`
+    background-image: url(${({ prefix }) => (prefix ? prefix + full_logo1.src : full_logo1.src)});
     ${({ isHomepage }) =>
         isHomepage
             ? css`
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
-                        <Logo isHomepage={isHomepage} />
+                        <Logo isHomepage={isHomepage} prefix={prefix()} />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                             <Title>Naucz się robić front-end wśród najlepszych </Title>
