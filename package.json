@@ -2,7 +2,7 @@
     "name": "@aexol/next-js-starter",
     "version": "0.0.0",
     "private": true,
-    "homepage": "https://jamstackpb.github.io/main",
+    "homepage": "https://jamstackpb.github.io",
     "scripts": {
         "predeploy": "npm run build",
         "deploy": "gh-pages -d out",
