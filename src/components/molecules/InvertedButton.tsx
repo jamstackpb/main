@@ -2,7 +2,7 @@ import { prefix } from '@/src/pages';
 import styled from '@emotion/styled';
 
 const Icon = styled.div<{ imagIcon: any }>`
-    background-image: url(${({ imagIcon }) => imagIcon});
+    background-image: url(${({ imagIcon }) => prefix() + imagIcon});
     background-position: center;
     width: 100%;
     height: 100%;
@@ -19,7 +19,7 @@ type Param = {
 export const InvertedButton = ({ ahref, imagIcon }: Param) => {
     return (
         <a href={ahref} style={{ height: 50, width: 50 }}>
-            <Icon imagIcon={prefix() + imagIcon} />
+            <Icon imagIcon={imagIcon} />
         </a>
     );
 };

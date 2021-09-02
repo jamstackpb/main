@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { colors } from '@/src/styles';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { prefix } from '@/src/pages';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
@@ -77,7 +78,7 @@ const Btn = styled.div`
 `;
 
 const SectionImgContainer = styled.div<{ imgUrl: string }>`
-    background-image: url(${({ imgUrl }) => imgUrl});
+    background-image: url(${({ imgUrl }) => prefix() + imgUrl});
     height: 40vh;
     width: 100%;
     background-position: center;

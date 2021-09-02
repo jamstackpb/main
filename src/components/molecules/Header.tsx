@@ -5,6 +5,7 @@ import { Button } from '../atoms/Button';
 import full_logo1 from '@/public/images/full_logo1.svg';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
 import { css } from '@emotion/react';
+import { prefix } from '@/src/pages';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
@@ -21,7 +22,7 @@ const Container = styled.div<{ isHomepage: boolean }>`
         `};
 `;
 const Logo = styled.div<{ isHomepage?: boolean }>`
-    background-image: url(${full_logo1.src});
+    background-image: url(${prefix() + full_logo1.src});
     ${({ isHomepage }) =>
         isHomepage
             ? css`
