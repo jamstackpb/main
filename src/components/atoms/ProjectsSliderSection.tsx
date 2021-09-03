@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { colors } from '@/src/styles';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { addImagePrefix } from '@/src/utils';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
@@ -213,8 +214,9 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 </ButtonsContainer>
             </SectionHeader>
 
-            <SectionImgContainer src={projects[current].imageUrl} />
+            <SectionImgContainer src={addImagePrefix(projects[current].imageUrl)} />
             {console.log('>>>>.', projects[current].imageUrl)}
+            {console.log('prefix>>>>.', addImagePrefix(projects[current].imageUrl))}
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
