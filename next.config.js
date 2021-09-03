@@ -5,7 +5,7 @@ module.exports = withPlugins([
     {
         trailingSlash: true,
         basePath: process.env.NEXT_PUBLIC_BASE_PATH, //potrzebny
-        assetPrefix: isProd ? process.env.NEXT_PUBLIC_BASE_PATH : '', //dziala czy niedziala, -> niepotrzebny
+        assetPrefix: isProd ? '/main : '', //dziala czy niedziala, -> niepotrzebny
         devIndicators: {
             autoPrerender: false,
         },
