@@ -215,8 +215,6 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
             </SectionHeader>
 
             <SectionImgContainer src={addImagePrefix(projects[current].imageUrl)} />
-            {console.log('>>>>.', projects[current].imageUrl)}
-            {console.log('prefix>>>>.', addImagePrefix(projects[current].imageUrl))}
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
