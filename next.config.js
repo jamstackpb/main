@@ -20,6 +20,7 @@ module.exports = {
     devIndicators: {
         autoPrerender: false,
     },
+    trailingSlash: true,
 
     assetPrefix: isProd ? 'https://jamstackpb.github.io/main/' : '',
 };
