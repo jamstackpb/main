@@ -18,7 +18,7 @@
         "date-fns": "^2.23.0",
         "gh-pages": "^3.2.3",
         "gray-matter": "^4.0.3",
-        "next": "^11.0.1",
+        "next": "11.1.1",
         "next-compose-plugins": "^2.2.1",
         "next-optimized-images": "^3.0.0-canary.10",
         "optimized-images-loader": "^0.4.0",

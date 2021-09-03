@@ -6,9 +6,10 @@ module.exports = withPlugins([
     {
         trailingSlash: true,
         basePath: process.env.NEXT_PUBLIC_BASE_PATH, //potrzebny
-        assetPrefix: isProd ? 'https://jamstackpb.github.io/main/' : '', //dziala czy niedziala, -> niepotrzebny
+        //dziala czy niedziala, -> niepotrzebny
         devIndicators: {
             autoPrerender: false,
         },
     },
+    { assetPrefix: isProd ? 'https://jamstackpb.github.io/main/' : '' },
 ]);
