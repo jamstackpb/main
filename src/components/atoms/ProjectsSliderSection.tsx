@@ -78,7 +78,7 @@ const Btn = styled.div`
 
 const SectionImgContainer = styled.img`
     height: 40vh;
-    width: 100%;
+    width: auto;
     //background-position: center;
 `;
 const SectionDescriptionContainer = styled.div`
@@ -189,7 +189,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         if (current == 0) setCurrent(projects.length - 1);
         else setCurrent(current - 1);
     };
-
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     return (
         <ProjectsSection>
             <SectionHeader>
@@ -213,7 +213,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 </ButtonsContainer>
             </SectionHeader>
 
-            <SectionImgContainer src={`${projects[current].imageUrl}`} />
+            <SectionImgContainer src={projects[current].imageUrl} />
             <SectionDescriptionContainer>
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
