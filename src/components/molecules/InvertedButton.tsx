@@ -6,7 +6,7 @@ const Icon = styled.div<{ imagIcon: any }>`
     width: 50px;
     :hover {
         filter: invert(3%);
-        box-shadow: 6px 6px 6px -1px black;
+        box-shadow: ${({ theme }) => theme.boxShadow.secondary};
     }
 `;
 

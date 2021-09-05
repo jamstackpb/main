@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { colors } from '@/src/styles';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
@@ -9,8 +8,8 @@ interface ProjectsSectionSliderProps {
 }
 
 const Titles = styled.div<{ whichTitle?: string }>`
-    color: ${colors.nav_color};
-    font-weight: 900;
+    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
     ${({ whichTitle }) =>
         whichTitle === 'subTitle'
             ? css`
@@ -38,7 +37,7 @@ const ProjectsSection = styled.section`
     justify-content: center;
     align-items: center;
     padding: 5vh 10vh;
-    background-color: #eeeef176;
+    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
 `;
 const SectionHeader = styled.div`
     display: flex;
@@ -52,7 +51,7 @@ const TitleContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.font.fontSize.tertiary};
 `;
 const ButtonsContainer = styled.div`
     flex-grow: 1;
@@ -64,7 +63,7 @@ const Btn = styled.div`
     transition: 0.5s;
     width: 6vh;
     height: 6vh;
-    border: 2px solid ${colors.nav_color};
+    border: 2px solid ${({ theme }) => theme.border.button};
     position: relative;
     margin-right: 1vh;
     display: flex;
@@ -73,14 +72,14 @@ const Btn = styled.div`
     transform-origin: right center;
 
     &:hover {
-        border-color: ${colors.nav_color};
+        border-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
     }
 `;
 
 const SectionImgContainer = styled.img`
-    height: 40vh;
-    width: auto;
-    //background-position: center;
+    height: 45vh;
+    width: 80%;
+    object-fit: cover;
 `;
 const SectionDescriptionContainer = styled.div`
     padding-top: 5vh;
@@ -89,9 +88,9 @@ const SectionDescriptionContainer = styled.div`
     padding-left: 25%;
 `;
 const Description = styled.div`
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: ${colors.footer_text};
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    font-weight: ${({ theme }) => theme.font.fontWeight.quaternary};
+    color: ${({ theme }) => theme.colorsPalette.fontColors.primary};
 `;
 const Arrows = styled.div<{ whichArrow?: string }>`
     &.arrow {
@@ -106,7 +105,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top,
     .arrow-bottom {
-        background-color: #6e62d8;
+        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.octonary};
         height: 4px;
         position: absolute;
         top: 50%;
@@ -114,7 +113,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top:after,
     & .arrow-bottom:after {
-        background-color: ${colors.nav_color};
+        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
         content: '';
         height: 100%;
         position: absolute;

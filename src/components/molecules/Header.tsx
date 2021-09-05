@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Input } from '../atoms/Input';
-import { colors } from '@/src/styles';
 import { Button } from '../atoms/Button';
 import { Logo } from '@/src/components/molecules/Logo';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
@@ -8,9 +7,9 @@ import { css } from '@emotion/react';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
-    background: ${colors.nav_color};
-    color: ${colors.white};
-    font-size: 18px;
+    background: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+    color: ${({ theme }) => theme.colorsPalette.common.white};
+    font-size: ${({ theme }) => theme.font.fontSize.quinary};
     ${({ isHomepage }) =>
         isHomepage &&
         css`
@@ -26,16 +25,15 @@ const Motto = styled.div`
     padding: 20px;
 `;
 const SubTitle = styled.p`
-    color: ${colors.white};
-    font-weight: 300;
-    font-size: 18px;
+    color: ${({ theme }) => theme.colorsPalette.common.white};
+    font-weight: ${({ theme }) => theme.font.fontWeight.senary};
+    font-size: ${({ theme }) => theme.font.fontSize.quaternary};
     margin-bottom: 25px;
 `;
 const Title = styled.h1`
-    font-weight: 900;
-    color: ${colors.white};
-    line-height: 1.2;
-    font-size: 48px;
+    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
+    color: ${({ theme }) => theme.colorsPalette.common.white};
+    font-size: ${({ theme }) => theme.font.fontSize.primary};
     margin-bottom: 25px;
 `;
 const InputContainer = styled.div`
@@ -51,6 +49,12 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     height: 11vh;
+`;
+const H1 = styled.h1`
+    text-align: center;
+    padding: 30px 0;
+    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+    background-color: ${({ theme }) => theme.colorsPalette.common.white};
 `;
 
 interface HeaderTestProps {
@@ -78,16 +82,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                         <Nav>
                             <MenuIcon />
                         </Nav>
-                        <h1
-                            style={{
-                                textAlign: 'center',
-                                padding: '30px 0',
-                                color: `${colors.nav_color}`,
-                                backgroundColor: 'white',
-                            }}
-                        >
-                            Projekty
-                        </h1>
+                        <H1>Projekty</H1>
                     </>
                 )}
             </Container>

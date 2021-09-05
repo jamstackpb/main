@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 const Main = styled.div`
-    background: #e6e8fa;
-    color: #fff;
+    background: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
+    color: ${({ theme }) => theme.colorsPalette.common.white};
     padding: 30px 0;
     width: 100%;
     display: flex;
@@ -10,7 +10,7 @@ const Main = styled.div`
     align-items: center;
 `;
 const Card = styled.div`
-    background: #fff;
+    background: ${({ theme }) => theme.colorsPalette.common.white};
     padding: 0 0 50px 0;
     margin: 100px 40px;
     width: 15%;
@@ -21,33 +21,33 @@ const CardImageOne = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: #ff8788;
+    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.quinary};
 `;
 const CardImageTwo = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: #bbdc65;
+    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.senary};
 `;
 const CardImageThree = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: #65efdd;
+    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.septenary};
 `;
 
 const CardTitle = styled.h2`
     padding: 15px 0;
-    color: #15159b;
-    font-size: 14px;
+    color: ${({ theme }) => theme.colorsPalette.fontColors.quaternary};
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
     text-align: center;
     text-transform: uppercase;
 `;
 
 const CardText = styled.p`
     padding: 0 10px;
-    color: #808080;
-    font-size: 12px;
+    color: ${({ theme }) => theme.colorsPalette.fontColors.quinary};
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
     text-align: center;
 `;
 
