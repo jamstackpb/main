@@ -2,27 +2,26 @@ import styled from '@emotion/styled';
 import { Button } from '@/src/components/atoms/Button';
 
 const Background = styled.div`
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colorsPalette.common.white};
     display: flex;
     flex-direction: column;
 `;
 const Title = styled.div`
-    font-size: 15px;
-    font: bold;
-    color: #25acd9;
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    font: ${({ theme }) => theme.font.fontWeight.tertiary};
+    color: ${({ theme }) => theme.colorsPalette.fontColors.tertiary};
     margin-top: 10px;
     margin-bottom: 5px;
-    font-weight: 600;
 `;
 const SubTitle = styled.div`
-    color: blue;
-    font-size: 23px;
-    font-weight: 900;
+    color: ${({ theme }) => theme.colorsPalette.fontColors.quaternary};
+    font-size: ${({ theme }) => theme.font.fontSize.quaternary};
+    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
     margin-bottom: 10px;
 `;
 const Opis = styled.div`
-    font-size: 15px;
-    color: #878787;
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    color: ${({ theme }) => theme.colorsPalette.fontColors.quinary};
     margin-bottom: 15px;
     width: 250px;
 `;
@@ -35,10 +34,10 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input`
-    background: #edf3f5;
+    background: ${({ theme }) => theme.colorsPalette.backgroundColors.tertiary};
     padding: 15px 10px;
-    color: #25acd9;
-    font-size: 14px;
+    color: ${({ theme }) => theme.colorsPalette.fontColors.tertiary};
+    font-size: ${({ theme }) => theme.font.fontSize.septenary};
     border: 0;
 `;
 
