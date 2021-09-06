@@ -7,9 +7,9 @@ import { css } from '@emotion/react';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-size: ${({ theme }) => theme.font.fontSize.quinary};
+    background: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-size: 18px;
     ${({ isHomepage }) =>
         isHomepage &&
         css`
@@ -25,15 +25,15 @@ const Motto = styled.div`
     padding: 20px;
 `;
 const SubTitle = styled.p`
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-weight: ${({ theme }) => theme.font.fontWeight.senary};
-    font-size: ${({ theme }) => theme.font.fontSize.quaternary};
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-weight: 300;
+    font-size: 20px;
     margin-bottom: 25px;
 `;
 const Title = styled.h1`
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-size: ${({ theme }) => theme.font.fontSize.primary};
+    font-weight: 900;
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-size: 50px;
     margin-bottom: 25px;
 `;
 const InputContainer = styled.div`
@@ -53,8 +53,8 @@ const Nav = styled.nav`
 const H1 = styled.h1`
     text-align: center;
     padding: 30px 0;
-    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    background-color: ${({ theme }) => theme.colorsPalette.common.white};
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
 `;
 
 interface HeaderTestProps {

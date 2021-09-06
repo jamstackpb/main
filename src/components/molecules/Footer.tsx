@@ -8,7 +8,7 @@ import { InvertedButton } from './InvertedButton';
 import { TinyLogo } from './TinyLogo';
 
 const GrandFooter = styled.div`
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.tertiary};
+    background: ${({ theme }) => theme.colorsPalette.tertiaryBackgroundColor};
     height: 470px;
     width: 100%;
     display: flex;
@@ -18,11 +18,11 @@ const GrandFooter = styled.div`
 `;
 
 const FootNavWords = styled.div`
-    color: ${({ theme }) => theme.colorsPalette.fontColors.primary};
+    color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
     height: 12px;
     width: 380px;
-    font-size: ${({ theme }) => theme.font.fontSize.nonary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.quaternary};
+    font-size: 12px;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,10 +39,10 @@ const FootIcons = styled.div`
 export const CopyRights = styled.div`
     width: 100%;
     height: 80px;
-    color: ${({ theme }) => theme.colorsPalette.fontColors.secondary};
+    color: ${({ theme }) => theme.colorsPalette.secondaryFontColor};
     border: 0px;
-    font-weight: ${({ theme }) => theme.font.fontWeight.quaternary};
-    font-size: ${({ theme }) => theme.font.fontSize.nonary};
+    font-weight: 500;
+    font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -8,8 +8,8 @@ interface ProjectsSectionSliderProps {
 }
 
 const Titles = styled.div<{ whichTitle?: string }>`
-    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    font-weight: 900;
     ${({ whichTitle }) =>
         whichTitle === 'subTitle'
             ? css`
@@ -28,7 +28,7 @@ const Titles = styled.div<{ whichTitle?: string }>`
             ? css`
                   font-size: 1.5rem;
               `
-            : null};
+            : undefined};
 `;
 const ProjectsSection = styled.section`
     width: 100%;
@@ -37,7 +37,7 @@ const ProjectsSection = styled.section`
     justify-content: center;
     align-items: center;
     padding: 5vh 10vh;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
+    background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
 `;
 const SectionHeader = styled.div`
     display: flex;
@@ -51,7 +51,7 @@ const TitleContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: ${({ theme }) => theme.font.fontSize.tertiary};
+    font-size: 30px;
 `;
 const ButtonsContainer = styled.div`
     flex-grow: 1;
@@ -63,7 +63,7 @@ const Btn = styled.div`
     transition: 0.5s;
     width: 6vh;
     height: 6vh;
-    border: 2px solid ${({ theme }) => theme.border.button};
+    border: ${({ theme }) => theme.border.button};
     position: relative;
     margin-right: 1vh;
     display: flex;
@@ -72,7 +72,7 @@ const Btn = styled.div`
     transform-origin: right center;
 
     &:hover {
-        border-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+        border-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     }
 `;
 
@@ -88,9 +88,9 @@ const SectionDescriptionContainer = styled.div`
     padding-left: 25%;
 `;
 const Description = styled.div`
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.quaternary};
-    color: ${({ theme }) => theme.colorsPalette.fontColors.primary};
+    font-size: 16px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
 `;
 const Arrows = styled.div<{ whichArrow?: string }>`
     &.arrow {
@@ -105,7 +105,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top,
     .arrow-bottom {
-        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.octonary};
+        background-color: ${({ theme }) => theme.colorsPalette.octonaryBackgroundColor};
         height: 4px;
         position: absolute;
         top: 50%;
@@ -113,7 +113,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top:after,
     & .arrow-bottom:after {
-        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+        background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
         content: '';
         height: 100%;
         position: absolute;

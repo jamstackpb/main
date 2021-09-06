@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.a`
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.quaternary};
-    color: ${({ theme }) => theme.colorsPalette.common.black};
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    background: ${({ theme }) => theme.colorsPalette.quaternaryBackgroundColor};
+    color: ${({ theme }) => theme.colorsPalette.commonBlack};
+    font-weight: 900;
+    font-size: 15px;
     text-transform: uppercase;
     padding: 20px 34px;
     border: 0;
@@ -12,6 +12,6 @@ export const Button = styled.a`
     min-width: 150px;
     :hover {
         text-decoration: none;
-        background: ${({ theme }) => theme.colorsPalette.hoverColors.primary};
+        background: ${({ theme }) => theme.colorsPalette.primaryHoverColor};
     }
 `;
