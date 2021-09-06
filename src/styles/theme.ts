@@ -1,7 +1,7 @@
-import { Theme } from '@emotion/react';
 
-export const defaultTheme: Theme = {
-    border: {
+export const defaultTheme =  {
+
+        border: {
         button: '2px solid #2727a3',
     },
     colorsPalette: {
@@ -64,3 +64,5 @@ export const defaultTheme: Theme = {
         secondary: '6px 6px 6px -1px black',
     },
 };
+
+export type EditorTheme = typeof defaultTheme;
