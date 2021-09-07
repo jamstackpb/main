@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 const Main = styled.div`
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
-    color: ${({ theme }) => theme.colorsPalette.common.white};
+    background: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
     padding: 30px 0;
     width: 100%;
     display: flex;
@@ -10,7 +10,7 @@ const Main = styled.div`
     align-items: center;
 `;
 const Card = styled.div`
-    background: ${({ theme }) => theme.colorsPalette.common.white};
+    background: ${({ theme }) => theme.colorsPalette.commonWhite};
     padding: 0 0 50px 0;
     margin: 100px 40px;
     width: 15%;
@@ -21,33 +21,33 @@ const CardImageOne = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.quinary};
+    background-color: ${({ theme }) => theme.colorsPalette.quinaryBackgroundColor};
 `;
 const CardImageTwo = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.senary};
+    background-color: ${({ theme }) => theme.colorsPalette.senaryBackgroundColor};
 `;
 const CardImageThree = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.septenary};
+    background-color: ${({ theme }) => theme.colorsPalette.septenaryBackgroundColor};
 `;
 
 const CardTitle = styled.h2`
     padding: 15px 0;
-    color: ${({ theme }) => theme.colorsPalette.fontColors.quaternary};
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    font-size: 15px;
     text-align: center;
     text-transform: uppercase;
 `;
 
 const CardText = styled.p`
     padding: 0 10px;
-    color: ${({ theme }) => theme.colorsPalette.fontColors.quinary};
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    color: ${({ theme }) => theme.colorsPalette.quinaryFontColor};
+    font-size: 15px;
     text-align: center;
 `;
 

@@ -2,26 +2,26 @@ import styled from '@emotion/styled';
 import { Button } from '@/src/components/atoms/Button';
 
 const Background = styled.div`
-    background-color: ${({ theme }) => theme.colorsPalette.common.white};
+    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
     display: flex;
     flex-direction: column;
 `;
 const Title = styled.div`
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
-    font: ${({ theme }) => theme.font.fontWeight.tertiary};
-    color: ${({ theme }) => theme.colorsPalette.fontColors.tertiary};
+    font-size: 15px;
+    font: 600;
+    color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
     margin-top: 10px;
     margin-bottom: 5px;
 `;
 const SubTitle = styled.div`
-    color: ${({ theme }) => theme.colorsPalette.fontColors.quaternary};
-    font-size: ${({ theme }) => theme.font.fontSize.quaternary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    font-size: 20px;
+    font-weight: 900;
     margin-bottom: 10px;
 `;
 const Opis = styled.div`
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
-    color: ${({ theme }) => theme.colorsPalette.fontColors.quinary};
+    font-size: 15px;
+    color: ${({ theme }) => theme.colorsPalette.quinaryFontColor};
     margin-bottom: 15px;
     width: 250px;
 `;
@@ -34,10 +34,10 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input`
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.tertiary};
+    background: ${({ theme }) => theme.colorsPalette.tertiaryBackgroundColor};
     padding: 15px 10px;
-    color: ${({ theme }) => theme.colorsPalette.fontColors.tertiary};
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
+    color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
+    font-size: 15px;
     border: 0;
 `;
 
