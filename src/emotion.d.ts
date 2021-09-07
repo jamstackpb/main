@@ -1,7 +1,7 @@
-import { EditorTheme } from "@/src/styles/theme";
+import { EditorTheme } from '@/src/theme/theme';
 
-import "@emotion/react";
+import '@emotion/react';
 
-declare module "@emotion/react" {
-  export interface Theme extends EditorTheme {}
+declare module '@emotion/react' {
+    export interface Theme extends EditorTheme {}
 }

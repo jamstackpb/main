@@ -1,3 +1,4 @@
+//import '../styles/global.css';
 import { Cards } from '../components/atoms/Cards';
 import { Layout } from '@/src/layouts';
 import { Header, Footer } from '@/src/components';
