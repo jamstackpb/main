@@ -1,6 +1,6 @@
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/Footer';
+import { CopyRights } from '../components/molecules/CopyRights';
 import ProjectsSectionSlider from '@/src/components/atoms/ProjectsSliderSection';
 const projekt1 = '/images/ProjectsSiteImgs/projekt1.png';
 const projekt2 = '/images/ProjectsSiteImgs/projekt2.jpg';
@@ -56,9 +56,7 @@ const projectsPage = () => {
         <Layout pageTitle="Projects">
             <Header isHomepage={false} />
             <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
-            <CopyRights>
-                <p>All rights reserved &copy; JAMstack PB 2021</p>
-            </CopyRights>
+            <CopyRights />
         </Layout>
     );
 };
