@@ -10,8 +10,12 @@ const Parent = styled.div`
 
 const Copyrights = styled.div`
     width: 100%;
-    height: 80px;
+    height: 128px;
+    //position: relative;
+    //top: 0px;
     color: ${({ theme }) => theme.colorsPalette.secondaryFontColor};
+    padding-top: 34px;
+    padding-bottom: 82px;
     border: 0px;
     font-weight: 500;
     font-size: 12px;
@@ -24,11 +28,8 @@ const Copyrights = styled.div`
 
 export const CopyRights = () => {
     return (
-        <Parent>
-            <Copyrights>
-                <p>All rights reserved &copy; JAMstack PB 2021</p>
-            </Copyrights>
-            <div style={{ width: '100%', height: 48, zIndex: 2, background: 'inherit' }} />
-        </Parent>
+        <Copyrights>
+            <p>All rights reserved &copy; JAMstack PB 2021</p>
+        </Copyrights>
     );
 };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
+import { CopyRights } from '../molecules/CopyRights';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
@@ -33,13 +34,16 @@ const Titles = styled.div<{ whichTitle?: string }>`
 const ProjectsSection = styled.section`
     width: 100%;
     display: flex;
+    position: absolute;
+    top: calc(10vh + 15rem);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5vh 10vh;
+    padding: 0;
     background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
 `;
 const SectionHeader = styled.div`
+    margin: 5vh 10vh;
     display: flex;
     padding: 0 20% 5% 25%;
     width: 100%;
@@ -80,12 +84,14 @@ const SectionImgContainer = styled.img`
     height: 45vh;
     width: 80%;
     object-fit: cover;
+    margin: 5vh 10vh;
 `;
 const SectionDescriptionContainer = styled.div`
     padding-top: 5vh;
     display: flex;
     flex-direction: column;
     padding-left: 25%;
+    margin: 5vh 10vh;
 `;
 const Description = styled.div`
     font-size: 16px;
@@ -189,7 +195,6 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         if (current == 0) setCurrent(projects.length - 1);
         else setCurrent(current - 1);
     };
-    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     return (
         <ProjectsSection>
             <SectionHeader>
@@ -218,6 +223,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
             </SectionDescriptionContainer>
+            <CopyRights />
         </ProjectsSection>
     );
 };

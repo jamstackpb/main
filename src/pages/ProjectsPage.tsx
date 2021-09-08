@@ -56,7 +56,6 @@ const projectsPage = () => {
         <Layout pageTitle="Projects">
             <Header isHomepage={false} />
             <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
-            <CopyRights />
         </Layout>
     );
 };

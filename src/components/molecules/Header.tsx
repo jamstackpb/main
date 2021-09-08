@@ -4,6 +4,7 @@ import { Button } from '../atoms/Button';
 import { Logo } from '@/src/components/molecules/Logo';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
 import { css } from '@emotion/react';
+import { NavBar } from './NavBar';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
@@ -42,17 +43,10 @@ const InputContainer = styled.div`
     align-items: stretch;
 `;
 
-const Nav = styled.nav`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 11vh;
-`;
 const H1 = styled.h1`
     text-align: center;
     padding: 30px 0;
+    height: 15rem;
     color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
     background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
 `;
@@ -79,10 +73,24 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                     </>
                 ) : (
                     <>
-                        <Nav>
-                            <MenuIcon />
-                        </Nav>
-                        <H1>Projekty</H1>
+                        <NavBar />
+
+                        <H1
+                            style={{
+                                position: 'absolute',
+                                width: '100%',
+                                top: '10vh',
+                                left: '0',
+                                height: '15rem',
+                                display: 'inline-block',
+                                verticalAlign: 'middle',
+                                lineHeight: 'normal',
+                                textAlign: 'center',
+                                zIndex: 10,
+                            }}
+                        >
+                            Projekty
+                        </H1>
                     </>
                 )}
             </Container>
