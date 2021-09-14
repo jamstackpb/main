@@ -4,7 +4,6 @@ import { Button } from '../atoms/Button';
 import { Logo } from '@/src/components/molecules/Logo';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
 import { css } from '@emotion/react';
-import { NavBar } from './NavBar';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
@@ -73,8 +72,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                     </>
                 ) : (
                     <>
-                        <NavBar />
-
+                        <MenuIcon />
                         <H1
                             style={{
                                 position: 'absolute',
