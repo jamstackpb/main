@@ -41,15 +41,6 @@ const InputContainer = styled.div`
     max-width: 100%;
     align-items: stretch;
 `;
-
-const H1 = styled.h1`
-    text-align: center;
-    padding: 30px 0;
-    height: 15rem;
-    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
-    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
-`;
-
 interface HeaderTestProps {
     isHomepage?: boolean;
 }
@@ -60,6 +51,9 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
+                        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+                            <MenuIcon isHomepage />
+                        </div>
                         <Logo />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
@@ -71,25 +65,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                         </Motto>
                     </>
                 ) : (
-                    <>
-                        <MenuIcon />
-                        <H1
-                            style={{
-                                position: 'absolute',
-                                width: '100%',
-                                top: '10vh',
-                                left: '0',
-                                height: '15rem',
-                                display: 'inline-block',
-                                verticalAlign: 'middle',
-                                lineHeight: 'normal',
-                                textAlign: 'center',
-                                zIndex: 10,
-                            }}
-                        >
-                            Projekty
-                        </H1>
-                    </>
+                    <MenuIcon />
                 )}
             </Container>
         </>

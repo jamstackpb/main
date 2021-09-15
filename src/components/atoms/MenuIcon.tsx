@@ -1,17 +1,13 @@
 import styled from '@emotion/styled';
-import styles from '../cssmodules/NavBar.module.css';
+import Link from 'next/link';
 import { useState } from 'react';
 
-interface SvgProps {
-    width?: number;
-    height?: number;
-}
-
 const Svg = styled.svg`
-    width: 10vh;
-    height: 10vh;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
-    margin-right: 1%;
+    margin-right: 4px;
+    transition: 0.5s;
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
     }
@@ -53,12 +49,12 @@ const Svg = styled.svg`
 `;
 
 const DropMenu = styled.div`
-    background-color: #99bbff;
+    background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     border-radius: 0 0 2rem 0;
     display: flex;
     position: absolute;
     left: -20rem;
-    top: 10vh;
+    top: 80px;
     z-index: 12;
     flex-direction: column;
     align-items: center;
@@ -69,7 +65,7 @@ const DropMenu = styled.div`
     transition-timing-function: ease-in;
     transition: 0.2s;
     transform: translateX(0%);
-    height: 11.4rem;
+    height: 15rem;
 
     & > div,
     & > div > div {
@@ -78,25 +74,28 @@ const DropMenu = styled.div`
         margin: 0;
         padding: 0px;
         width: 100%;
-        height: 3.8rem;
-        //background-color: #99bbff;
+        height: 5rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     &.active > div > div:hover {
-        background-color: #6699ff;
+        background-color: ${({ theme }) => theme.colorsPalette.secondaryHoverColor};
         transition-delay: 0s;
     }
     & > div > div > a {
         text-align: center;
-        color: #15159b;
+        color: white;
         display: block;
         text-decoration: none;
         font-weight: 500;
         font-size: 2.6rem;
         margin: 0;
-        padding: 0px;
+        padding: 1.2rem 0;
         width: 100%;
         height: 100%;
+        line-height: 2.6rem;
     }
     &.active {
         transition-timing-function: ease-out;
@@ -119,11 +118,11 @@ const DropMenu = styled.div`
     }
 `;
 
-export const MenuIcon: React.FC<SvgProps> = ({ width, height }) => {
+export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
-        <div>
+        <div style={{ height: 80, maxHeight: 80 }}>
             <Svg
                 onClick={ToggleMenu}
                 className={clicked ? 'active' : ''}
@@ -149,18 +148,24 @@ export const MenuIcon: React.FC<SvgProps> = ({ width, height }) => {
             </Svg>
             <DropMenu className={clicked ? 'active' : ''}>
                 <div>
-                    <div>
-                        <a href="/">Strona główna</a>
+                    <div style={{ borderRadius: isHomepage ? ' 0 2rem 0 0' : '0' }}>
+                        <Link href="/">
+                            <a>Strona główna</a>
+                        </Link>
                     </div>
                 </div>
                 <div>
                     <div>
-                        <a href="/ProjectsPage/">Projekty</a>
+                        <Link href="/ProjectsPage/">
+                            <a>Projekty</a>
+                        </Link>
                     </div>
                 </div>
                 <div>
                     <div style={{ borderRadius: ' 0 0 2rem 0' }}>
-                        <a href="#">O nas</a>
+                        <Link href="#">
+                            <a>O nas</a>
+                        </Link>
                     </div>
                 </div>
             </DropMenu>

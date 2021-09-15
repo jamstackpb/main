@@ -31,6 +31,7 @@ export const defaultTheme = {
         nonaryBackgroundColor: '',
 
         primaryHoverColor: '#ffff65',
+        secondaryHoverColor: '#6699ff',
     },
 };
 
