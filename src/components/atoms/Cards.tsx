@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { useState, useEffect } from 'react';
 
 const Main = styled.div`
     background: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
@@ -76,36 +75,12 @@ const CardText = styled.p`
     text-align: center;
 `;
 
-export const Cards = () => {
-    interface Size {
-        width: number;
-    }
+interface CardsProps {
+    winSize: number;
+}
 
-    function screenWidth() {
-        const size: Size = useWindowSize();
-        return size.width;
-    }
-
-    function useWindowSize(): Size {
-        const [windowSize, setWindowSize] = useState<Size>({
-            width: 0,
-        });
-        useEffect(() => {
-            function handleResize() {
-                setWindowSize({
-                    width: window.innerWidth,
-                });
-            }
-            window.addEventListener('resize', handleResize);
-
-            handleResize();
-
-            return () => window.removeEventListener('resize', handleResize);
-        }, []);
-        return windowSize;
-    }
-
-    const isTight = screenWidth() < 780 ? 'column' : 'row';
+export const Cards: React.FC<CardsProps> = ({ winSize }) => {
+    const isTight = winSize < 780 ? 'column' : 'row';
     return (
         <Main>
             <Rail className={isTight}>
