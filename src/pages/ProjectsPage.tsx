@@ -1,12 +1,24 @@
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/Footer';
+import { CopyRights } from '../components/molecules/CopyRights';
 import ProjectsSectionSlider from '@/src/components/atoms/ProjectsSliderSection';
+import styled from '@emotion/styled';
 const projekt1 = '/images/ProjectsSiteImgs/projekt1.png';
 const projekt2 = '/images/ProjectsSiteImgs/projekt2.jpg';
 const projekt3 = '/images/ProjectsSiteImgs/projekt3.jpg';
 const projekt4 = '/images/ProjectsSiteImgs/projekt4.jpg';
 const projekt5 = '/images/ProjectsSiteImgs/projekt5.png';
+
+const H1 = styled.h1`
+    text-align: center;
+    padding: 30px 0;
+    height: 15rem;
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
+
+    width: '100%';
+    height: '15rem';
+`;
 
 const fakeProjects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }> = [
     {
@@ -55,10 +67,8 @@ const projectsPage = () => {
     return (
         <Layout pageTitle="Projects">
             <Header isHomepage={false} />
+            <H1>Projekty</H1>
             <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
-            <CopyRights>
-                <p>All rights reserved &copy; JAMstack PB 2021</p>
-            </CopyRights>
         </Layout>
     );
 };

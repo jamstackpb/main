@@ -41,22 +41,6 @@ const InputContainer = styled.div`
     max-width: 100%;
     align-items: stretch;
 `;
-
-const Nav = styled.nav`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 11vh;
-`;
-const H1 = styled.h1`
-    text-align: center;
-    padding: 30px 0;
-    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
-    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
-`;
-
 interface HeaderTestProps {
     isHomepage?: boolean;
 }
@@ -67,6 +51,9 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
+                        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+                            <MenuIcon isHomepage />
+                        </div>
                         <Logo />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
@@ -78,12 +65,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                         </Motto>
                     </>
                 ) : (
-                    <>
-                        <Nav>
-                            <MenuIcon />
-                        </Nav>
-                        <H1>Projekty</H1>
-                    </>
+                    <MenuIcon />
                 )}
             </Container>
         </>
