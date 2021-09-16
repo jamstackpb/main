@@ -6,10 +6,17 @@ export const Button = styled.a`
     font-weight: 900;
     font-size: 15px;
     text-transform: uppercase;
+    text-align: center;
     padding: 20px 34px;
     border: 0;
     display: block;
-    min-width: 150px;
+    max-width: 150px;
+    width: 150px;
+    min-width: 50px;
+    &.tiny {
+        padding: 20px 5px;
+        font-size: 10px;
+    }
     :hover {
         text-decoration: none;
         background: ${({ theme }) => theme.colorsPalette.primaryHoverColor};

@@ -9,12 +9,36 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+const Rail = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    &.column {
+        flex-direction: column;
+    }
+
+    &.column > div {
+        max-width: 250px;
+        width: 70%;
+        height: 380px;
+        margin: 50px 40px;
+    }
+    &.row {
+        flex-direction: row;
+    }
+    &.row > div {
+        width: 15%;
+        height: 420px;
+        margin: 100px 40px;
+    }
+`;
+
 const Card = styled.div`
     background: ${({ theme }) => theme.colorsPalette.commonWhite};
     padding: 0 0 50px 0;
-    margin: 100px 40px;
-    width: 15%;
-    height: 350px;
+    min-width: 180px;
 `;
 
 const CardImageOne = styled.div`
@@ -51,27 +75,34 @@ const CardText = styled.p`
     text-align: center;
 `;
 
-export const Cards = () => {
+interface CardsProps {
+    winSize: number;
+}
+
+export const Cards: React.FC<CardsProps> = ({ winSize }) => {
+    const isTight = winSize < 780 ? 'column' : 'row';
     return (
         <Main>
-            <Card>
-                <CardImageOne></CardImageOne>
-                <CardTitle>Front-end</CardTitle>
-                <CardText>
-                    {' '}
-                    HTML, CSS, JS? Te technologie same w sobie już nie wystarczają. Twórz korzystając z React
-                </CardText>
-            </Card>
-            <Card>
-                <CardImageTwo></CardImageTwo>
-                <CardTitle>Cu tooling</CardTitle>
-                <CardText> Czy korzystasz z narzędzi w terminalu? Odkryj ich moc i zacznij pisać swoje.</CardText>
-            </Card>
-            <Card>
-                <CardImageThree></CardImageThree>
-                <CardTitle>Automatyzacja</CardTitle>
-                <CardText> Znasz drogę na skróty? Jeśli nie, pokażemy Ci jak użyć narzędzi low code.</CardText>
-            </Card>
+            <Rail className={isTight}>
+                <Card>
+                    <CardImageOne></CardImageOne>
+                    <CardTitle>Front-end</CardTitle>
+                    <CardText>
+                        {' '}
+                        HTML, CSS, JS? Te technologie same w sobie już nie wystarczają. Twórz korzystając z React
+                    </CardText>
+                </Card>
+                <Card>
+                    <CardImageTwo></CardImageTwo>
+                    <CardTitle>CLI tooling</CardTitle>
+                    <CardText> Czy korzystasz z narzędzi w terminalu? Odkryj ich moc i zacznij pisać swoje.</CardText>
+                </Card>
+                <Card>
+                    <CardImageThree></CardImageThree>
+                    <CardTitle>Automatyzacja</CardTitle>
+                    <CardText> Znasz drogę na skróty? Jeśli nie, pokażemy Ci jak użyć narzędzi low code.</CardText>
+                </Card>
+            </Rail>
         </Main>
     );
 };

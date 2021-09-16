@@ -22,6 +22,7 @@ const FootNavWords = styled.div`
     color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
     height: 12px;
     width: 380px;
+    max-width: 90%;
     font-size: 12px;
     font-weight: 500;
     display: flex;
@@ -30,6 +31,7 @@ const FootNavWords = styled.div`
 `;
 const FootIcons = styled.div`
     margin-top: 35px;
+    max-width: 96%;
     width: 320px;
     height: 50px;
     display: flex;
