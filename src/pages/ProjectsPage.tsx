@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
 import ProjectsSectionSlider from '@/src/components/atoms/ProjectsSliderSection';
@@ -62,34 +61,6 @@ const fakeProjects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: 
 ];
 
 const projectsPage = () => {
-    interface Size {
-        width: number;
-    }
-
-    function screenWidth() {
-        const size: Size = useWindowSize();
-        return size.width;
-    }
-
-    function useWindowSize(): Size {
-        const [windowSize, setWindowSize] = useState<Size>({
-            width: 0,
-        });
-        useEffect(() => {
-            function handleResize() {
-                setWindowSize({
-                    width: window.innerWidth,
-                });
-            }
-            window.addEventListener('resize', handleResize);
-
-            handleResize();
-
-            return () => window.removeEventListener('resize', handleResize);
-        }, []);
-        return windowSize;
-    }
-
     return (
         <Layout pageTitle="Projects">
             <Header isHomepage={false} />
