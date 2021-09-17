@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/CopyRights';
 import ProjectsSectionSlider from '@/src/components/atoms/ProjectsSliderSection';
 import styled from '@emotion/styled';
 const projekt1 = '/images/ProjectsSiteImgs/projekt1.png';
@@ -11,13 +11,11 @@ const projekt5 = '/images/ProjectsSiteImgs/projekt5.png';
 
 const H1 = styled.h1`
     text-align: center;
-    padding: 30px 0;
-    height: 15rem;
+    padding: 4rem 0 6rem;
     color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
     background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
-
-    width: '100%';
-    height: '15rem';
+    width: 100%;
+    height: 15rem;
 `;
 
 const fakeProjects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }> = [
@@ -64,11 +62,39 @@ const fakeProjects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: 
 ];
 
 const projectsPage = () => {
+    interface Size {
+        width: number;
+    }
+
+    function screenWidth() {
+        const size: Size = useWindowSize();
+        return size.width;
+    }
+
+    function useWindowSize(): Size {
+        const [windowSize, setWindowSize] = useState<Size>({
+            width: 0,
+        });
+        useEffect(() => {
+            function handleResize() {
+                setWindowSize({
+                    width: window.innerWidth,
+                });
+            }
+            window.addEventListener('resize', handleResize);
+
+            handleResize();
+
+            return () => window.removeEventListener('resize', handleResize);
+        }, []);
+        return windowSize;
+    }
+
     return (
         <Layout pageTitle="Projects">
-            <Header isHomepage={false} winSize={100}/>
+            <Header isHomepage={false} winSize={screenWidth()} />
             <H1>Projekty</H1>
-            <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
+            <ProjectsSectionSlider projects={fakeProjects} winSize={screenWidth()}></ProjectsSectionSlider>
         </Layout>
     );
 };
