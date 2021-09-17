@@ -12,7 +12,6 @@ interface ProjectsSectionSliderProps {
         imageUrl: string;
         description: string;
     }>;
-    winSize: number;
 }
 
 const Titles = styled.div<{ whichTitle?: string }>`
@@ -31,17 +30,19 @@ const Titles = styled.div<{ whichTitle?: string }>`
             ? css`
                   font-size: 4rem;
                   align-self: flex-start;
+                  @media (max-width: 500px) {
+                      & {
+                          align-self: center;
+                          padding-bottom: 4vh;
+                          width: 100%;
+                      }
+                  }
               `
             : whichTitle === 'h2'
             ? css`
                   font-size: 1.5rem;
               `
             : undefined};
-    &.tiny {
-        align-self: center;
-        padding-bottom: 4vh;
-        width: 100%;
-    }
 `;
 const ProjectsSection = styled.section`
     width: 100%;
@@ -60,9 +61,11 @@ const SectionHeader = styled.div`
     flex-direction: row;
     padding: 0 20% 5% 25%;
     width: 100%;
-    &.tiny {
-        flex-direction: column;
-        margin-bottom: 0%;
+    @media (max-width: 500px) {
+        & {
+            flex-direction: column;
+            margin-bottom: 0%;
+        }
     }
 `;
 const TitleContainer = styled.div`
@@ -74,7 +77,7 @@ const TitleContainer = styled.div`
     align-items: flex-start;
     font-size: 30px;
 
-    &.tiny {
+    @media (max-width: 500px) {
         align-items: center;
         justify-content: center;
         width: 80%;
@@ -204,7 +207,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
         transform: translateX(-60%) translateY(-50%);
     }
 `;
-const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects, winSize }) => {
+const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
     const [current, setCurrent] = useState(0);
     const nextSlide = () => {
         if (current == projects.length - 1) setCurrent(0);
@@ -216,12 +219,10 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects,
     };
     return (
         <ProjectsSection>
-            <SectionHeader className={winSize < 500 ? 'tiny' : ''}>
-                <TitleContainer className={winSize < 500 ? 'tiny' : ''}>
+            <SectionHeader>
+                <TitleContainer>
                     <Titles whichTitle="subTitle">{projects[current].subTitle}</Titles>
-                    <Titles whichTitle="h1" className={winSize < 500 ? 'tiny' : ''}>
-                        {projects[current].h1}
-                    </Titles>
+                    <Titles whichTitle="h1">{projects[current].h1}</Titles>
                 </TitleContainer>
                 <ButtonsContainer>
                     <Btn>

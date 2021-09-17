@@ -13,9 +13,11 @@ export const Button = styled.a`
     max-width: 150px;
     width: 150px;
     min-width: 50px;
-    &.tiny {
-        padding: 20px 5px;
-        font-size: 10px;
+    @media (max-width: 390px) {
+        & {
+            padding: 20px 5px;
+            font-size: 10px;
+        }
     }
     :hover {
         text-decoration: none;

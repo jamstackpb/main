@@ -92,9 +92,9 @@ const projectsPage = () => {
 
     return (
         <Layout pageTitle="Projects">
-            <Header isHomepage={false} winSize={screenWidth()} />
+            <Header isHomepage={false} />
             <H1>Projekty</H1>
-            <ProjectsSectionSlider projects={fakeProjects} winSize={screenWidth()}></ProjectsSectionSlider>
+            <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
         </Layout>
     );
 };

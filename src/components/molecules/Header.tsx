@@ -36,9 +36,10 @@ const Title = styled.h1`
     color: ${({ theme }) => theme.colorsPalette.commonWhite};
     font-size: 50px;
     margin-bottom: 25px;
-
-    &.tiny {
-        font-size: 25px;
+    @media (max-width: 385px) {
+        & {
+            font-size: 25px;
+        }
     }
 `;
 const InputContainer = styled.div`
@@ -50,10 +51,9 @@ const InputContainer = styled.div`
 `;
 interface HeaderProps {
     isHomepage?: boolean;
-    winSize: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isHomepage = false, winSize }) => {
+export const Header: React.FC<HeaderProps> = ({ isHomepage = false }) => {
     return (
         <>
             <Container isHomepage={isHomepage}>
@@ -65,12 +65,10 @@ export const Header: React.FC<HeaderProps> = ({ isHomepage = false, winSize }) =
                         <Logo />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
-                            <Title className={winSize < 385 ? 'tiny' : ''}>
-                                Naucz się robić front-end wśród najlepszych{' '}
-                            </Title>
+                            <Title>Naucz się robić front-end wśród najlepszych </Title>
                             <InputContainer>
                                 <Input style={{ flex: 3 }} placeholder="podaj email" />
-                                <Button className={winSize < 390 ? 'tiny' : ''}>Zapisz się</Button>
+                                <Button>Zapisz się</Button>
                             </InputContainer>
                         </Motto>
                     </>
