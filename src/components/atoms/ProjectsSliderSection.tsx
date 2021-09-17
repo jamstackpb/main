@@ -5,7 +5,13 @@ import { addImagePrefix } from '@/src/utils';
 import { CopyRights } from '../molecules/CopyRights';
 
 interface ProjectsSectionSliderProps {
-    projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
+    projects: Array<{
+        subTitle: string;
+        h1: string;
+        h2: string;
+        imageUrl: string;
+        description: string;
+    }>;
 }
 
 const Titles = styled.div<{ whichTitle?: string }>`
@@ -24,6 +30,13 @@ const Titles = styled.div<{ whichTitle?: string }>`
             ? css`
                   font-size: 4rem;
                   align-self: flex-start;
+                  @media (max-width: 500px) {
+                      & {
+                          align-self: center;
+                          padding-bottom: 4vh;
+                          width: 100%;
+                      }
+                  }
               `
             : whichTitle === 'h2'
             ? css`
@@ -35,7 +48,7 @@ const ProjectsSection = styled.section`
     width: 100%;
     display: flex;
     position: absolute;
-    top: calc(10vh + 15rem);
+    top: calc(80px + 15rem);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -43,10 +56,17 @@ const ProjectsSection = styled.section`
     background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
 `;
 const SectionHeader = styled.div`
-    margin: 5vh 10vh;
+    margin: 5vh 10vh 1vh;
     display: flex;
+    flex-direction: row;
     padding: 0 20% 5% 25%;
     width: 100%;
+    @media (max-width: 500px) {
+        & {
+            flex-direction: column;
+            margin-bottom: 0%;
+        }
+    }
 `;
 const TitleContainer = styled.div`
     width: 50%;
@@ -56,6 +76,12 @@ const TitleContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     font-size: 30px;
+
+    @media (max-width: 500px) {
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }
 `;
 const ButtonsContainer = styled.div`
     flex-grow: 1;
@@ -81,7 +107,7 @@ const Btn = styled.div`
 `;
 
 const SectionImgContainer = styled.img`
-    height: 45vh;
+    height: 300px;
     width: 80%;
     object-fit: cover;
     margin: 5vh 10vh;
@@ -90,11 +116,11 @@ const SectionDescriptionContainer = styled.div`
     padding-top: 5vh;
     display: flex;
     flex-direction: column;
-    padding-left: 25%;
-    margin: 5vh 10vh;
+    padding: 0% 15%;
+    margin: 5vh 0px;
 `;
 const Description = styled.div`
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 500;
     color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
 `;
@@ -128,16 +154,12 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top.left {
         transform-origin: left;
-
         transform: rotate(45deg);
-
         top: 43%;
     }
     & .arrow-top.right {
         transform-origin: right;
-
         transform: rotate(45deg);
-
         top: 49%;
     }
     & .arrow-top:after {

@@ -15,23 +15,22 @@ const Rail = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
-    &.column {
-        flex-direction: column;
-    }
-
-    &.column > div {
-        max-width: 250px;
-        width: 70%;
-        height: 380px;
-        margin: 50px 40px;
-    }
-    &.row {
-        flex-direction: row;
-    }
-    &.row > div {
+    flex-direction: row;
+    & > div {
         width: 15%;
         height: 420px;
         margin: 100px 40px;
+    }
+    @media (max-width: 780px) {
+        & {
+            flex-direction: column;
+        }
+        & > div {
+            max-width: 250px;
+            width: 70%;
+            height: 380px;
+            margin: 50px 40px;
+        }
     }
 `;
 
@@ -75,15 +74,10 @@ const CardText = styled.p`
     text-align: center;
 `;
 
-interface CardsProps {
-    winSize: number;
-}
-
-export const Cards: React.FC<CardsProps> = ({ winSize }) => {
-    const isTight = winSize < 780 ? 'column' : 'row';
+export const Cards = () => {
     return (
         <Main>
-            <Rail className={isTight}>
+            <Rail>
                 <Card>
                     <CardImageOne></CardImageOne>
                     <CardTitle>Front-end</CardTitle>
