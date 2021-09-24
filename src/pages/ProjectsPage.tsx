@@ -54,7 +54,7 @@ const fakeProjects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: 
 const projectsPage = () => {
     return (
         <Layout pageTitle="Projects">
-            <Header isHomepage={false} />
+            <Header isHomepage={false} siteTitle="Projekty" />
             <ProjectsSectionSlider projects={fakeProjects}></ProjectsSectionSlider>
             <CopyRights>
                 <p>All rights reserved &copy; JAMstack PB 2021</p>

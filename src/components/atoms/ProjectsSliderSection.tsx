@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
+import SectionWrapper from '@/src/components/atoms/SectionWrapper';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
@@ -30,15 +31,7 @@ const Titles = styled.div<{ whichTitle?: string }>`
               `
             : null};
 `;
-const ProjectsSection = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5vh 10vh;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
-`;
+
 const SectionHeader = styled.div`
     display: flex;
     padding: 0 20% 5% 25%;
@@ -191,7 +184,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
     };
     const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     return (
-        <ProjectsSection>
+        <SectionWrapper>
             <SectionHeader>
                 <TitleContainer>
                     <Titles whichTitle="subTitle">{projects[current].subTitle}</Titles>
@@ -218,7 +211,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
             </SectionDescriptionContainer>
-        </ProjectsSection>
+        </SectionWrapper>
     );
 };
 

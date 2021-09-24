@@ -59,9 +59,10 @@ const H1 = styled.h1`
 
 interface HeaderTestProps {
     isHomepage?: boolean;
+    siteTitle?: string;
 }
 
-export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
+export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false, siteTitle }) => {
     return (
         <>
             <Container isHomepage={isHomepage}>
@@ -82,7 +83,7 @@ export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
                         <Nav>
                             <MenuIcon />
                         </Nav>
-                        <H1>Projekty</H1>
+                        <H1>{siteTitle}</H1>
                     </>
                 )}
             </Container>
