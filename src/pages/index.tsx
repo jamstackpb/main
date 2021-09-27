@@ -18,6 +18,7 @@ const HomePage = () => {
             <Header isHomepage />
             <Cards />
             <Footer />
+            <CTA />
         </Layout>
     );
 };
