@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 const textOpacity = keyframes`
   from {
-    opacity: 0;
-  }
+    opacity: 0;  }
 
   to {
     opacity: 1;

@@ -10,9 +10,7 @@ const Wrapper = styled.div`
     padding: 5vh 10vh;
     background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
 `;
-
 const SectionWrapper: React.FC = ({ children }) => {
     return <Wrapper>{children}</Wrapper>;
 };
-
 export default SectionWrapper;

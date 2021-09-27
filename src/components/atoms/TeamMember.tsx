@@ -69,7 +69,7 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
     display: flex;
     flex-direction: column;
     min-height: 20vh;
-    width: calc(50% - 20vh);
+    /* width: calc(50% - 20vh); */
     margin: 3vh 0;
     ${({ side, whichMargin }) => {
         switch (side) {
@@ -78,41 +78,47 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
                     case 1:
                         return css`
                             align-items: flex-end;
-                            margin-right: 5vh;
+                            align-self: flex-start;
+                            margin-left: 20px;
                         `;
 
                     case 2:
                         return css`
                             align-items: flex-end;
-                            margin-right: 10vh;
+                            margin-left: 20px;
+                            margin-right: 20vw;
                         `;
 
                     case 3:
                         return css`
                             align-items: flex-end;
-                            margin-right: 20vh;
+                            margin-left: 20px;
+                            margin-right: 30vw;
                         `;
 
                     case 4:
                         return css`
                             align-items: flex-end;
-                            margin-right: 5vh;
+                            margin-left: 20px;
+                            margin-right: 40vw;
                         `;
 
                     case 5:
                         return css`
                             align-items: flex-end;
-                            margin-right: 25vh;
+                            margin-left: 20px;
+                            margin-right: 50vw;
                         `;
 
-                    case 6:
-                        return css`
-                            align-items: flex-end;
-                            margin-right: 30vh;
-                        `;
+                    // case 6:
+                    //     return css`
+                    //         align-items: flex-end;
+                    //         align-self: flex-end;
+                    //     `;
                     default:
                         return css`
                             align-items: flex-end;
+                            align-self: flex-end;
                         `;
                 }
 
@@ -120,33 +126,37 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
                 switch (whichMargin) {
                     case 1:
                         return css`
-                            margin-left: 5vh;
+                            align-self: flex-start;
                         `;
 
                     case 2:
                         return css`
-                            margin-left: 10vh;
+                            margin-left: 20vw;
+                            margin-right: 20px;
                         `;
 
                     case 3:
                         return css`
-                            margin-left: 20vh;
+                            margin-left: 30vw;
+                            margin-right: 20px;
                         `;
 
                     case 4:
                         return css`
-                            margin-left: 5vh;
+                            margin-left: 40vw;
+                            margin-right: 20px;
                         `;
 
                     case 5:
                         return css`
-                            margin-left: 25vh;
+                            margin-left: 50vw;
+                            margin-right: 20px;
                         `;
 
-                    case 6:
-                        return css`
-                            margin-left: 30vh;
-                        `;
+                    // case 6:
+                    //     return css`
+                    //         align-self: flex-end;
+                    //     `;
                     default:
                         return;
                 }
