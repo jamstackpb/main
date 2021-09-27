@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 export const Input = styled.input`
-    background: ${({ theme }) => theme.colorsPalette.common.white};
+    background: ${({ theme }) => theme.colorsPalette.commonWhite};
     padding: 20px 10px;
-    color: ${({ theme }) => theme.colorsPalette.common.black};
-    font-size: ${({ theme }) => theme.colorsPalette.backgroundColors.septenary};
+    color: ${({ theme }) => theme.colorsPalette.commonBlack};
+    font-size: ${({ theme }) => theme.colorsPalette.septenaryBackgroundColor};
     border: 0;
 `;

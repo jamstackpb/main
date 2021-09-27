@@ -3,14 +3,21 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
 import SectionWrapper from '@/src/components/atoms/SectionWrapper';
+import { CopyRights } from '../molecules/CopyRights';
 
 interface ProjectsSectionSliderProps {
-    projects: Array<{ subTitle: string; h1: string; h2: string; imageUrl: string; description: string }>;
+    projects: Array<{
+        subTitle: string;
+        h1: string;
+        h2: string;
+        imageUrl: string;
+        description: string;
+    }>;
 }
 
 const Titles = styled.div<{ whichTitle?: string }>`
-    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
+    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
+    font-weight: 900;
     ${({ whichTitle }) =>
         whichTitle === 'subTitle'
             ? css`
@@ -24,18 +31,43 @@ const Titles = styled.div<{ whichTitle?: string }>`
             ? css`
                   font-size: 4rem;
                   align-self: flex-start;
+                  @media (max-width: 500px) {
+                      & {
+                          align-self: center;
+                          padding-bottom: 4vh;
+                          width: 100%;
+                      }
+                  }
               `
             : whichTitle === 'h2'
             ? css`
                   font-size: 1.5rem;
               `
-            : null};
+            : undefined};
 `;
-
-const SectionHeader = styled.div`
+const ProjectsSection = styled.section`
+    width: 100%;
     display: flex;
+    position: absolute;
+    top: calc(80px + 15rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
+`;
+const SectionHeader = styled.div`
+    margin: 5vh 10vh 1vh;
+    display: flex;
+    flex-direction: row;
     padding: 0 20% 5% 25%;
     width: 100%;
+    @media (max-width: 500px) {
+        & {
+            flex-direction: column;
+            margin-bottom: 0%;
+        }
+    }
 `;
 const TitleContainer = styled.div`
     width: 50%;
@@ -44,7 +76,13 @@ const TitleContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: ${({ theme }) => theme.font.fontSize.tertiary};
+    font-size: 30px;
+
+    @media (max-width: 500px) {
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }
 `;
 const ButtonsContainer = styled.div`
     flex-grow: 1;
@@ -56,7 +94,7 @@ const Btn = styled.div`
     transition: 0.5s;
     width: 6vh;
     height: 6vh;
-    border: 2px solid ${({ theme }) => theme.border.button};
+    border: ${({ theme }) => theme.border.button};
     position: relative;
     margin-right: 1vh;
     display: flex;
@@ -65,25 +103,27 @@ const Btn = styled.div`
     transform-origin: right center;
 
     &:hover {
-        border-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+        border-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     }
 `;
 
 const SectionImgContainer = styled.img`
-    height: 45vh;
+    height: 300px;
     width: 80%;
     object-fit: cover;
+    margin: 5vh 10vh;
 `;
 const SectionDescriptionContainer = styled.div`
     padding-top: 5vh;
     display: flex;
     flex-direction: column;
-    padding-left: 25%;
+    padding: 0% 15%;
+    margin: 5vh 0px;
 `;
 const Description = styled.div`
-    font-size: ${({ theme }) => theme.font.fontSize.septenary};
-    font-weight: ${({ theme }) => theme.font.fontWeight.quaternary};
-    color: ${({ theme }) => theme.colorsPalette.fontColors.primary};
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
 `;
 const Arrows = styled.div<{ whichArrow?: string }>`
     &.arrow {
@@ -98,7 +138,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top,
     .arrow-bottom {
-        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.octonary};
+        background-color: ${({ theme }) => theme.colorsPalette.octonaryBackgroundColor};
         height: 4px;
         position: absolute;
         top: 50%;
@@ -106,7 +146,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top:after,
     & .arrow-bottom:after {
-        background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
+        background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
         content: '';
         height: 100%;
         position: absolute;
@@ -115,16 +155,12 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top.left {
         transform-origin: left;
-
         transform: rotate(45deg);
-
         top: 43%;
     }
     & .arrow-top.right {
         transform-origin: right;
-
         transform: rotate(45deg);
-
         top: 49%;
     }
     & .arrow-top:after {
@@ -182,7 +218,6 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         if (current == 0) setCurrent(projects.length - 1);
         else setCurrent(current - 1);
     };
-    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     return (
         <SectionWrapper>
             <SectionHeader>
@@ -211,6 +246,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
             </SectionDescriptionContainer>
+            <CopyRights />
         </SectionWrapper>
     );
 };
