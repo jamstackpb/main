@@ -10,8 +10,8 @@ export const Button = styled.a`
     padding: 20px 34px;
     border: 0;
     display: block;
-    max-width: 150px;
-    width: 150px;
+    max-width: 160x;
+    width: 100%px;
     min-width: 50px;
     @media (max-width: 390px) {
         & {
