@@ -8,7 +8,10 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding: 5vh 10vh;
-    background-color: ${({ theme }) => theme.colorsPalette.backgroundColors.secondary};
+    background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
+    @media (max-width: 580px) {
+        padding: 5vh 3vh;
+    }
 `;
 const SectionWrapper: React.FC = ({ children }) => {
     return <Wrapper>{children}</Wrapper>;

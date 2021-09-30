@@ -1,6 +1,6 @@
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/Footer';
+import { CopyRights } from '../components/molecules/CopyRights';
 import { useEffect, useState } from 'react';
 import { teamMembersArray } from '@/src/utils';
 import TeamMember from '@/src/components/atoms/TeamMember';
@@ -17,9 +17,9 @@ const chooseSide = (
 ) => {
     array.map((item) => {
         const side = Math.floor(Math.random() * 2);
-        const randomPadding = Math.floor(Math.random() * 6 + 1);
-        if (side) return (item.side = 'right'), (item.whichMargin = randomPadding);
-        return (item.side = 'left'), (item.whichMargin = randomPadding);
+        const randomMargin = Math.floor(Math.random() * 6 + 1);
+        if (side) return (item.side = 'right'), (item.whichMargin = randomMargin);
+        return (item.side = 'left'), (item.whichMargin = randomMargin);
     });
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -45,7 +45,7 @@ const teamMembers = () => {
     >([]);
     return (
         <Layout pageTitle="teamMembers">
-            <Header isHomepage={false} siteTitle="Team Members" />
+            <Header isHomepage={false} />
             <SectionWrapper>
                 {newArrray.map((member) => {
                     return (
@@ -61,9 +61,7 @@ const teamMembers = () => {
                     );
                 })}
             </SectionWrapper>
-            <CopyRights>
-                <p>All rights reserved &copy; JAMstack PB 2021</p>
-            </CopyRights>
+            <CopyRights />
         </Layout>
     );
 };
