@@ -1,7 +1,7 @@
 const colors = require('./colors');
 
 module.exports = {
-    mode: 'jit', //uncomment while develop
+    //mode: 'jit', //uncomment while develop
     purge: ['./src/pages/singleBlogPost.tsx'], //['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
     darkMode: false, // or 'media' or 'class'
     theme: {
