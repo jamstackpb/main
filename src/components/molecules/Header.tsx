@@ -7,9 +7,9 @@ import { css } from '@emotion/react';
 
 const Container = styled.div<{ isHomepage: boolean }>`
     width: 100%;
-    background: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-size: ${({ theme }) => theme.font.fontSize.quinary};
+    background: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-size: 18px;
     ${({ isHomepage }) =>
         isHomepage &&
         css`
@@ -21,69 +21,59 @@ const Container = styled.div<{ isHomepage: boolean }>`
 `;
 
 const Motto = styled.div`
-    max-width: 640px;
+    width: 640px;
+    max-width: 100%;
     padding: 20px;
 `;
 const SubTitle = styled.p`
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-weight: ${({ theme }) => theme.font.fontWeight.senary};
-    font-size: ${({ theme }) => theme.font.fontSize.quaternary};
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-weight: 300;
+    font-size: 20px;
     margin-bottom: 25px;
 `;
 const Title = styled.h1`
-    font-weight: ${({ theme }) => theme.font.fontWeight.primary};
-    color: ${({ theme }) => theme.colorsPalette.common.white};
-    font-size: ${({ theme }) => theme.font.fontSize.primary};
+    font-weight: 900;
+    color: ${({ theme }) => theme.colorsPalette.commonWhite};
+    font-size: 50px;
     margin-bottom: 25px;
+    @media (max-width: 385px) {
+        & {
+            font-size: 25px;
+        }
+    }
 `;
 const InputContainer = styled.div`
     display: flex;
+    width: 600px;
     max-width: 100%;
     align-items: stretch;
+    flex-grow: (3, 1);
 `;
-
-const Nav = styled.nav`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 11vh;
-`;
-const H1 = styled.h1`
-    text-align: center;
-    padding: 30px 0;
-    color: ${({ theme }) => theme.colorsPalette.backgroundColors.primary};
-    background-color: ${({ theme }) => theme.colorsPalette.common.white};
-`;
-
-interface HeaderTestProps {
+interface HeaderProps {
     isHomepage?: boolean;
 }
 
-export const Header: React.FC<HeaderTestProps> = ({ isHomepage = false }) => {
+export const Header: React.FC<HeaderProps> = ({ isHomepage = false }) => {
     return (
         <>
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
+                        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+                            <MenuIcon isHomepage />
+                        </div>
                         <Logo />
                         <Motto>
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                             <Title>Naucz się robić front-end wśród najlepszych </Title>
                             <InputContainer>
-                                <Input style={{ flex: 1 }} placeholder="podaj email" />
+                                <Input style={{ flex: 3 }} placeholder="podaj email" />
                                 <Button>Zapisz się</Button>
                             </InputContainer>
                         </Motto>
                     </>
                 ) : (
-                    <>
-                        <Nav>
-                            <MenuIcon />
-                        </Nav>
-                        <H1>Projekty</H1>
-                    </>
+                    <MenuIcon />
                 )}
             </Container>
         </>
