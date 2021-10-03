@@ -168,6 +168,9 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
     @media (max-width: 1063px) {
         margin: 3vh;
     }
+    @media (max-width: 580px) {
+        margin: 3vh 0;
+    }
 `;
 
 const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?: 'left' | 'right' }>`
@@ -293,7 +296,7 @@ const InnerContent = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
                     margin-right: 6.2vh;
                 `) ||
             css`
-                margin-left: 9.5vh;
+                margin-left: 5.9vh;
             `}
         ${({ clicked }) =>
             clicked
@@ -313,20 +316,25 @@ const InnerContent = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
 const MemberImg = styled.img`
     width: 19vh;
     height: 19vh;
+    max-width: 19vh;
+    max-height: 19vh;
     border-radius: 50%;
     @media (max-width: 769px) {
         height: 11vh;
         width: 11vh;
+        max-height: 11vh;
+        max-width: 11vh;
     }
 `;
 
 const MemberName = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
     color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     font-weight: 700;
-    padding-bottom: 0.5vh;
+    padding-bottom: 0.7vh;
     font-size: 28px;
     opacity: 1;
     white-space: nowrap;
+    line-height: 1;
     ${({ side }) =>
         (side === 'right' &&
             css`
@@ -389,6 +397,7 @@ const MemberRank = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
     }
 `;
 const MemberDescription = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
+    padding: 0.5em;
     max-width: 45vh;
     min-height: 15vh;
     opacity: 0;
@@ -399,10 +408,8 @@ const MemberDescription = styled.div<{ clicked: boolean; side?: 'left' | 'right'
         side === 'right'
             ? css`
                   margin-right: 30%;
-                  text-align: right;
               `
             : css`
-                  text-align: left;
                   margin-left: 30%;
               `}
     ${({ clicked }) =>
@@ -429,7 +436,7 @@ interface TeamMemberProps {
     memberName: string;
     memberRank: string;
     memberDescription: string;
-    memberImg: string;
+    imgPath: string;
     side?: 'left' | 'right';
     whichMargin?: number;
 }
@@ -439,7 +446,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     memberName,
     memberRank,
     memberDescription,
-    memberImg,
+    imgPath,
     whichMargin,
 }) => {
     const [clicked, setClicked] = useState<boolean>(false);
@@ -465,7 +472,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     return (
         <MemberContener side={side} whichMargin={whichMargin}>
             <InnerCircle side={side} onClick={clickHandler} clicked={clicked} firstClicked={firstClicked}>
-                <MemberImg src={addImagePrefix(memberImg)} alt="Member Image" />
+                <MemberImg src={addImagePrefix(imgPath)} alt="Member Image" />
             </InnerCircle>
 
             <MemberName side={side} clicked={clicked}>
