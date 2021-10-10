@@ -65,7 +65,7 @@ const DropMenu = styled.div`
     transition-timing-function: ease-in;
     transition: 0.2s;
     transform: translateX(0%);
-    height: 20rem;
+    height: 25rem;
 
     & > div,
     & > div > div {
@@ -118,6 +118,9 @@ const DropMenu = styled.div`
     }
     &.active div:nth-of-type(4) {
         transition-delay: 0.75s;
+    }
+    &.active div:nth-of-type(5) {
+        transition-delay: 1s;
     }
 `;
 
@@ -172,9 +175,16 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                     </div>
                 </div>
                 <div>
-                    <div style={{ borderRadius: ' 0 0 2rem 0' }}>
+                    <div>
                         <Link href="/teamMembers">
                             <a>Członkowie</a>
+                        </Link>
+                    </div>
+                </div>
+                <div>
+                    <div style={{ borderRadius: ' 0 0 2rem 0' }}>
+                        <Link href="/blogsPage">
+                            <a>Blog</a>
                         </Link>
                     </div>
                 </div>
