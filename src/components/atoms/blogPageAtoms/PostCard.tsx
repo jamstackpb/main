@@ -66,7 +66,7 @@ const PostDate = styled.div`
     }
 `;
 const PostTitle = styled.div`
-    padding: 0 1.5em;
+    padding: 0 1em;
     font-size: 3em;
 `;
 const PostSubtitle = styled.div`
@@ -179,5 +179,3 @@ export const PostCard: React.FC<blogPostProps> = ({ newest = false, date, imageU
         </Card>
     );
 };
-
-//

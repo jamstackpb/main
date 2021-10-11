@@ -7,15 +7,14 @@ export const getAllPosts = () => {
     const projectsDirectoryFiles = fs.readdirSync(pathToFolderProjects);
 
     const withGrayMatter = projectsDirectoryFiles.map((adf) => {
+        const slug = adf.replace('.md', '');
         const realPath = path.join(pathToFolderProjects, adf);
         const fileContents = fs.readFileSync(realPath).toString('utf-8');
-        const changeToMatter = matter(fileContents);
+        const { data: changedToMatter } = matter(fileContents);
 
-        return changeToMatter.data as {
-            postImg: string;
-            postTitle: string;
-            postContent: string;
-            postDate: string;
+        return {
+            slug,
+            changedToMatter,
         };
     });
     return withGrayMatter;
