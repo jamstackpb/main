@@ -171,7 +171,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     & .arrow-bottom.left {
         transform-origin: left;
         transform: rotate(-45deg);
-        top: 51%;
+        top: 48%;
     }
     & .arrow-bottom.right {
         transform-origin: right;
@@ -246,7 +246,6 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <Titles whichTitle="h2">{projects[current].h2}</Titles>
                 <Description>{projects[current].description}</Description>
             </SectionDescriptionContainer>
-            <CopyRights />
         </SectionWrapper>
     );
 };
