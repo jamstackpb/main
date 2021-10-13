@@ -35,12 +35,26 @@ const GridContainer = styled.div`
     grid-template-areas: 'newestpost newestpost';
     row-gap: 30px;
     column-gap: 40px;
-    width: 100%;
+    width: 85%;
     & > div {
         cursor: pointer;
     }
+    @media (max-width: 1439px) {
+        & {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'newestpost';
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        & {
+            grid-template-columns: 100%;
+            grid-template-areas: 'newestpost' 'newestpost';
+            width: 70%;
+        }
+    }
 `;
-const PageTitle = styled.div``;
 
 const blogspage = ({ content }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const sortedContent = content.sort((a, b) => {
@@ -55,7 +69,7 @@ const blogspage = ({ content }: InferGetStaticPropsType<typeof getStaticProps>) 
             <SectionWrapper>
                 <Titles>
                     <h4>AKTUALNOŚCI</h4>
-                    <h1>Zapoznaj się z najnowszymi wiadomościoami</h1>
+                    <h1>Zapoznaj się z najnowszymi wiadomościami</h1>
                     <h3>
                         Nasz JamstackPB nieustannie się rozwija. Poniżej prezentujemy najważniejsze aktualności
                         dotyczące naszego koła.

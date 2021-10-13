@@ -24,9 +24,30 @@ const animate = keyframes`
   `;
 const PostImgWrapper = styled.div`
     width: 100%;
-    height: 500px;
+    height: 400px;
     overflow: hidden;
     border-radius: 5vh;
+    @media (max-width: 1439px) {
+        & {
+            height: 350px;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        & {
+            height: 300px;
+        }
+    }
+    @media (max-width: 666px) {
+        & {
+            height: 250px;
+        }
+    }
+    @media (max-width: 413px) {
+        & {
+            height: 200px;
+        }
+    }
 `;
 const PostImgContainer = styled.div`
     padding: 0;
@@ -43,15 +64,15 @@ const PostImg = styled.img`
 `;
 
 const PostDate = styled.div`
-    font-size: 2em;
+    font-size: 22px;
     line-height: 32px;
-    padding-left: 0.5em;
+    /* padding-left: 0.4em; */
     position: absolute;
     right: 0;
     bottom: 0;
     background-color: #ddd;
     height: 32px;
-    width: 10vw;
+    width: 150px;
 
     &:hover {
         border: none;
@@ -64,13 +85,40 @@ const PostDate = styled.div`
         border-right: 32px solid #ddd;
         border-top: 32px solid transparent;
     }
+    @media (max-width: 666px) {
+        & {
+            font-size: 16px;
+            width: 100px;
+        }
+    }
 `;
 const PostTitle = styled.div`
     padding: 0 1em;
-    font-size: 3em;
+    font-size: 28px;
+    @media (max-width: 1439px) {
+        & {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        & {
+            font-size: 22px;
+        }
+    }
+    @media (max-width: 666px) {
+        & {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 413px) {
+        & {
+            font-size: 16px;
+        }
+    }
 `;
 const PostSubtitle = styled.div`
-    font-size: 2em;
+    font-size: 20px;
     line-height: 2em;
     font-weight: 900;
     color: #78a0fa;
@@ -82,6 +130,27 @@ const PostSubtitle = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+    @media (max-width: 1439px) {
+        & {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        & {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 666px) {
+        & {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 413px) {
+        & {
+            font-size: 12px;
+        }
+    }
 `;
 const Card = styled(animated.div)<{ newest: boolean }>`
     display: flex;
