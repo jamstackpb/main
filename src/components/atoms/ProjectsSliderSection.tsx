@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
 import SectionWrapper from '@/src/components/atoms/SectionWrapper';
-import { CopyRights } from '../molecules/CopyRights';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{
@@ -45,17 +44,7 @@ const Titles = styled.div<{ whichTitle?: string }>`
               `
             : undefined};
 `;
-const ProjectsSection = styled.section`
-    width: 100%;
-    display: flex;
-    position: absolute;
-    top: calc(80px + 15rem);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    background-color: ${({ theme }) => theme.colorsPalette.secondaryBackgroundColor};
-`;
+
 const SectionHeader = styled.div`
     margin: 5vh 10vh 1vh;
     display: flex;
@@ -155,23 +144,38 @@ const Arrows = styled.div<{ whichArrow?: string }>`
     }
     & .arrow-top.left {
         transform-origin: left;
-        transform: rotate(45deg);
-        top: 43%;
+        transform: rotate(-45deg);
+        top: 49%;
     }
     & .arrow-top.right {
         transform-origin: right;
         transform: rotate(45deg);
         top: 49%;
     }
-    & .arrow-top:after {
+    & .arrow-top.right:after {
         left: 100%;
         right: 0;
+        transition-delay: 0s;
+    }
+    & .arrow-bottom.right:after {
+        left: 0;
+        right: 100%;
+        transition-delay: 0.15s;
+    }
+    & .arrow-top.left:after {
+        right: 100%;
+        left: 0;
+        transition-delay: 0s;
+    }
+    & .arrow-bottom.left:after {
+        right: 0;
+        left: 100%;
         transition-delay: 0.15s;
     }
     & .arrow-bottom.left {
         transform-origin: left;
-        transform: rotate(-45deg);
-        top: 48%;
+        transform: rotate(45deg);
+        top: 45%;
     }
     & .arrow-bottom.right {
         transform-origin: right;
@@ -179,26 +183,21 @@ const Arrows = styled.div<{ whichArrow?: string }>`
         top: 45%;
     }
 
-    & .arrow-bottom:after {
-        left: 0;
-        right: 100%;
-        transition-delay: 0s;
-    }
     &.arrow:hover .arrow-top.right:after {
         left: 0;
         transition-delay: 0.15s;
     }
     &.arrow:hover .arrow-top.left:after {
-        left: 0;
-        transition-delay: 0s;
+        right: 0;
+        transition-delay: 0.15s;
     }
     &.arrow:hover .arrow-bottom.right:after {
         right: 0;
         transition-delay: 0s;
     }
     &.arrow:hover .arrow-bottom.left:after {
-        right: 0;
-        transition-delay: 0.15s;
+        left: 0;
+        transition-delay: 0s;
     }
 
     &.arrow.right:active {
@@ -228,14 +227,14 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <ButtonsContainer>
                     <Btn>
                         <Arrows className="arrow left" onClick={prevSlide}>
-                            <div className="arrow-top left"></div>
-                            <div className="arrow-bottom left"></div>
+                            <div className=" arrow-bottom left" />
+                            <div className="arrow-top left" />
                         </Arrows>
                     </Btn>
                     <Btn>
                         <Arrows className="arrow right" onClick={nextSlide}>
-                            <div className="arrow-top right"></div>
-                            <div className="arrow-bottom right"></div>
+                            <div className="arrow-top right" />
+                            <div className="arrow-bottom right" />
                         </Arrows>
                     </Btn>
                 </ButtonsContainer>
