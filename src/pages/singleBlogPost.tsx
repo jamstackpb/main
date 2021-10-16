@@ -2,7 +2,6 @@ import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components';
 import { CopyRights } from '../components/molecules/CopyRights';
 import Link from 'next/link';
-import styled from '@emotion/styled';
 const image = '/images/post1.svg';
 const avatar = '/images/teamMembersAvatars/smateo.png';
 const authorName = 'SMATEO49';
@@ -10,39 +9,13 @@ const date = '10 Oct 2021 | 19:40';
 const content =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ea recusandae pariatur, aperiam, iure error corporis placeat vel at laborum, laudantium similique temporibus optio officia exercitationem atque neque repellat quia maiores. Molestiae est, quasi corporis nostrum iure exercitationem vero quod voluptatibus voluptas fugiat accusantium culpa pariatur quisquam? Neque impedit, officia corrupti commodi eligendi sed atque perspiciatis, magni repellendus debitis nemo sapiente repellat eaque asperiores odio temporibus amet iure quia, mollitia expedita? Reprehenderit harum molestias iure mollitia. Dignissimos aliquam dicta natus officia quisquam magnam molestiae eligendi voluptatum facere minus ducimus perferendis, nostrum laboriosam excepturi voluptatem sit ratione ea culpa maiores mollitia, impedit vero! Neque, ipsa voluptatibus. Nesciunt magnam porro at voluptatibus veritatis repellendus, minima quisquam rerum accusantium, quidem assumenda, quaerat ullam eaque? Magni esse ex quod at dignissimos et! Aliquam cumque dignissimos perspiciatis animi consequatur at. Labore officiis voluptatum ratione iusto suscipit ut odio recusandae quasi veritatis beatae accusamus, exercitationem accusantium corrupti nostrum quisquam aspernatur libero laborum laudantium ex minima blanditiis aliquam quod? Saepe quod temporibus facere cum officiis magni labore fuga nostrum veniam maiores, corporis, odit harum accusantium. Velit rerum aperiam omnis aliquam ipsa repudiandae consequuntur aspernatur maxime laboriosam necessitatibus harum illo fugiat perferendis itaque saepe sint, ratione et totam deleniti. Corrupti minima quos blanditiis amet, numquam nisi, incidunt dolorum reprehenderit perspiciatis tempora excepturi! A recusandae totam saepe, quia perferendis quae accusamus consectetur aliquam, nisi assumenda corporis! Commodi, modi possimus non a incidunt placeat expedita quaerat nisi cupiditate quia quae, necessitatibus optio sunt nihil amet quisquam delectus. Repellendus porro necessitatibus eum voluptate! Eveniet eaque sint repellat veniam iste corrupti velit, ut maiores, dolorem dignissimos, tempore itaque magnam sunt! Ab doloribus in tenetur debitis dolor, veritatis nostrum excepturi ipsam. Ut dolor libero iste possimus veritatis. Odit, facilis ad provident dignissimos nihil adipisci earum corporis cumque! Consectetur nulla molestiae iste vitae explicabo quibusdam recusandae nemo iusto minima molestias, inventore exercitationem voluptates placeat aut at a excepturi quae corporis rem rerum. At excepturi quae blanditiis repudiandae fugit non nostrum magni, quo labore ex delectus dolorum quia est nemo rem quaerat aliquam molestiae recusandae animi pariatur quos, sed quisquam? Quae ex vitae unde voluptatem optio commodi consectetur facere quam fugit? Earum ea sit corporis odio fugit, quod officia voluptate ullam mollitia impedit eum temporibus accusantium totam vel incidunt? Nostrum laboriosam, voluptatibus in, impedit deserunt quaerat vero facere est obcaecati quasi aperiam! Enim molestiae necessitatibus laboriosam iure illum ea, vel aspernatur quibusdam omnis vitae velit fugit odit natus magni quaerat ducimus nisi quia perferendis aut amet temporibus. Deleniti explicabo culpa consectetur quidem eum labore dolore laudantium quibusdam tenetur delectus iste, adipisci atque ipsum fuga enim excepturi numquam ratione vero porro temporibus impedit hic doloremque! Corrupti nobis porro quia deleniti illum nesciunt labore qui recusandae ipsam, tempora expedita cum voluptas quo ipsum itaque sit consequuntur natus eum earum omnis reprehenderit sed. Molestias saepe officia beatae totam magni assumenda facere, vel eligendi. Tempora impedit fuga praesentium perferendis corporis ipsa vitae excepturi sequi suscipit dolore vel, aliquid hic reiciendis dolorum itaque! Delectus possimus quos voluptatem inventore, dolorem ipsam?';
 
-const ThemeBox = styled.div`
-    margin-top: 80px;
-    width: 100%;
-    height: 360px;
-    padding: 0 40px;
-    flex-direction: row;
-`;
-
-const Title = styled.h1`
-    text-align: left;
-`;
-
-const LeftContainer = styled.div`
-    background-color: white;
-`;
-
-const RightContainer = styled.div`
-    background: url(${image});
-    background-repeat: no-repeat;
-    background-position: right;
-    z-index: -10;
-`;
-
-const Author = styled.div`
-    background: 'transparent';
-`;
-
 const HomePage = () => {
     return (
         <Layout pageTitle="singleBlogPost">
             <Header isHomepage={false} />
-            <ThemeBox className="flex flex-row">
-                <LeftContainer className="h-full w-4/6 pl-6 block z-30">
+            <div className="flex flex-row px-48 w-full h-360px " style={{ marginTop: '80px' }}>
+                <div className="absolute top-160px -left-56 transform -skew-x-30 translate-x-96 bg-white w-1/2 h-360px z-20" />
+                <div className="static h-full w-4/6 pl-6 block z-30 bg-white">
                     <div className="flex flex-row transform mb-7">
                         <div>
                             <Link href="/">
@@ -60,23 +33,32 @@ const HomePage = () => {
                             </Link>
                         </div>
                     </div>
-                    <Title className="block text-blue-darkfont font-bold text-7xl bg-transparent w-full h-full">
+                    <div
+                        className="block text-blue-darkfont font-bold text-7xl text-left bg-transparent w-full h-auto"
+                        style={{ maxHeight: '260px' }}
+                    >
                         Święta tuż tuż - Nie zwalniamy przed końcem roku
-                        <div className="absolute top-0 transform -skew-x-30 translate-x-96 bg-white w-auto h-auto z-20" />
-                    </Title>
-                    <div className="inline-block">
+                    </div>
+                    <div className="block">
                         <div
                             style={{ backgroundImage: 'url(' + avatar + ')' }}
                             className="bg-cover h-50px w-50px z-30"
                         ></div>
-                        <div className="block">
+                        <div className="inline-block">
                             <div className="text-gray-font font-bold text-2xl z-30">{authorName}</div>
-                            <div></div>
+                            <div className="text-xl text-blue-font  font-medium">{date}</div>
                         </div>
                     </div>
-                </LeftContainer>
-                <RightContainer className="h-9/10 w-full relative block z-10"></RightContainer>
-            </ThemeBox>
+                </div>
+                <div
+                    className="h-9/10 w-full relative block z-10"
+                    style={{
+                        backgroundPosition: 'right',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundImage: 'url(' + image + ')',
+                    }}
+                ></div>
+            </div>
             <div className="text-gray-font px-96 font-medium text-2xl my-16">{content}</div>
             <CopyRights />
         </Layout>
