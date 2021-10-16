@@ -86,6 +86,9 @@ module.exports = {
         700: '#1d4ed8',
         800: '#1e40af',
         900: '#1e3a8a',
+        font: '#78a0fa',
+        darkfont: '#15159b',
+        bg: '#2727a3',
     },
     get lightBlue() {
         if (!warned) {
@@ -261,6 +264,7 @@ module.exports = {
         700: '#3f3f46',
         800: '#27272a',
         900: '#18181b',
+        font: '#7e849d',
     },
     coolGray: {
         50: '#f9fafb',
