@@ -39,14 +39,14 @@ const HomePage = () => {
                     >
                         Święta tuż tuż - Nie zwalniamy przed końcem roku
                     </div>
-                    <div className="block">
+                    <div className="flex mt-7">
                         <div
                             style={{ backgroundImage: 'url(' + avatar + ')' }}
                             className="bg-cover h-50px w-50px z-30"
                         ></div>
-                        <div className="inline-block">
-                            <div className="text-gray-font font-bold text-2xl z-30">{authorName}</div>
-                            <div className="text-xl text-blue-font  font-medium">{date}</div>
+                        <div className="inline-block h-50px ml-6">
+                            <div className="text-gray-font font-bold text-2xl z-30 h-25px">{authorName}</div>
+                            <div className="text-xl text-blue-font  font-medium h-25px">{date}</div>
                         </div>
                     </div>
                 </div>
