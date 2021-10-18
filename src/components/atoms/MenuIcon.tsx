@@ -8,9 +8,9 @@ const Svg = styled.svg`
     cursor: pointer;
     margin-right: 4px;
     transition: 0.5s;
-    position:sticky;
-    top:0;
-    
+    position: sticky;
+    top: 0;
+
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
     }
@@ -67,8 +67,8 @@ const DropMenu = styled.div`
     transition-timing-function: ease-in;
     transition: 0.2s;
     transform: translateX(0%);
-    height: 25rem;
-    position:fixed;
+    height: 20rem;
+    position: fixed;
 
     & > div,
     & > div > div {
@@ -99,7 +99,6 @@ const DropMenu = styled.div`
         width: 100%;
         height: 100%;
         line-height: 2.6rem;
-
     }
     &.active {
         transition-timing-function: ease-out;
@@ -122,9 +121,6 @@ const DropMenu = styled.div`
     }
     &.active div:nth-of-type(4) {
         transition-delay: 0.75s;
-    }
-    &.active div:nth-of-type(5) {
-        transition-delay: 1s;
     }
 `;
 
@@ -168,13 +164,6 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                     <div>
                         <Link href="/ProjectsPage/">
                             <a>Projekty</a>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <Link href="#">
-                            <a>O nas</a>
                         </Link>
                     </div>
                 </div>
