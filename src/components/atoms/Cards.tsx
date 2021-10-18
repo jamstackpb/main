@@ -40,24 +40,17 @@ const Card = styled.div`
     min-width: 180px;
 `;
 
-const CardImageOne = styled.div`
+const CardImage = styled.div`
     margin-bottom: 20px;
     width: 100%;
     height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.quinaryBackgroundColor};
 `;
-const CardImageTwo = styled.div`
-    margin-bottom: 20px;
-    width: 100%;
-    height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.senaryBackgroundColor};
-`;
-const CardImageThree = styled.div`
-    margin-bottom: 20px;
-    width: 100%;
-    height: 200px;
-    background-color: ${({ theme }) => theme.colorsPalette.septenaryBackgroundColor};
-`;
+
+const card_1 = 'images/card1.svg';
+
+const card_2 = 'images/card2.svg';
+
+const card_3 = 'images/card3.svg';
 
 const CardTitle = styled.h2`
     padding: 15px 0;
@@ -79,7 +72,9 @@ export const Cards = () => {
         <Main>
             <Rail>
                 <Card>
-                    <CardImageOne></CardImageOne>
+                    <CardImage>
+                        <img src={card_1} style={{ border: 'none', padding: '10px ' }}></img>
+                    </CardImage>
                     <CardTitle>Front-end</CardTitle>
                     <CardText>
                         {' '}
@@ -87,12 +82,16 @@ export const Cards = () => {
                     </CardText>
                 </Card>
                 <Card>
-                    <CardImageTwo></CardImageTwo>
-                    <CardTitle>CLI tooling</CardTitle>
+                    <CardImage>
+                        <img src={card_2} style={{ border: 'none', padding: '10px ' }}></img>
+                    </CardImage>
+                    <CardTitle>CU tooling</CardTitle>
                     <CardText> Czy korzystasz z narzędzi w terminalu? Odkryj ich moc i zacznij pisać swoje.</CardText>
                 </Card>
                 <Card>
-                    <CardImageThree></CardImageThree>
+                    <CardImage>
+                        <img src={card_3} style={{ border: 'none', padding: '10px ' }}></img>
+                    </CardImage>
                     <CardTitle>Automatyzacja</CardTitle>
                     <CardText> Znasz drogę na skróty? Jeśli nie, pokażemy Ci jak użyć narzędzi low code.</CardText>
                 </Card>
