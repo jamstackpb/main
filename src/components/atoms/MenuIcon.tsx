@@ -8,6 +8,9 @@ const Svg = styled.svg`
     cursor: pointer;
     margin-right: 4px;
     transition: 0.5s;
+    position:sticky;
+    top:0;
+    
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
     }
@@ -52,7 +55,6 @@ const DropMenu = styled.div`
     background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     border-radius: 0 0 2rem 0;
     display: flex;
-    position: absolute;
     left: -20rem;
     top: 80px;
     z-index: 12;
@@ -66,6 +68,7 @@ const DropMenu = styled.div`
     transition: 0.2s;
     transform: translateX(0%);
     height: 25rem;
+    position:fixed;
 
     & > div,
     & > div > div {
@@ -96,6 +99,7 @@ const DropMenu = styled.div`
         width: 100%;
         height: 100%;
         line-height: 2.6rem;
+
     }
     &.active {
         transition-timing-function: ease-out;

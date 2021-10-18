@@ -6,9 +6,10 @@ const Main = styled.div`
     background: #f7f7f9;
     color: #fdf;
     padding: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     width: 100%;
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
 `;
@@ -17,12 +18,33 @@ const Item = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 20%;
     min-width: 100px;
     background-color: #f7f7f9;
+    @media only screen and (max-width: 680px) {
+	min-width:15px;
+    width:33%;
+	}
 `;
-
+const Technologybarnapis = styled.div`
+    display: flex;
+    padding:10px;
+    margin-top:50px;
+    flex-direction: column;
+	}
+`;
+const Napis = styled.h1`
+    color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
+    font-weight: 650;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:50px;
+ 
+`
+const Technologybar = styled.div`
+    filter:grayscale(1);
+`
 const Images: { imageUrl: string; link: string; key: string }[] = [
     {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
@@ -70,7 +92,6 @@ const Images: { imageUrl: string; link: string; key: string }[] = [
         key: '9',
     },
 ];
-
 interface LogoCloudProps {
     images: Array<{ imageUrl: string; link: string; key: string }>;
 }
@@ -80,27 +101,32 @@ export const Techbar: React.FC<LogoCloudProps> = ({ images }) => {
 
     return (
         <Main>
-            <Rerousel itemRef={customerLogo} interval={3000} stop={false}>
-                {Images.map(({ imageUrl, link, key }) => {
-                    return (
-                        <Item ref={customerLogo} key={key}>
-                            <a href={link}>
-                                <img
-                                    style={{
-                                        padding: '10px',
-                                        background: 'white',
-                                        height: '180px',
-                                        width: '180px',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                    }}
-                                    src={imageUrl}
-                                />
-                            </a>
-                        </Item>
-                    );
-                })}
-            </Rerousel>
+            <Technologybarnapis>
+                <Napis>Technologie, których używamy</Napis>
+            </Technologybarnapis>
+                <Technologybar>
+                <Rerousel itemRef={customerLogo} interval={3000} stop={false}>
+                        {Images.map(({ imageUrl, link, key }) => {
+                            return (
+                                <Item ref={customerLogo} key={key}>
+                                    <a href={link}>
+                                        <img
+                                            style={{
+                                                padding: '10px',
+                                                background: 'transparrent',
+                                                height: '100px',
+                                                width: '100px',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }}
+                                            src={imageUrl}
+                                        />
+                                    </a>
+                                </Item>
+                            );
+                        })}
+                    </Rerousel>
+            </Technologybar>
         </Main>
     );
 };

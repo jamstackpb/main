@@ -48,7 +48,7 @@ const teamMembers = ({ content }: InferGetStaticPropsType<typeof getStaticProps>
     return (
         <Layout pageTitle="teamMembers">
             <Header isHomepage={false} />
-            <h1 style={{ color: '#15159b', fontWeight: 600, padding: '.5em' }} className="padding-spacing-5">
+            <h1 style={{ color: '#15159b', fontWeight: 600, padding: '1.5em'}} className="padding-spacing-5">
                 Członkowie
             </h1>
             <SectionWrapper>

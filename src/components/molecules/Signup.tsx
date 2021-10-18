@@ -8,6 +8,13 @@ const Background = styled.div`
     display: flex;
     flex-direction: column;
     padding:35px; 
+    @media only screen and (max-width: 680px) {
+		margin-left:auto;
+		margin-right:auto;
+		vertical-align:middle
+		height:100%;
+		width:300px;
+	}
 `;
 const Title = styled.div`
     font-size: 15px;
@@ -15,6 +22,7 @@ const Title = styled.div`
     color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
     margin-top: 10px;
     margin-bottom: 5px;
+    
     
 `;
 const SubTitle = styled.div`
@@ -39,6 +47,7 @@ const InputContainer = styled.div`
     text-align: center;
     
     
+    
 `;
 
 const Input = styled.input`
@@ -47,7 +56,9 @@ const Input = styled.input`
     color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
     font-size: 15px;
     border: 0;
-   
+    @media only screen and (max-width: 680px) {
+       padding: 10px 70px;
+	}
 `;
 
 export const Signup = () => {
