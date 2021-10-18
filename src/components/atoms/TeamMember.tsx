@@ -173,7 +173,7 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
     }
 `;
 
-const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?: 'left' | 'right'; imgPath?: string }>`
+const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?: 'left' | 'right'; imgFlag: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,12 +187,12 @@ const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?:
     border: 1vh solid ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     cursor: pointer;
     box-shadow: 0 0 3px 1px black;
-    ${({ imgPath }) =>
-        imgPath
-            ? undefined
-            : css`
+    ${({ imgFlag }) =>
+        imgFlag
+            ? css`
                   border: 1.3vh solid #2727a3;
-              `}
+              `
+            : undefined}
     @media (max-width: 769px) {
         height: 12vh;
         width: 12vh;
@@ -219,6 +219,12 @@ const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?:
         border-bottom: 2vh solid transparent;
         border-left: 2vh solid ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
         transform-origin: -9.5vh 2vh;
+        ${({ imgFlag }) =>
+            imgFlag
+                ? css`
+                      transform-origin: -9.7vh 1.9vh;
+                  `
+                : undefined}
         ${({ side }) =>
             side === 'left'
                 ? css`
@@ -319,7 +325,7 @@ const InnerContent = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
     }
 `;
 
-const MemberImg = styled.img<{ imgPath?: string }>`
+const MemberImg = styled.img`
     width: 19vh;
     height: 19vh;
     max-width: 19vh;
@@ -474,15 +480,18 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         setClicked(!clicked);
         setFirstClicked(true);
     };
+    const imgFlag = imgPath ? false : true;
 
     return (
         <MemberContener side={side} whichMargin={whichMargin}>
-            <InnerCircle side={side} onClick={clickHandler} clicked={clicked} firstClicked={firstClicked}>
-                <MemberImg
-                    src={addImagePrefix(imgPath ? imgPath : '/images/logo1.svg')}
-                    alt="Member Image"
-                    imgPath={imgPath}
-                />
+            <InnerCircle
+                side={side}
+                onClick={clickHandler}
+                clicked={clicked}
+                firstClicked={firstClicked}
+                imgFlag={imgFlag}
+            >
+                <MemberImg src={addImagePrefix(imgPath ? imgPath : '/images/logo1.svg')} alt="Member Image" />
             </InnerCircle>
 
             <MemberName side={side} clicked={clicked}>
