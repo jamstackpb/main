@@ -173,7 +173,7 @@ const MemberContener = styled.div<{ side?: 'left' | 'right'; whichMargin?: numbe
     }
 `;
 
-const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?: 'left' | 'right' }>`
+const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?: 'left' | 'right'; imgPath?: string }>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,6 +187,12 @@ const InnerCircle = styled.div<{ clicked: boolean; firstClicked: boolean; side?:
     border: 1vh solid ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     cursor: pointer;
     box-shadow: 0 0 3px 1px black;
+    ${({ imgPath }) =>
+        imgPath
+            ? undefined
+            : css`
+                  border: 1.3vh solid #2727a3;
+              `}
     @media (max-width: 769px) {
         height: 12vh;
         width: 12vh;
@@ -313,7 +319,7 @@ const InnerContent = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
     }
 `;
 
-const MemberImg = styled.img`
+const MemberImg = styled.img<{ imgPath?: string }>`
     width: 19vh;
     height: 19vh;
     max-width: 19vh;
@@ -472,7 +478,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     return (
         <MemberContener side={side} whichMargin={whichMargin}>
             <InnerCircle side={side} onClick={clickHandler} clicked={clicked} firstClicked={firstClicked}>
-                <MemberImg src={addImagePrefix(imgPath)} alt="Member Image" />
+                <MemberImg
+                    src={addImagePrefix(imgPath ? imgPath : '/images/logo1.svg')}
+                    alt="Member Image"
+                    imgPath={imgPath}
+                />
             </InnerCircle>
 
             <MemberName side={side} clicked={clicked}>
