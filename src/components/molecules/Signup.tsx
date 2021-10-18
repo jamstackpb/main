@@ -8,10 +8,10 @@ const Background = styled.div`
     display: flex;
     flex-direction: column;
     padding:35px; 
+    vertical-align:middle;
     @media only screen and (max-width: 680px) {
-		margin-left:auto;
-		margin-right:auto;
-		vertical-align:middle
+		margin-left:0px;
+		margin-right:px;
 		height:100%;
 		width:300px;
 	}

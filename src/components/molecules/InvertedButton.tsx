@@ -4,9 +4,10 @@ const Icon = styled.div<{ imagIcon: any }>`
     background-image: url(${({ imagIcon }) => imagIcon});
     height: 50px;
     width: 50px;
+    box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     :hover {
-        filter: invert(3%);
-        box-shadow: ${({ theme }) => theme.boxShadow.secondary};
+        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.3);
     }
 `;
 

@@ -10,11 +10,14 @@ const Container = styled.div`
     padding: 90px 15%;
     gap: 15%;
     @media only screen and (max-width: 680px) {
-		display:flex-wrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        justify-content: space-around;
         width: 100%;
-        padding: 90px 15%;
+        padding: 90px 10%;
+        justify-content: center;
+        text-align: center;
         gap: 15%;
 	}
 `;
