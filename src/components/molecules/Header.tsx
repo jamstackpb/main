@@ -11,13 +11,20 @@ const Container = styled.div<{ isHomepage: boolean }>`
     color: ${({ theme }) => theme.colorsPalette.commonWhite};
     font-size: 18px;
     ${({ isHomepage }) =>
-        isHomepage &&
-        css`
+        isHomepage === true
+        ? css`
             padding: 100px 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-        `};
+            
+        `
+        : css`
+                  position: sticky;
+                  top:0px;
+                  min-height: 8rem;
+                  z-index: 99;
+              `};
 `;
 
 const Motto = styled.div`
