@@ -356,7 +356,7 @@ const MemberName = styled.div<{ clicked: boolean; side?: 'left' | 'right' }>`
                     padding-bottom: 0.2vh;
                 `) ||
             css`
-                padding-left: 19vh;
+                padding-left: 13vh;
                 text-align: left;
                 padding-bottom: 0.1vh;
             `}

@@ -19,10 +19,10 @@ const Item = styled.div`
     justify-content: center;
     align-items: center;
     width: 20%;
-    min-width: 100px;
+    min-width: 80px;
     background-color: #f7f7f9;
     @media only screen and (max-width: 680px) {
-	min-width:15px;
+	min-width:10px;
     width:33%;
 	}
 `;
