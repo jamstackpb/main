@@ -3,7 +3,7 @@ import { Header } from '@/src/components';
 import { CopyRights } from '../components/molecules/CopyRights';
 import Link from 'next/link';
 const image = '/images/post1.svg';
-const avatar = '/images/teamMembersAvatars/smateo.png';
+const avatar = '/images/teamMembersAvatars/smateo.jpeg';
 const authorName = 'SMATEO49';
 const date = '10 Oct 2021 | 19:40';
 const content =
