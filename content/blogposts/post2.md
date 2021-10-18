@@ -3,6 +3,8 @@ postImg: /images/ProjectsSiteImgs/projekt2.jpg
 postTitle: Święta tuż tuż - Nie zwalniamy przed końcem roku
 postFragment: Nasze koło naukowe nieustannie się rozwija. Wzrasta liczba uczestników, a wraz z nią poplarność naszego koła.
 postDate: 07.10.2021
+author: Tajemnicza Pani
+avatar: /images/teamMembersAvatars/MsAnon.svg
 ---
 
 ## Nam vitae risus molestie, lacinia leo vel, aliquam augue. Donec consectetur varius velit, at cursus augue. Cras id sapien eget ante hendrerit ultricies at in turpis.
