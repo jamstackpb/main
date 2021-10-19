@@ -9,6 +9,14 @@ const Container = styled.div`
     width: 100%;
     padding: 90px 15%;
     gap: 15%;
+    @media only screen and (max-width: 680px) {
+		display:flex-wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        padding: 90px 15%;
+        gap: 15%;
+	}
 `;
 const Title = styled.div`
     font-size: 15px;
