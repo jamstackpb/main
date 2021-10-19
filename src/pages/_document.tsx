@@ -11,7 +11,11 @@ export default class MyDocument extends Document {
         return (
             <Html lang="pl-PL">
                 <Head>
-                <link rel="shortcut icon" href={process.env.NEXT_PUBLIC_BASE_PATH + '/favicon.ico'} />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+                        rel="stylesheet"
+                    />
+                    <link rel="shortcut icon" href={process.env.NEXT_PUBLIC_BASE_PATH + '/favicon.ico'} />
                     {/* enable analytics script only for production */}
                     {/* {isProduction && (
             <>
@@ -35,7 +39,7 @@ export default class MyDocument extends Document {
             </>
           )} */}
                 </Head>
-                <body style={{margin: 0}}>
+                <body style={{ margin: 0 }}>
                     <Main />
                     <NextScript />
                 </body>
