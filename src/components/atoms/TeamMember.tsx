@@ -414,7 +414,7 @@ const MemberDescription = styled.div<{ clicked: boolean; side?: 'left' | 'right'
     min-height: 15vh;
     opacity: 0;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
     ${({ side }) =>
         side === 'right'

@@ -6,6 +6,7 @@ import TeamMember from '@/src/components/atoms/TeamMember';
 import SectionWrapper from '@/src/components/atoms/SectionWrapper';
 import { getAllMembers } from '@/ssg/members';
 import { InferGetStaticPropsType } from 'next';
+import BackgroundJamstackLogo from '@/src/components/atoms/BackgroundJamstackLogo';
 
 const chooseSide = (
     array: Array<{
@@ -48,23 +49,25 @@ const teamMembers = ({ content }: InferGetStaticPropsType<typeof getStaticProps>
     return (
         <Layout pageTitle="teamMembers">
             <Header isHomepage={false} />
-            <h1 style={{ color: '#15159b', fontWeight: 600, padding: '1.5em'}} className="padding-spacing-5">
+            <h1 style={{ color: '#15159b', fontWeight: 600, padding: '1.5em' }} className="padding-spacing-5">
                 Członkowie
             </h1>
             <SectionWrapper>
-                {newArrray.map((member) => {
-                    return (
-                        <TeamMember
-                            key={member.name}
-                            imgPath={member.imgPath}
-                            side={member.side}
-                            memberName={member.name}
-                            memberRank={member.rank}
-                            memberDescription={member.description}
-                            whichMargin={member.whichMargin}
-                        ></TeamMember>
-                    );
-                })}
+                <BackgroundJamstackLogo>
+                    {newArrray.map((member) => {
+                        return (
+                            <TeamMember
+                                key={member.name}
+                                imgPath={member.imgPath}
+                                side={member.side}
+                                memberName={member.name}
+                                memberRank={member.rank}
+                                memberDescription={member.description}
+                                whichMargin={member.whichMargin}
+                            ></TeamMember>
+                        );
+                    })}
+                </BackgroundJamstackLogo>
             </SectionWrapper>
             <CopyRights />
         </Layout>

@@ -21,7 +21,7 @@ export const defaultTheme = {
         nonaryFontColor: '',
 
         primaryBackgroundColor: '#2727a3',
-        secondaryBackgroundColor: '#eeeef176',
+        secondaryBackgroundColor: '#f7f7f9',
         tertiaryBackgroundColor: '#f6fafd',
         quaternaryBackgroundColor: '#ffff00',
         quinaryBackgroundColor: '#ff8788',
