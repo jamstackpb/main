@@ -1,5 +1,6 @@
+import Link from 'next/dist/client/link';
 import { addImagePrefix } from '@/src/utils';
-import { css, keyframes } from '@emotion/react';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { DoubleRightArrow } from '@/src/components/atoms/blogPageAtoms/DoubleRightArrow';
 import { useSpring, animated } from 'react-spring';
@@ -215,12 +216,9 @@ const ReadAll = styled.div`
 `;
 interface blogPostProps {
     newest: boolean;
-    imageUrl: string;
-    postTitle: string;
-    postSubTitle: string;
-    date: string;
+    post: any;
 }
-export const PostCard: React.FC<blogPostProps> = ({ newest = false, date, imageUrl, postTitle, postSubTitle }) => {
+export const PostCard: React.FC<blogPostProps> = ({ newest = false, post }) => {
     const [coords, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 200, friction: 50 } }));
     return (
         <Card
@@ -232,18 +230,20 @@ export const PostCard: React.FC<blogPostProps> = ({ newest = false, date, imageU
             {' '}
             <PostImgWrapper>
                 <PostImgContainer>
-                    <PostImg src={addImagePrefix(imageUrl)} alt="" />
+                    <PostImg src={addImagePrefix(post.changedToMatter.postImg)} alt="" />
                     <PostDate>
-                        <span className="date">{date}</span>
+                        <span className="date">{post.changedToMatter.postDate}</span>
                     </PostDate>
                 </PostImgContainer>
             </PostImgWrapper>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                <PostTitle>{postTitle}</PostTitle>
-                <PostSubtitle>{postSubTitle}</PostSubtitle>
-                <ReadAll>
-                    <span>Przeczytaj całość</span> <DoubleRightArrow />
-                </ReadAll>{' '}
+                <PostTitle>{post.changedToMatter.postTitle}</PostTitle>
+                <PostSubtitle>{post.changedToMatter.postFragment}</PostSubtitle>
+                <Link href={'/blogsPage/' + post.slug + ''}>
+                    <ReadAll>
+                        <span className="text-blue-darkfont">Przeczytaj całość</span> <DoubleRightArrow />
+                    </ReadAll>
+                </Link>{' '}
             </div>
         </Card>
     );
