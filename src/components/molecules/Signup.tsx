@@ -11,7 +11,7 @@ const Background = styled.div`
     vertical-align:middle;
     @media only screen and (max-width: 680px) {
 		margin-left:0px;
-		margin-right:px;
+		margin-right:0px;
 		height:100%;
 		width:300px;
 	}
