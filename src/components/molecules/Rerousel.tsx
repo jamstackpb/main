@@ -19,12 +19,13 @@ const Item = styled.div`
     justify-content: center;
     align-items: center;
     width: 20%;
-    min-width: 100px;
+    min-width: 80px;
     background-color: #f7f7f9;
-    @media only screen and (max-width: 680px) {
-	min-width:15px;
+    @media only screen and (max-width: 1024px) {
+	min-width:10px;
     width:33%;
 	}
+
 `;
 const Technologybarnapis = styled.div`
     display: flex;
@@ -41,10 +42,10 @@ const Napis = styled.h1`
     align-items: center;
     margin-bottom:50px;
  
-`
+`;
 const Technologybar = styled.div`
     filter:grayscale(1);
-`
+`;
 const Images: { imageUrl: string; link: string; key: string }[] = [
     {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
