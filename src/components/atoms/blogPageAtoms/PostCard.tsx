@@ -239,7 +239,7 @@ export const PostCard: React.FC<blogPostProps> = ({ newest = false, post }) => {
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
                 <PostTitle>{post.changedToMatter.postTitle}</PostTitle>
                 <PostSubtitle>{post.changedToMatter.postFragment}</PostSubtitle>
-                <Link href={'/blogsPage/' + post.slug + ''}>
+                <Link href={'/blog/' + post.slug + ''}>
                     <ReadAll>
                         <span className="text-blue-darkfont">Przeczytaj całość</span> <DoubleRightArrow />
                     </ReadAll>
