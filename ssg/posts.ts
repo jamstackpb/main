@@ -51,7 +51,8 @@ export function getSortedPostsData() {
     });
 }
 
-export function getAllPostIds() {
+export function getAllPostIds(postsPath: string) {
+    const postsDirectory = path.join(process.cwd(), postsPath);
     const fileNames = fs.readdirSync(postsDirectory);
     return fileNames.map((fileName) => {
         return {
