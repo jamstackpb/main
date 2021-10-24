@@ -67,8 +67,8 @@ const DropMenu = styled.div`
     transition-timing-function: ease-in;
     transition: 0.2s;
     transform: translateX(0%);
-    height: 25rem;
-    position:fixed;
+    height: 100%;
+    position: relative;
 
     & > div,
     & > div > div {
@@ -132,7 +132,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
-        <div style={{ height: 80, maxHeight: 80 }}>
+        <div className="min-h-30 min-w-80 w-80">
             <Svg
                 onClick={ToggleMenu}
                 className={clicked ? 'active' : ''}
