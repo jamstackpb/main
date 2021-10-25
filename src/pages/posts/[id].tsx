@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import marked from 'marked';
+import sanitizeHtml from 'sanitize-html';
 import Link from 'next/link';
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components';
@@ -10,7 +12,6 @@ import { InferGetStaticPropsType } from 'next';
 
 const Post = ({
     frontmatter: { postImg, postTitle, postDate, author, avatar },
-    slug,
     content,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
@@ -62,7 +63,10 @@ const Post = ({
                     }}
                 ></div>
             </div>
-            <div className="text-gray-font px-96 font-medium text-2xl my-16">{content}</div>
+            <div
+                className="text-gray-font px-96 font-medium text-2xl my-16"
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(marked(content)) }}
+            ></div>
             <CopyRights />
         </Layout>
     );
