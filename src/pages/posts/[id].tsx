@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import DOMPurify from 'isomorphic-dompurify';
+import marked from 'marked';
 import Link from 'next/link';
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components';
@@ -11,7 +13,7 @@ import MarkdownContent from '@/src/components/molecules/MarkdownContent';
 
 const Post = ({
     frontmatter: { postImg, postTitle, postDate, author, avatar },
-    content,
+    clean,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Layout pageTitle={postTitle}>
@@ -62,7 +64,10 @@ const Post = ({
                     }}
                 ></div>
             </div>
-            <MarkdownContent content={content}></MarkdownContent>
+            <MarkdownContent>
+                <div dangerouslySetInnerHTML={{ __html: clean }}></div>
+            </MarkdownContent>
+
             <CopyRights />
         </Layout>
     );
@@ -88,12 +93,13 @@ export const getStaticProps = ({ params: { id } }) => {
     const markdownWithMeta = fs.readFileSync(path.join('content/blogposts', id + '.md'), 'utf-8');
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
-
+    const dirty = marked(content);
+    const clean = DOMPurify.sanitize(dirty);
     return {
         props: {
             frontmatter,
             id,
-            content,
+            clean,
         },
     };
 };
