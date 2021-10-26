@@ -37,6 +37,7 @@
         "@types/node": "^14.17.6",
         "@types/react": "^17.0.15",
         "@types/sanitize-html": "^2.5.0",
+        "@types/marked": "^3.0.2",
         "autoprefixer": "^10.3.6",
         "graphql-zeus": "^3.1.0",
         "postcss": "^8.3.8",

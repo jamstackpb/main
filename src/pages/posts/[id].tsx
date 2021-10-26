@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import DOMPurify from 'isomorphic-dompurify';
 import marked from 'marked';
-import sanitizeHtml from 'sanitize-html';
 import Link from 'next/link';
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components';
@@ -12,7 +12,7 @@ import { InferGetStaticPropsType } from 'next';
 
 const Post = ({
     frontmatter: { postImg, postTitle, postDate, author, avatar },
-    content,
+    clean,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Layout pageTitle={postTitle}>
@@ -65,7 +65,7 @@ const Post = ({
             </div>
             <div
                 className="text-gray-font px-96 font-medium text-2xl my-16"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(marked(content)) }}
+                dangerouslySetInnerHTML={{ __html: clean }}
             ></div>
             <CopyRights />
         </Layout>
@@ -92,11 +92,13 @@ export const getStaticProps = ({ params: { id } }) => {
     const markdownWithMeta = fs.readFileSync(path.join('content/blogposts', id + '.md'), 'utf-8');
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
+
+    const clean = DOMPurify.sanitize(marked(content));
     return {
         props: {
             frontmatter,
             id,
-            content,
+            clean,
         },
     };
 };
