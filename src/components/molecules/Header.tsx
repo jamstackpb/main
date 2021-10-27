@@ -7,9 +7,9 @@ const Container: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false, chi
     if(isHomepage) {
         return <div className="bg-primaryBackgroundColor pt-24 pb-24">{children}</div>;
     } else {
-        return <div className="min-w-full bg-primaryBackgroundColor text-base sticky min-h-22 h-22 z-50 ">{children}</div>;
-    }
-}
+        return <div className="w-full bg-primaryBackgroundColor text-base max-h-22 h-22 z-50 ">{children}</div>;
+    } 
+} 
 
 const Motto: React.FC = ({ children }) => <div className="max-w-full w-full flex flex-col items-center p-5">{children}</div>;
 

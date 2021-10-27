@@ -3,7 +3,7 @@ import Head from 'next/head';
 export const CustomHelmet: React.FC<{ pageTitle?: string }> = ({ pageTitle }) => {
     return (
         <Head>
-            <title>{pageTitle ? pageTitle : 'JAMstack PB'}</title>
+            <title>{pageTitle ? pageTitle : 'JAMstackPB'}</title>
             <meta name="description" content="description." />
             <meta property="keywords" content="keywords" />
 
