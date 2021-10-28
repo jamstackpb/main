@@ -23,7 +23,9 @@ const about = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <B1>
                 <h2 className="text-2xl text-center mb-10">
                     Jesteśmy kołem naukowym <b>Jamstack</b>! Zajmujemy się tworzeniem frontendu, czyli tworzeniem stron
-                    internetowych, które coś tam nie mam pomysłu
+                    internetowych od strony wizualnej. Korzystamy z wielu nowych i innowacyjnych technologii, które
+                    pozwalają nam budować zaawansowane projekty z dużą łatwością i efektywnością. Celujemy w jak
+                    największą prostotę wizualną i funkcjonalną naszych prac.
                 </h2>
                 <img src="https://jooinn.com/images/under-construction-3.png" width={100} />
             </B1>
@@ -31,5 +33,13 @@ const about = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Layout>
     );
 };
-
+/*
+-Jesteśmy kółkiem naukowym wielowydziałowym (czy cos)
+-Ilosc czlonow
+-mamy miejsca dla osob chcacych nauczyc sie frontendu
+-Szukamy nowych rozwiazan
+-praca glownie zdalna, dzieki githubowi
+-Praca jest wygodna
+-Praca wymaga kreatywnosci i zmyslu artystycznego, i estetycznego
+*/
 export default about;
