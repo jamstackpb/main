@@ -3,6 +3,8 @@ postImg: /images/ProjectsSiteImgs/projekt3.jpg
 postTitle: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
 postFragment: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim ipsum et urna commodo varius.
 postDate: 06.10.2021
+author: Tajemniczy Pan
+avatar: /images/teamMembersAvatars/MrsAnon.svg
 ---
 
 ## Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
