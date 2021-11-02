@@ -3,6 +3,8 @@ postImg: /images/ProjectsSiteImgs/projekt1.png
 postTitle: Nowy Projekt w portfolio naszego koła
 postFragment: Udało się! Po trzech miesiącach prac projektowych zespół JamStackPB wypuścił pierwszą, testową wersję aplikacji na platformy iOS i Android.
 postDate: 08.10.2021
+author: Tajemniczy Pan
+avatar: /images/teamMembersAvatars/MrsAnon.svg
 ---
 
 ## Udało się! Po trzech miesiącach prac projektowych zespół JamStackPB wypuścił pierwszą, testową wersję aplikacji na platformy iOS i Android.
