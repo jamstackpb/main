@@ -8,7 +8,7 @@ import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components';
 import { CopyRights } from '../../components/molecules/CopyRights';
 import { addImagePrefix } from '../../utils';
-import { InferGetStaticPropsType } from 'next';
+import { InferGetStaticPropsType, GetStaticProps } from 'next';
 import MarkdownContent from '@/src/components/molecules/MarkdownContent';
 
 const Post = ({
@@ -89,7 +89,11 @@ export async function getStaticPaths() {
     };
 }
 
-export const getStaticProps = ({ params: { id } }) => {
+export const getStaticProps: GetStaticProps = ({ params }) => {
+    const id = params?.id;
+    if (!id) {
+        throw new Error('Invalid static prop');
+    }
     const markdownWithMeta = fs.readFileSync(path.join('content/blogposts', id + '.md'), 'utf-8');
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
