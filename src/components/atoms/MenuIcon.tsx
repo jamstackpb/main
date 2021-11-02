@@ -131,7 +131,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
-        <div style={{ height: 80, maxHeight: 80 }}>
+        <div className="min-h-30 min-w-80 w-80">
             <Svg
                 onClick={ToggleMenu}
                 className={clicked ? 'active' : ''}

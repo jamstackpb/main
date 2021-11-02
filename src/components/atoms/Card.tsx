@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import React from 'react';
 
 const Main: React.FC = ({ children }) => <div className="bg-white rounded-xl p-6 flex flex-col">{children}</div>;

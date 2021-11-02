@@ -1,78 +1,55 @@
-import styled from '@emotion/styled';
-import { Button } from '@/src/components/atoms/Button';
+import React from "react";
 
+const Background: React.FC = ({ children }) => (
+    <div className="bg-white flex flex-col w-84 max-w-full h-80 max-h-80 justify-center text-left items-center rounded-md px-10">{children}</div>
+);
+const Container: React.FC = ({ children }) => (
+    <div className="max-w-64">
+        {children}
+    </div>
+);
+const Title: React.FC = ({ children }) => 
+<div className="text-base font-bold text-tertiaryFontColor mt-2 mb-1 max-w-full">{children}</div>;
 
+const SubTitle: React.FC = ({ children }) => (
+    <div className="text-xl font-black text-quaternaryFontColor mb-1 max-w-full">{children}</div>
+);
 
-const Background = styled.div`
-    background-color: ${({ theme }) => theme.colorsPalette.commonWhite};
-    display: flex;
-    flex-direction: column;
-    padding:35px; 
-    vertical-align:middle;
-    @media only screen and (max-width: 680px) {
-		margin-left:0px;
-		margin-right:0px;
-		height:100%;
-		width:300px;
-	}
-`;
-const Title = styled.div`
-    font-size: 15px;
-    font: 600;
-    color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
-    margin-top: 10px;
-    margin-bottom: 5px;
-    
-    
-`;
-const SubTitle = styled.div`
-    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 10px;
-    
-`;
-const Opis = styled.div`
-    font-size: 15px;
-    color: ${({ theme }) => theme.colorsPalette.quinaryFontColor};
-    margin-bottom: 15px;
-    width: 250px;
-    
-`;
-const InputContainer = styled.div`
-    display: flex;
-    max-width: 100%;
-    align-items: stretch;
-    flex-direction: column;
-    text-align: center;
-    
-    
-    
-`;
+const Description: React.FC = ({ children }) => (
+    <div className="text-base font-bold text-quinaryFontColor mb-1 max-w-full">{children}</div>
+);
 
-const Input = styled.input`
-    background: ${({ theme }) => theme.colorsPalette.tertiaryBackgroundColor};
-    padding: 30px 90px;
-    color: ${({ theme }) => theme.colorsPalette.tertiaryFontColor};
-    font-size: 15px;
-    border: 0;
-    @media only screen and (max-width: 680px) {
-       padding: 10px 70px;
-	}
-`;
+const InputContainer: React.FC = ({ children }) => (
+    <a className="flex flex-col justify-center max-w-full py-2">{children}</a>
+);
+
+const Input: React.FC<{ placeHolder: string }> = ({ children, placeHolder }) => (
+    <input className="max-w-full bg-white text-black border-0 py-4 text-center" placeholder={placeHolder}>
+        {children}
+    </input>
+);
+
+const Button: React.FC = ({ children }) => (
+    <a
+        className="flex justify-center py-4 items-center bg-quaternaryBackgroundColor max-w-full text-black font-bold text-base uppercase text-center cursor-pointer border-0 block
+ hover:bg-primaryHoverColor focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+    >
+        {children}
+    </a>
+);
 
 export const Signup = () => {
     return (
-       
         <Background>
-            <Title>ZAPISZ SIĘ</Title>
-            <SubTitle>Zapisz się do koła</SubTitle>
-            <Opis>Odkryj jak naprawdę pracuje front-end developer</Opis>
-            <InputContainer>
-                <Input placeholder="E-mail address" />
-                <Button>ZGŁASZAM SIĘ</Button>
-            </InputContainer>
+            <Container>
+                <Title>ZAPISZ SIĘ</Title>
+                <SubTitle>Zapisz się do koła</SubTitle>
+                <Description>Odkryj jak naprawdę pracuje front-end developer</Description>
+                <InputContainer>
+                    <Input placeHolder="E-maill address" />
+                    <Button>ZGŁASZAM SIĘ</Button>
+                </InputContainer>
+            </Container>
         </Background>
-        
     );
 };
