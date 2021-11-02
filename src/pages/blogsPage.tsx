@@ -76,18 +76,8 @@ const blogspage = ({ content }: InferGetStaticPropsType<typeof getStaticProps>) 
                     </h3>
                 </Titles>
                 <GridContainer>
-                    {console.log(content)}
                     {sortedContent.map((card, index) => {
-                        return (
-                            <PostCard
-                                key={index}
-                                newest={index === 0}
-                                imageUrl={card.changedToMatter.postImg}
-                                postTitle={card.changedToMatter.postTitle}
-                                postSubTitle={card.changedToMatter.postFragment}
-                                date={card.changedToMatter.postDate}
-                            />
-                        );
+                        return <PostCard key={index} newest={index === 0} post={card} />;
                     })}
                 </GridContainer>
             </SectionWrapper>

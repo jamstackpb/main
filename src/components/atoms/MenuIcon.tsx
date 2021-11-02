@@ -12,6 +12,7 @@ const Svg = styled.svg`
     top: 0;
     z-index: 50;
 
+
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
     }
@@ -68,6 +69,7 @@ const DivLink: React.FC<{ link: string }> = ({ link, children }) => (
         {children}
     </a>
 );
+
 
 export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
