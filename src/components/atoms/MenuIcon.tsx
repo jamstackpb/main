@@ -172,7 +172,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                 </div>
                 <div>
                     <div>
-                        <Link href="#">
+                        <Link href="/aboutUs">
                             <a>O nas</a>
                         </Link>
                     </div>
