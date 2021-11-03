@@ -3,13 +3,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const Svg = styled.svg`
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     margin-right: 4px;
     transition: 0.5s;
-    position: sticky;
+    position: fixed;
     top: 0;
+    z-index: 50;
+
 
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
@@ -51,87 +53,29 @@ const Svg = styled.svg`
     }
 `;
 
-const DropMenu = styled.div`
-    background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
-    border-radius: 0 0 2rem 0;
-    display: flex;
-    left: -20rem;
-    top: 80px;
-    z-index: 12;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
-    width: 20rem;
-    padding: 0;
-    margin: 0;
-    transition-timing-function: ease-in;
-    transition: 0.2s;
-    transform: translateX(0%);
-    height: 25rem;
-    position: fixed;
+type Props = { className?: string };
+const divStyles = {
+    div: 'bg-blue-darkfont flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60',
+    transition: ' w-full h-20 relative',
+};
 
-    & > div,
-    & > div > div {
-        position: relative;
-        left: -20rem;
-        margin: 0;
-        padding: 0px;
-        width: 100%;
-        height: 5rem;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
+const DivMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
+const DivLink: React.FC<{ link: string }> = ({ link, children }) => (
+    <a
+        href={link}
+        className="text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300"
+    >
+        {children}
+    </a>
+);
 
-    &.active > div > div:hover {
-        background-color: ${({ theme }) => theme.colorsPalette.secondaryHoverColor};
-        transition-delay: 0s;
-    }
-    & > div > div > a {
-        text-align: center;
-        color: white;
-        display: block;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 2.6rem;
-        margin: 0;
-        padding: 1.2rem 0;
-        width: 100%;
-        height: 100%;
-        line-height: 2.6rem;
-    }
-    &.active {
-        transition-timing-function: ease-out;
-        transition: 0.5s;
-        transform: translateX(100%);
-    }
-    &.active div {
-        transition-timing-function: ease-out;
-        transition: 0.5s;
-        transform: translateX(100%);
-    }
-    &.active div:nth-of-type(1) {
-        transition-delay: 0s;
-    }
-    &.active div:nth-of-type(2) {
-        transition-delay: 0.25s;
-    }
-    &.active div:nth-of-type(3) {
-        transition-delay: 0.5s;
-    }
-    &.active div:nth-of-type(4) {
-        transition-delay: 0.75s;
-    }
-    &.active div:nth-of-type(5) {
-        transition-delay: 1s;
-    }
-`;
 
 export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
-        <div className="min-h-30 min-w-80 w-80">
+        <div className={'h-20'}>
             <Svg
                 onClick={ToggleMenu}
                 className={clicked ? 'active' : ''}
@@ -155,42 +99,56 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                     <path d="M100.75 125.143h28.75" fillRule="evenodd" stroke="#fff" />
                 </g>
             </Svg>
-            <DropMenu className={clicked ? 'active' : ''}>
-                <div>
-                    <div style={{ borderRadius: isHomepage ? ' 0 2rem 0 0' : '0' }}>
-                        <Link href="/">
-                            <a>Strona główna</a>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <Link href="/ProjectsPage/">
-                            <a>Projekty</a>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <Link href="/aboutUs">
-                            <a>O nas</a>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <Link href="/teamMembers">
-                            <a>Członkowie</a>
-                        </Link>
-                    </div>
-                </div>
-                <div>
-                    <div style={{ borderRadius: ' 0 0 2rem 0' }}>
-                        <Link href="/blogsPage">
-                            <a>Blog</a>
-                        </Link>
-                    </div>
-                </div>
+            <DropMenu
+                className={`${divStyles.div} ${
+                    clicked ? 'transform duration-500 translate-x-0' : ' transform ease-in -translate-x-full'
+                }`}
+            >
+                <DivMenu
+                    className={`${divStyles.transition} ${
+                        clicked
+                            ? 'transform ease-out duration-200 delay-0 translate-x-0'
+                            : 'transform ease-out -translate-x-full'
+                    }`}
+                >
+                    <DivLink link="/">Strona główna</DivLink>
+                </DivMenu>
+                <DivMenu
+                    className={`${divStyles.transition} ${
+                        clicked
+                            ? 'transform ease-out duration-200 delay-150 translate-x-0'
+                            : 'transform ease-out -translate-x-full'
+                    }`}
+                >
+                    <DivLink link="/ProjectsPage/">Projekty</DivLink>
+                </DivMenu>
+                <DivMenu
+                    className={`${divStyles.transition} ${
+                        clicked
+                            ? 'transform ease-out duration-200 delay-300 translate-x-0'
+                            : 'transform ease-out -translate-x-full'
+                    }`}
+                >
+                    <DivLink link="#">O nas</DivLink>
+                </DivMenu>
+                <DivMenu
+                    className={`${divStyles.transition} ${
+                        clicked
+                            ? 'transform ease-out duration-200 delay-450 translate-x-0'
+                            : 'transform ease-out -translate-x-full'
+                    }`}
+                >
+                    <DivLink link="/teamMembers">Członkowie</DivLink>
+                </DivMenu>
+                <DivMenu
+                    className={`${divStyles.transition} ${
+                        clicked
+                            ? 'transform ease-out duration-200 delay-600 translate-x-0'
+                            : 'transform ease-out -translate-x-full'
+                    }`}
+                >
+                    <DivLink link="/blogsPage">Blog</DivLink>
+                </DivMenu>
             </DropMenu>
         </div>
     );
