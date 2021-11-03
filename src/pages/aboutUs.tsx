@@ -1,7 +1,6 @@
 import { Layout } from '@/src/layouts';
 import { Header } from '@/src/components/molecules/Header';
 import { CopyRights } from '../components/molecules/CopyRights';
-import { InferGetStaticPropsType } from 'next';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
@@ -14,7 +13,7 @@ const B1 = styled.h2`
     padding: 2rem 8rem 6rem;
 `;
 
-const about = ({ about }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const about = () => {
     return (
         <Layout pageTitle="aboutUs">
             <Header isHomepage={false} />
