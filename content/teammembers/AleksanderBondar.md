@@ -1,6 +1,8 @@
 ---
 name: Aleksander Bondar
 rank: Członek
-description: Student 4 roku mechatroniki.'
+rankid: 1
+description: Student 4 roku Mechatroniki.
+www: https://github.com/AleksanderBondar
 imgPath: /images/teamMembersAvatars/aleksanderBondar.jpg
 ---

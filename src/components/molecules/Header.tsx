@@ -1,61 +1,36 @@
-import styled from '@emotion/styled';
-import { Input } from '../atoms/Input';
-import { Button } from '../atoms/Button';
+import { Layout } from '@/src/layouts';
 import { Logo } from '@/src/components/molecules/Logo';
 import { MenuIcon } from '@/src/components/atoms/MenuIcon';
-import { css } from '@emotion/react';
+import React from 'react';
 
-const Container = styled.div<{ isHomepage: boolean }>`
-    width: 100%;
-    background: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
-    color: ${({ theme }) => theme.colorsPalette.commonWhite};
-    font-size: 18px;
-    ${({ isHomepage }) =>
-        isHomepage === true
-        ? css`
-            padding: 100px 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        `
-        : css`
-                  position: sticky;
-                  top:0px;
-                  min-height: 8rem;
-                  z-index: 99;
-              `};
-`;
+const Container: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false, children }) => {
+    if(isHomepage) {
+        return <div className="bg-primaryBackgroundColor pt-24 pb-24">{children}</div>;
+    } else {
+        return <div className="w-full bg-primaryBackgroundColor text-base max-h-22 h-22 z-50 ">{children}</div>;
+    } 
+} 
 
-const Motto = styled.div`
-    width: 640px;
-    max-width: 100%;
-    padding: 20px;
-`;
-const SubTitle = styled.p`
-    color: ${({ theme }) => theme.colorsPalette.commonWhite};
-    font-weight: 300;
-    font-size: 20px;
-    margin-bottom: 25px;
-`;
-const Title = styled.h1`
-    font-weight: 900;
-    color: ${({ theme }) => theme.colorsPalette.commonWhite};
-    font-size: 50px;
-    margin-bottom: 25px;
-    @media (max-width: 385px) {
-        & {
-            font-size: 25px;
-        }
-    }
-`;
-const InputContainer = styled.div`
-    display: flex;
-    width: 600px;
-    max-width: 100%;
-    align-items: stretch;
-    flex-grow: (3, 1);
-`;
+const Motto: React.FC = ({ children }) => <div className="max-w-full w-full flex flex-col items-center p-5">{children}</div>;
+
+const SubTitle: React.FC = ({ children }) => <p className="max-w-full w-101 font-light text-white text-xl mb-6">{children}</p>;
+
+const Title: React.FC = ({ children }) => (
+    <div className="max-w-full w-101 tracking-tight text-left font-black leading-normal text-white text-5xl pt-1 pb-6">
+        {children}
+    </div>
+);
+
+const InputContainer: React.FC = ({ children }) => <div className="max-w-full w-101 flex flex-row pt-2 -ml-3">{children}</div>;
+
+const Input: React.FC<{ placeHolder: string }> = ({ children, placeHolder }) =>
+<input className="max-w-full bg-white w-full text-black border-0 p-7 ml-2" placeholder={placeHolder}>{children}</input>;
+
+const Button: React.FC = ({ children }) =>
+ <a className="max-w-full flex justify-center items-center bg-quaternaryBackgroundColor w-2/5 text-black font-bold text-base uppercase text-center cursor-pointer border-0
+ hover:bg-primaryHoverColor focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">{children}</a>;
+
+
 interface HeaderProps {
     isHomepage?: boolean;
 }
@@ -66,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ isHomepage = false }) => {
             <Container isHomepage={isHomepage}>
                 {isHomepage ? (
                     <>
+                    <Layout>
                         <div style={{ position: 'absolute', top: 0, left: 0 }}>
                             <MenuIcon isHomepage />
                         </div>
@@ -74,15 +50,17 @@ export const Header: React.FC<HeaderProps> = ({ isHomepage = false }) => {
                             <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
                             <Title>Naucz się robić front-end wśród najlepszych </Title>
                             <InputContainer>
-                                <Input style={{ flex: 3 }} placeholder="podaj email" />
+                                <Input placeHolder="E-maill address" />
                                 <Button>Zapisz się</Button>
                             </InputContainer>
                         </Motto>
+                    </Layout>  
                     </>
                 ) : (
                     <MenuIcon />
                 )}
             </Container>
         </>
+        
     );
 };

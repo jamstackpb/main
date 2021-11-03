@@ -11,7 +11,14 @@ export const getAllMembers = () => {
         const fileContents = fs.readFileSync(realPath).toString('utf-8');
         const changeToMatter = matter(fileContents);
 
-        return changeToMatter.data as { name: string; rank: string; description: string; imgPath: string };
+        return changeToMatter.data as {
+            name: string;
+            rank: string;
+            rankid: string;
+            www: string;
+            description: string;
+            imgPath: string;
+        };
     });
     return withGrayMatter;
 };

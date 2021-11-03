@@ -1,20 +1,8 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Copyrights = styled.div`
-    width: 100%;
-    height: 128px;
-    color: ${({ theme }) => theme.colorsPalette.secondaryFontColor};
-    padding-top: 34px;
-    padding-bottom: 82px;
-    border: 0px;
-    font-weight: 500;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: ${({ theme }) => theme.boxShadow.primary};
-    z-index: 1;
-`;
+const Copyrights: React.FC = ({ children }) => (
+    <div className="max-w-full justify-center text-secondaryFontColor text-center flex font-medium mt-10">{children}</div>
+);
 
 export const CopyRights = () => {
     return (

@@ -2,50 +2,17 @@ import styled from '@emotion/styled';
 import React, { useRef } from 'react';
 import { Rerousel } from 'rerousel';
 
-const Main = styled.div`
-    background: #f7f7f9;
-    color: #fdf;
-    padding: 10px;
-    padding-bottom: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-`;
-
 const Item = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
-    min-width: 80px;
-    background-color: #f7f7f9;
-    @media only screen and (max-width: 1024px) {
-	min-width:10px;
-    width:33%;
-	}
-
-`;
-const Technologybarnapis = styled.div`
-    display: flex;
-    padding:10px;
-    margin-top:50px;
-    flex-direction: column;
-	}
-`;
-const Napis = styled.h1`
-    color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
-    font-weight: 650;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom:50px;
- 
-`;
-const Technologybar = styled.div`
-    filter:grayscale(1);
-`;
+    width: calc(100%/5);
+    background-color: transparent;
+    filter: grayscale(100%);
+    @media (max-width:768px){
+        width:33%;
+    }
+  `;
 const Images: { imageUrl: string; link: string; key: string }[] = [
     {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
@@ -92,42 +59,38 @@ const Images: { imageUrl: string; link: string; key: string }[] = [
         link: 'https://en.wikipedia.org/wiki/CSS',
         key: '9',
     },
+    {
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg',
+        link: 'https://es.wikipedia.org/wiki/Usuario:Preocupante/Taller/Tailwind_CSS',
+        key: '10',
+    },
 ];
 interface LogoCloudProps {
     images: Array<{ imageUrl: string; link: string; key: string }>;
 }
 
+const TechBackground: React.FC = ({children}) => 
+    <div className="w-full py-16 bg-tertiaryBackgroundColor">{children}</div>;
+const Techtext: React.FC = ({ children }) => 
+    <div className="font-medium text-blue-darkfont text-2xl text-center mb-10 p-8">{children}</div>;
+
 export const Techbar: React.FC<LogoCloudProps> = ({ images }) => {
     const customerLogo = useRef(null);
-
     return (
-        <Main>
-            <Technologybarnapis>
-                <Napis>Technologie, których używamy</Napis>
-            </Technologybarnapis>
-                <Technologybar>
-                <Rerousel itemRef={customerLogo} interval={3000} stop={false}>
-                        {Images.map(({ imageUrl, link, key }) => {
-                            return (
-                                <Item ref={customerLogo} key={key}>
-                                    <a href={link}>
-                                        <img
-                                            style={{
-                                                padding: '10px',
-                                                background: 'transparrent',
-                                                height: '100px',
-                                                width: '100px',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                            }}
-                                            src={imageUrl}
-                                        />
-                                    </a>
-                                </Item>
-                            );
-                        })}
-                    </Rerousel>
-            </Technologybar>
-        </Main>
+            <TechBackground>
+                <Techtext>Technologie, których używamy</Techtext>
+                    <Rerousel itemRef={customerLogo} interval={3000} stop={false}>
+                            {Images.map(({ imageUrl, link, key }) => {
+                                return (
+                                    <Item ref={customerLogo} key={key}>
+                                        <a href={link}>
+                                        <img src={imageUrl} className="w-20" />
+                                        </a>
+                                    </Item>
+                                );
+                            })}
+                        </Rerousel>
+            </TechBackground>
+
     );
 };

@@ -1,6 +1,8 @@
 ---
-name: Mateusz Siebiatyński || SMATEO49
+name: SMATEO49
 rank: Członek
-description: Student 4 roku Automatyki i Robotyki na PB, interesuję się lotnictwem i techniką wojskową w wolnym czasie poznaję tajniki kodzenia
-imgPath: /images/teamMembersAvatars/smateo.jpeg
+rankid: 1
+description: Student 4 roku AiR na PB, interesuję się lotnictwem, techniką wojskową, programowaniem
+www: https://github.com/SMATEO49
+imgPath: /images/teamMembersAvatars/smateo.jpg
 ---

@@ -1,25 +1,13 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Icon = styled.div<{ imagIcon: any }>`
-    background-image: url(${({ imagIcon }) => imagIcon});
-    height: 50px;
-    width: 50px;
-    box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    :hover {
-        box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.3);
-    }
-`;
+const Icon: React.FC<{ imagIcon: any }> = ({ imagIcon }) => (
+    <img
+        src={imagIcon}
+        className="w-10 h-auto flex shadow-sm hover:shadow-lg"></img>
+);
+export const InvertedButton: React.FC<{ahref:any; imagIcon:any}> =({ahref,imagIcon})=>(
+    <a href={ahref} className={"h-10 w-10"}><Icon imagIcon={imagIcon}/></a>
+)
 
-type Param = {
-    ahref: any;
-    imagIcon: any;
-};
 
-export const InvertedButton = ({ ahref, imagIcon }: Param) => {
-    return (
-        <a href={ahref} style={{ height: 50, width: 50 }}>
-            <Icon imagIcon={imagIcon} />
-        </a>
-    );
-};
+
