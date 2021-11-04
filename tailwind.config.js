@@ -6,7 +6,7 @@ module.exports = {
                 git: 'url("public/images/teamMembersAvatars/git_icon.svg")',
             },
             backgroundSize: {
-                'body': '91%',
+                body: '91%',
             },
             colors: {
                 primaryFontColor: '#78a0fa',
@@ -26,7 +26,7 @@ module.exports = {
                 senaryBackgroundColor: '#bbdc65',
                 septenaryBackgroundColor: '#65efdd',
                 octonaryBackgroundColor: '#6e62d8',
-                nonaryBackgroundColor: '',
+                nonaryBackgroundColor: '#15159b',
                 primaryHoverColor: '#ffff65',
                 secondaryHoverColor: '#6699ff',
             },
@@ -381,14 +381,12 @@ module.exports = {
             30: '30',
             40: '40',
             50: '50',
-
         },
     },
     variants: {
         backgroundImage: ['hover', 'focus'],
         backgroundSize: ['hover', 'focus'],
         borderWidth: ['hover', 'focus'],
-
     },
     plugins: [],
-}
+};

@@ -1,3 +1,4 @@
+import { addImagePrefix } from '@/src/utils';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,7 +12,6 @@ const Svg = styled.svg`
     position: fixed;
     top: 0;
     z-index: 50;
-
 
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
@@ -55,21 +55,20 @@ const Svg = styled.svg`
 
 type Props = { className?: string };
 const divStyles = {
-    div: 'bg-blue-darkfont flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60',
+    div: 'bg-nonaryBackgroundColor flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60',
     transition: ' w-full h-20 relative',
 };
 
 const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
 const DivMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
-const DivLink: React.FC<{ link: string }> = ({ link, children }) => (
+const DivLink: React.FC<{ href: string }> = ({ href, children }) => (
     <a
-        href={link}
-        className="text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300"
+        href={addImagePrefix(href)}
+        className="text-center text-white text-xl font-bold block -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300"
     >
         {children}
     </a>
 );
-
 
 export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
@@ -111,7 +110,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink link="/">Strona główna</DivLink>
+                    <DivLink href="/">Strona główna</DivLink>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -120,7 +119,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink link="/ProjectsPage/">Projekty</DivLink>
+                    <DivLink href="/ProjectsPage/">Projekty</DivLink>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -129,7 +128,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink link="#">O nas</DivLink>
+                    <DivLink href="/aboutUs">O nas</DivLink>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -138,7 +137,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink link="/teamMembers">Członkowie</DivLink>
+                    <DivLink href="/teamMembers">Członkowie</DivLink>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -147,7 +146,7 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink link="/blogsPage">Blog</DivLink>
+                    <DivLink href="/blogsPage">Blog</DivLink>
                 </DivMenu>
             </DropMenu>
         </div>
