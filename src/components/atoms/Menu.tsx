@@ -44,10 +44,10 @@ export const Menu: React.FC = () => {
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
-        <div className={'h-28'}>
+        <div className={'h-16 self-center'}>
             <MenuIcon clicked={clicked} click={ToggleMenu} />
             <DropMenu
-                className={`bg-gray-900 text-white flex flex-col items-center justify-center fixed top-22 w-full h-full z-auto md:w-60 ${
+                className={`bg-gray-900 text-white flex flex-col items-center justify-center fixed  w-full h-full z-auto md:w-60 ${
                     clicked
                         ? 'transform duration-500 translate-x-0'
                         : ' transform ease-in duration-300 -translate-x-full'

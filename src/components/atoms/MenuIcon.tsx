@@ -58,9 +58,7 @@ export const MenuIcon: React.FC<IconProps> = ({ clicked, click }) => {
         <Svg
             onClick={click}
             className={
-                clicked
-                    ? 'relative active cursor-pointer w-16 h-16 z-50 self-center'
-                    : 'relative cursor-pointer w-16 h-16 z-50 self-center'
+                clicked ? 'relative active cursor-pointer w-16 h-16 z-50 ' : 'relative cursor-pointer w-16 h-16 z-50 '
             }
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 200 200"
