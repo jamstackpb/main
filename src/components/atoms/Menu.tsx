@@ -12,7 +12,6 @@ const Svg = styled.svg`
     top: 0;
     z-index: 50;
 
-
     path:nth-of-type(1) {
         transform-origin: 36% 40%;
     }
@@ -55,23 +54,43 @@ const Svg = styled.svg`
 
 type Props = { className?: string };
 const divStyles = {
-    div: 'bg-blue-darkfont flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60',
     transition: ' w-full h-20 relative',
 };
 
 const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
 const DivMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
 const DivLink: React.FC<{ link: string }> = ({ link, children }) => (
-    <a
-        href={link}
-        className="text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300"
-    >
-        {children}
-    </a>
+    <Link href={link}>
+        <div className="text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-800">
+            {children}
+        </div>
+    </Link>
 );
 
+const content = [
+    {
+        link: '/',
+        name: 'Strona Głowna',
+    },
+    {
+        link: '/ProjectsPage',
+        name: 'Projekty',
+    },
+    {
+        link: '/aboutUs',
+        name: 'O nas',
+    },
+    {
+        link: '/teamMembers',
+        name: 'Członkowie',
+    },
+    {
+        link: '/blogsPage',
+        name: 'Blog',
+    },
+];
 
-export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
+export const Menu: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
     const ToggleMenu = () => setClicked(!clicked);
     return (
@@ -100,55 +119,21 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                 </g>
             </Svg>
             <DropMenu
-                className={`${divStyles.div} ${
+                className={`bg-gray-900 text-white flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60 ${
                     clicked ? 'transform duration-500 translate-x-0' : ' transform ease-in -translate-x-full'
                 }`}
             >
-                <DivMenu
-                    className={`${divStyles.transition} ${
-                        clicked
-                            ? 'transform ease-out duration-200 delay-0 translate-x-0'
-                            : 'transform ease-out -translate-x-full'
-                    }`}
-                >
-                    <DivLink link="/">Strona główna</DivLink>
-                </DivMenu>
-                <DivMenu
-                    className={`${divStyles.transition} ${
-                        clicked
-                            ? 'transform ease-out duration-200 delay-150 translate-x-0'
-                            : 'transform ease-out -translate-x-full'
-                    }`}
-                >
-                    <DivLink link="/ProjectsPage/">Projekty</DivLink>
-                </DivMenu>
-                <DivMenu
-                    className={`${divStyles.transition} ${
-                        clicked
-                            ? 'transform ease-out duration-200 delay-300 translate-x-0'
-                            : 'transform ease-out -translate-x-full'
-                    }`}
-                >
-                    <DivLink link="#">O nas</DivLink>
-                </DivMenu>
-                <DivMenu
-                    className={`${divStyles.transition} ${
-                        clicked
-                            ? 'transform ease-out duration-200 delay-450 translate-x-0'
-                            : 'transform ease-out -translate-x-full'
-                    }`}
-                >
-                    <DivLink link="/teamMembers">Członkowie</DivLink>
-                </DivMenu>
-                <DivMenu
-                    className={`${divStyles.transition} ${
-                        clicked
-                            ? 'transform ease-out duration-200 delay-600 translate-x-0'
-                            : 'transform ease-out -translate-x-full'
-                    }`}
-                >
-                    <DivLink link="/blogsPage">Blog</DivLink>
-                </DivMenu>
+                {content.map(({ link, name }, i) => (
+                    <DivMenu
+                        className={`${divStyles.transition} ${
+                            clicked
+                                ? `transform ease-out duration-200 delay-${i * 150} translate-x-0`
+                                : 'transform ease-out -translate-x-full'
+                        }`}
+                    >
+                        <DivLink link={link}>{name}</DivLink>
+                    </DivMenu>
+                ))}
             </DropMenu>
         </div>
     );

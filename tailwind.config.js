@@ -1,12 +1,13 @@
 module.exports = {
     purge: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
+    mode: 'jit',
     theme: {
         extend: {
             backgroundImage: {
                 git: 'url("public/images/teamMembersAvatars/git_icon.svg")',
             },
             backgroundSize: {
-                'body': '91%',
+                body: '91%',
             },
             colors: {
                 primaryFontColor: '#78a0fa',
@@ -381,14 +382,12 @@ module.exports = {
             30: '30',
             40: '40',
             50: '50',
-
         },
     },
     variants: {
         backgroundImage: ['hover', 'focus'],
         backgroundSize: ['hover', 'focus'],
         borderWidth: ['hover', 'focus'],
-
     },
     plugins: [],
-}
+};
