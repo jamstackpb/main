@@ -53,14 +53,14 @@ interface IconProps {
     click: () => void;
 }
 
-export const NewMenuIcon: React.FC<IconProps> = ({ clicked, click }) => {
+export const MenuIcon: React.FC<IconProps> = ({ clicked, click }) => {
     return (
         <Svg
             onClick={click}
             className={
                 clicked
-                    ? 'active cursor-pointer w-16 h-16  z-50 self-center'
-                    : 'cursor-pointer w-16 h-16  z-50 self-center'
+                    ? 'relative active cursor-pointer w-16 h-16 z-50 self-center'
+                    : 'relative cursor-pointer w-16 h-16 z-50 self-center'
             }
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 200 200"

@@ -5,7 +5,11 @@ interface LayoutProps {
     pageTitle?: string;
 }
 
-const Container: React.FC = ({ children }) => <div className={'container mx-auto  mt-22'}>{children}</div>;
+const Container: React.FC = ({ children }) => (
+    <div style={{ marginTop: '5.5rem' }} className={'container mx-auto mt-22'}>
+        {children}
+    </div>
+);
 
 export const Layout: React.FC<LayoutProps> = ({ children, pageTitle }) => {
     return (

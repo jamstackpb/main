@@ -44,7 +44,7 @@ const Post = ({
                     </div>
                     <div className="flex mt-7">
                         <div
-                            style={{ backgroundImage: 'url(' + avatar + ')' }}
+                            style={{ backgroundImage: 'url(' + addImagePrefix(avatar) + ')' }}
                             className="bg-cover h-50px w-50px z-30"
                         ></div>
                         <div className="inline-block h-50px ml-6">

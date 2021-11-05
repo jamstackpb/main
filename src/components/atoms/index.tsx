@@ -8,6 +8,8 @@ export * from './Card';
 export * from './Cards';
 export * from './CustomHelmet';
 export * from './MemberDescription';
+export * from './Menu';
+export * from './MenuIcon';
 export * from './Navigation';
 export * from './ProjectsSliderSection';
 export * from './SectionWrapper';

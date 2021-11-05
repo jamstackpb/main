@@ -31,13 +31,14 @@ const MemberDescription: React.FC<{ description: string }> = ({ description }) =
 
 const MemberFigure: React.FC<{ git: string }> = ({ children, git }) => {
     return (
-        <figure
+        <a
             className="flex flex-col rounded-3xl w-full h-full mb-1 cursor-pointer
             hover:bg-git bg-body bg-center bg-no-repeat "
-            onClick={() => open(git)}
+            href={git}
+            target="_blank"
         >
             {children}
-        </figure>
+        </a>
     );
 };
 
