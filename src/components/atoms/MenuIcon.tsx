@@ -1,4 +1,3 @@
-import { addImagePrefix } from '@/src/utils';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -57,18 +56,11 @@ type Props = { className?: string };
 const divStyles = {
     div: 'bg-nonaryBackgroundColor flex flex-col items-center justify-center fixed w-full h-full z-30 md:w-60',
     transition: ' w-full h-20 relative',
+    text: 'text-center text-white text-xl font-bold block -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300',
 };
 
 const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
 const DivMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
-const DivLink: React.FC<{ href: string }> = ({ href, children }) => (
-    <a
-        href={addImagePrefix(href)}
-        className="text-center text-white text-xl font-bold block -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-300"
-    >
-        {children}
-    </a>
-);
 
 export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false }) => {
     const [clicked, setClicked] = useState(false);
@@ -110,7 +102,9 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink href="/">Strona główna</DivLink>
+                    <Link href="/">
+                        <a className={`${divStyles.text}`}>Strona główna</a>
+                    </Link>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -119,7 +113,9 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink href="/ProjectsPage/">Projekty</DivLink>
+                    <Link href="/ProjectsPage/">
+                        <a className={`${divStyles.text}`}>Projekty</a>
+                    </Link>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -128,7 +124,9 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink href="/aboutUs">O nas</DivLink>
+                    <Link href="/aboutUs">
+                        <a className={`${divStyles.text}`}>O nas</a>
+                    </Link>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -137,7 +135,9 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink href="/teamMembers">Członkowie</DivLink>
+                    <Link href="/teamMembers">
+                        <a className={`${divStyles.text}`}>Członkowie</a>
+                    </Link>
                 </DivMenu>
                 <DivMenu
                     className={`${divStyles.transition} ${
@@ -146,7 +146,9 @@ export const MenuIcon: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = fals
                             : 'transform ease-out -translate-x-full'
                     }`}
                 >
-                    <DivLink href="/blogsPage">Blog</DivLink>
+                    <Link href="/blogsPage">
+                        <a className={`${divStyles.text}`}>Blog</a>
+                    </Link>
                 </DivMenu>
             </DropMenu>
         </div>
