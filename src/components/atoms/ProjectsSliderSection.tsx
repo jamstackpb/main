@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { addImagePrefix } from '@/src/utils';
-import SectionWrapper from '@/src/components/atoms/SectionWrapper';
+import { SectionWrapper } from '@/src/components';
 
 interface ProjectsSectionSliderProps {
     projects: Array<{
@@ -207,7 +207,7 @@ const Arrows = styled.div<{ whichArrow?: string }>`
         transform: translateX(-60%) translateY(-50%);
     }
 `;
-const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
+export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
     const [current, setCurrent] = useState(0);
     const nextSlide = () => {
         if (current == projects.length - 1) setCurrent(0);
@@ -248,5 +248,3 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         </SectionWrapper>
     );
 };
-
-export default ProjectsSectionSlider;

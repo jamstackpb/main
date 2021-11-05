@@ -1,10 +1,8 @@
-import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/CopyRights';
-import TeamMember from '@/src/components/atoms/TeamMember';
 import { getAllMembers } from '@/ssg/members';
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
-import { CustomHelmet } from '../components/atoms/CustomHelmet';
+
+import { CopyRights, CustomHelmet, TeamMember } from '@/src/components';
 
 const Team2Wrapper: React.FC = ({ children }) => (
     <div className="flex flex-wrap justify-center bg-primaryBackgroundColor gap-6 pb-12 pt-6">{children}</div>
@@ -14,7 +12,9 @@ const TeamWrapper: React.FC = ({ children }) => (
 );
 
 const TeamHeader: React.FC = ({ children }) => (
-    <h1 className="justify-center text-blue-darkfont text-6xl font-black font-Festive text-center w-full pt-5">{children}</h1>
+    <h1 className="justify-center text-blue-darkfont text-6xl font-black font-Festive text-center w-full pt-5">
+        {children}
+    </h1>
 );
 
 const Team2Header: React.FC = ({ children }) => (
@@ -25,7 +25,7 @@ const teamMembers = ({ content }: InferGetStaticPropsType<typeof getStaticProps>
     return (
         <div className="container max-w-full bg-tertiaryBackgroundColor">
             <CustomHelmet />
-            <Header isHomepage={false} />
+
             <Team2Wrapper>
                 <Team2Header>Zarząd</Team2Header>
                 {content.map((member) => {
@@ -76,5 +76,5 @@ export const getStaticProps = () => {
         props: {
             content: getAllMembers(),
         },
-    };                          
+    };
 };
