@@ -16,17 +16,17 @@ const Motto: React.FC = ({ children }) => (
 );
 
 const SubTitle: React.FC = ({ children }) => (
-    <p className="max-w-full w-101 font-light text-white text-xl mb-6">{children}</p>
+    <p className="max-w-full w-102 font-light text-white text-xl mb-6">{children}</p>
 );
 
 const Title: React.FC = ({ children }) => (
-    <div className="max-w-full w-101 tracking-tight text-left font-black leading-normal text-white text-5xl pt-1 pb-6">
+    <div className="max-w-full w-102 tracking-tight text-left font-black leading-normal text-white text-5xl pt-1 pb-6">
         {children}
     </div>
 );
 
 const InputContainer: React.FC = ({ children }) => (
-    <div className="max-w-full w-101 flex flex-row pt-2 -ml-3">{children}</div>
+    <div className="max-w-full w-102 flex flex-row pt-2 -ml-3">{children}</div>
 );
 
 const Input: React.FC<{ placeHolder: string }> = ({ children, placeHolder }) => (
