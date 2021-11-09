@@ -1,13 +1,14 @@
+import { addImagePrefix } from '@/src/utils/prefix';
 import React, { useState } from 'react';
 
 const ProjectContainer: React.FC = ({ children }) => (
     <div className="project-container">{children}</div>
 )
-const Arrowleft: React.FC<{onClick: any}>=({onClick})=><a
+const Arrowleft: React.FC<{onClick: () => void}>=({onClick})=><a
     onClick={onClick}
     className="cursor-pointer hover:opacity-60 w-8 md:w-16 h-8 md:h-16 transform rotate-180 bg-no-repeat bg-arrow md:relative absolute top-2/5 md:top-0 -left-0 md:left-0"
 />
-const Arrowright: React.FC<{onClick: any}>=({onClick})=><a
+const Arrowright: React.FC<{onClick: () => void}>=({onClick})=><a
     onClick={onClick}
     className="cursor-pointer hover:opacity-60 w-8 md:w-16 h-8 md:h-16 bg-no-repeat bg-arrow md:relative absolute top-2/5 md:top-0 -right-0 md:right-0"
 />
@@ -16,7 +17,7 @@ const TitlesContainer: React.FC=( {children })=> (
         {children}
     </div>
 )
-const Titles: React.FC<{whichTitle?: string}> = ({whichTitle, children}) => {
+const Titles: React.FC<{whichTitle: "subTitle" | "h1" | "h2"}> = ({whichTitle, children}) => {
     if(whichTitle === 'subTitle')
         return (
             <div className="text-denaryBackgroundColor font-bold mx-2 md:mx-0">{children}</div>
@@ -33,11 +34,11 @@ const Titles: React.FC<{whichTitle?: string}> = ({whichTitle, children}) => {
 }
 const SectionImgContainer: React.FC<{src: string}> = ({ src, children }) => (
     <div className="w-10/12 h-76 md:h-[32rem] relative flex justify-center mx-auto">
-        <img className="rounded-b-2xl" width="100%" src={src}/>
+        <img className="rounded-b-2xl" width="100%" src={addImagePrefix(src)}/>
         {children}
     </div>
 )
-const Readmore: React.FC<{onClick: any}> = ({ children, onClick }) => (
+const Readmore: React.FC<{onClick: () => void}> = ({ children, onClick }) => (
     <button onClick={onClick} className="text-base text-denaryBackgroundColor hover:underline flex flex-col">{children}</button>
 )
 const WrapperProject: React.FC<{classNamesrc: string}> = ({ classNamesrc, children }) => (
