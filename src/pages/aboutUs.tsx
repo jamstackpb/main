@@ -1,6 +1,6 @@
 import { Layout } from '@/src/layouts';
-import { Header } from '@/src/components/molecules/Header';
-import { CopyRights } from '../components/molecules/CopyRights';
+import { CopyRights } from '@/src/components';
+
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
@@ -16,7 +16,6 @@ const B1 = styled.h2`
 const about = () => {
     return (
         <Layout pageTitle="aboutUs">
-            <Header isHomepage={false} />
             <A1>
                 <h1 className="text-blue-darkfont text-3xl font-bold text-center mb-10">O NAS</h1>
             </A1>
