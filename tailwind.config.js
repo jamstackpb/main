@@ -1,7 +1,7 @@
 const colors = require('./colors');
 
 module.exports = {
-    mode: 'jit'
+    mode: 'jit',
     purge: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
     darkMode: false,
     theme: {
