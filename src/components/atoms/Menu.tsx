@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 type Props = { className?: string };
 const divStyles = {
-    transition: ' w-full h-22 relative',
+    transition: ' w-full h-22 relative -translate-y-11',
 };
 
 const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
@@ -53,17 +53,19 @@ export const Menu: React.FC = () => {
                         : ' transform ease-in duration-300 -translate-x-full'
                 }`}
             >
-                {content.map(({ link, name }, i) => (
-                    <DivMenu
-                        className={`${divStyles.transition} ${
-                            clicked
-                                ? `transform ease-out duration-200 delay-${i * 150} translate-x-0`
-                                : 'transform ease-out -translate-x-full'
-                        }`}
-                    >
-                        <DivLink link={link}>{name}</DivLink>
-                    </DivMenu>
-                ))}
+                <div className={'translate-y-1/2'}>
+                    {content.map(({ link, name }, i) => (
+                        <DivMenu
+                            className={`${divStyles.transition} ${
+                                clicked
+                                    ? `transform ease-out duration-200 delay-${i * 150} translate-x-0`
+                                    : 'transform ease-out -translate-x-full'
+                            }`}
+                        >
+                            <DivLink link={link}>{name}</DivLink>
+                        </DivMenu>
+                    ))}
+                </div>
             </DropMenu>
         </div>
     );
