@@ -77,7 +77,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
     const [current, setCurrent] = useState(0);
     const [read, setRead] = useState(0);
     const nextSlide = () => {
-        if (current == projects.length - 1) {
+        if (current === projects.length - 1) {
             setCurrent(0)
         }
         else {
@@ -85,7 +85,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         }
     };
     const prevSlide = () => {
-        if (current == 0) {
+        if (current === 0) {
             setCurrent(projects.length - 1);
         }
         else {
@@ -93,9 +93,9 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
         }
     };
     const Readmorebutton = () => {
-         if(read == 0) setRead(1)
-         if(read == 1) setRead(2)
-         if(read == 2) setRead(1)
+         if(read === 0) setRead(1)
+         if(read === 1) setRead(2)
+         if(read === 2) setRead(1)
     }
     return (
         <ProjectContainer>
@@ -107,9 +107,9 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                     </Titles>
                     <Titles whichTitle="h1">
                         {projects[current].h1} 
-                            {read == 1 ? (
+                            {read === 1 && (
                             <Readmore onClick={Readmorebutton}>Zwiń tekst...</Readmore>
-                            ) : (
+                            ) || (
                             <Readmore onClick={Readmorebutton}>Czytaj więcej...</Readmore>
                             )}
                     </Titles>
@@ -117,7 +117,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                 <Arrowright onClick={nextSlide}></Arrowright>
             </Headbarwrapper>
             <SectionImgContainer src={projects[current].imageUrl}>
-                {read == 1 ? (
+                {read === 1 && (
                 <WrapperProject classNamesrc="animate-fadeinup ">
                             <Titles whichTitle="h2">
                                 {projects[current].h2}
@@ -126,7 +126,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                                 {projects[current].description}   
                             </div> 
                 </WrapperProject>
-                ) : read == 2 ? (
+                ) || read === 2 && (
                 <WrapperProject classNamesrc="animate-fadeoutdown">
                             <Titles whichTitle="h2">
                                 {projects[current].h2}
@@ -135,7 +135,7 @@ const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects 
                                 {projects[current].description}   
                             </div> 
                 </WrapperProject>
-                ) : (null)}  
+                ) || (null)}  
             </SectionImgContainer>
         </ProjectContainer>
     );
