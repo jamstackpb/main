@@ -1,5 +1,4 @@
 import { Logo, Menu } from '@/src/components';
-import { useState } from 'react';
 
 export const Navigation: React.FC = () => {
     return (
