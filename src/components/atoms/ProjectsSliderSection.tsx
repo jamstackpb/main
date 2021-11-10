@@ -1,8 +1,68 @@
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { addImagePrefix } from '@/src/utils';
-import SectionWrapper from '@/src/components/atoms/SectionWrapper';
+import { addImagePrefix } from '@/src/utils/prefix';
+import React, { useState } from 'react';
+
+const ProjectContainer: React.FC = ({ children }) => <div className="project-container">{children}</div>;
+const Arrowleft: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+    <a
+        onClick={onClick}
+        className="cursor-pointer hover:opacity-60 w-8 md:w-16 h-8 md:h-16 transform rotate-180 bg-no-repeat bg-arrow md:relative absolute top-2/5 md:top-0 -left-0 md:left-0"
+    />
+);
+const Arrowright: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+    <a
+        onClick={onClick}
+        className="cursor-pointer hover:opacity-60 w-8 md:w-16 h-8 md:h-16 bg-no-repeat bg-arrow md:relative absolute top-2/5 md:top-0 -right-0 md:right-0"
+    />
+);
+const TitlesContainer: React.FC = ({ children }) => (
+    <div className="w-10/12 md:w-3/5 flex flex-col mx-auto py-4 font-Dosis">{children}</div>
+);
+const Titles: React.FC<{ whichTitle: 'subTitle' | 'h1' | 'h2' }> = ({ whichTitle, children }) => {
+    if (whichTitle === 'subTitle')
+        return <div className="text-denaryBackgroundColor font-bold mx-2 md:mx-0">{children}</div>;
+    else if (whichTitle === 'h1')
+        return (
+            <div className="text-white font-bold text-base md:text-xl mx-2 text-left md:text-justify ">{children}</div>
+        );
+    else if (whichTitle === 'h2')
+        return <div className="whitespace-pre-line font-bold text-quaternaryFontColor">{children}</div>;
+    else return null;
+};
+const SectionImgContainer: React.FC<{ src: string }> = ({ src, children }) => (
+    <div className="w-10/12 h-76 md:h-[32rem] relative flex justify-center mx-auto">
+        <img className="rounded-b-2xl" width="100%" src={addImagePrefix(src)} />
+        {children}
+    </div>
+);
+const Readmore: React.FC<{ onClick: () => void }> = ({ children, onClick }) => (
+    <button onClick={onClick} className="text-base text-denaryBackgroundColor hover:underline flex flex-col">
+        {children}
+    </button>
+);
+const WrapperProject: React.FC<{ classNamesrc: string }> = ({ classNamesrc, children }) => (
+    <div
+        className={`md:w-1/2
+                        absolute 
+                        top-2
+                        left-2
+                        right-2
+                        md:right-0
+                        bottom-2
+                        md:bottom-auto
+                        bg-white 
+                        bg-opacity-70
+                        rounded-md
+                        p-2 ${classNamesrc}`}
+    >
+        {children}
+    </div>
+);
+
+const Headbarwrapper: React.FC = ({ children }) => (
+    <div className="relative w-10/12 mx-auto flex flex-wrap items-center bg-primaryBackgroundColor rounded-t-2xl">
+        {children}
+    </div>
+);
 
 interface ProjectsSectionSliderProps {
     projects: Array<{
@@ -14,239 +74,58 @@ interface ProjectsSectionSliderProps {
     }>;
 }
 
-const Titles = styled.div<{ whichTitle?: string }>`
-    color: ${({ theme }) => theme.colorsPalette.quaternaryFontColor};
-    font-weight: 900;
-    ${({ whichTitle }) =>
-        whichTitle === 'subTitle'
-            ? css`
-                  font-size: 2rem;
-                  text-transform: uppercase;
-                  font-weight: 700;
-                  align-self: flex-start;
-                  margin-top: auto;
-              `
-            : whichTitle === 'h1'
-            ? css`
-                  font-size: 4rem;
-                  align-self: flex-start;
-                  @media (max-width: 500px) {
-                      & {
-                          align-self: center;
-                          padding-bottom: 4vh;
-                          width: 100%;
-                      }
-                  }
-              `
-            : whichTitle === 'h2'
-            ? css`
-                  font-size: 1.5rem;
-              `
-            : undefined};
-`;
-
-const SectionHeader = styled.div`
-    margin: 5vh 10vh 1vh;
-    display: flex;
-    flex-direction: row;
-    padding: 0 20% 5% 25%;
-    width: 100%;
-    @media (max-width: 500px) {
-        & {
-            flex-direction: column;
-            margin-bottom: 0%;
-        }
-    }
-`;
-const TitleContainer = styled.div`
-    width: 50%;
-    height: 15vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-size: 30px;
-
-    @media (max-width: 500px) {
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-    }
-`;
-const ButtonsContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-`;
-const Btn = styled.div`
-    transition: 0.5s;
-    width: 6vh;
-    height: 6vh;
-    border: ${({ theme }) => theme.border.button};
-    position: relative;
-    margin-right: 1vh;
-    display: flex;
-    text-transform: uppercase;
-    cursor: pointer;
-    transform-origin: right center;
-
-    &:hover {
-        border-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
-    }
-`;
-
-const SectionImgContainer = styled.img`
-    height: 300px;
-    width: 80%;
-    object-fit: cover;
-    margin: 5vh 10vh;
-`;
-const SectionDescriptionContainer = styled.div`
-    padding-top: 5vh;
-    display: flex;
-    flex-direction: column;
-    padding: 0% 15%;
-    margin: 5vh 0px;
-`;
-const Description = styled.div`
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: ${({ theme }) => theme.colorsPalette.primaryFontColor};
-`;
-const Arrows = styled.div<{ whichArrow?: string }>`
-    &.arrow {
-        cursor: pointer;
-        height: 100%;
-        width: 100%;
-        left: 70%;
-        position: absolute;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        transition: transform 0.1s;
-    }
-    & .arrow-top,
-    .arrow-bottom {
-        background-color: ${({ theme }) => theme.colorsPalette.octonaryBackgroundColor};
-        height: 4px;
-        position: absolute;
-        top: 50%;
-        width: 65%;
-    }
-    & .arrow-top:after,
-    & .arrow-bottom:after {
-        background-color: ${({ theme }) => theme.colorsPalette.primaryBackgroundColor};
-        content: '';
-        height: 100%;
-        position: absolute;
-        top: 0;
-        transition: all 0.15s;
-    }
-    & .arrow-top.left {
-        transform-origin: left;
-        transform: rotate(-45deg);
-        top: 49%;
-    }
-    & .arrow-top.right {
-        transform-origin: right;
-        transform: rotate(45deg);
-        top: 49%;
-    }
-    & .arrow-top.right:after {
-        left: 100%;
-        right: 0;
-        transition-delay: 0s;
-    }
-    & .arrow-bottom.right:after {
-        left: 0;
-        right: 100%;
-        transition-delay: 0.15s;
-    }
-    & .arrow-top.left:after {
-        right: 100%;
-        left: 0;
-        transition-delay: 0s;
-    }
-    & .arrow-bottom.left:after {
-        right: 0;
-        left: 100%;
-        transition-delay: 0.15s;
-    }
-    & .arrow-bottom.left {
-        transform-origin: left;
-        transform: rotate(45deg);
-        top: 45%;
-    }
-    & .arrow-bottom.right {
-        transform-origin: right;
-        transform: rotate(-45deg);
-        top: 45%;
-    }
-
-    &.arrow:hover .arrow-top.right:after {
-        left: 0;
-        transition-delay: 0.15s;
-    }
-    &.arrow:hover .arrow-top.left:after {
-        right: 0;
-        transition-delay: 0.15s;
-    }
-    &.arrow:hover .arrow-bottom.right:after {
-        right: 0;
-        transition-delay: 0s;
-    }
-    &.arrow:hover .arrow-bottom.left:after {
-        left: 0;
-        transition-delay: 0s;
-    }
-
-    &.arrow.right:active {
-        transform: translateX(-40%) translateY(-50%);
-    }
-    &.arrow.left:active {
-        transform: translateX(-60%) translateY(-50%);
-    }
-`;
-const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
+export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
     const [current, setCurrent] = useState(0);
+    const [read, setRead] = useState(0);
     const nextSlide = () => {
-        if (current == projects.length - 1) setCurrent(0);
-        else setCurrent(current + 1);
+        if (current === projects.length - 1) {
+            setCurrent(0);
+        } else {
+            setCurrent(current + 1);
+        }
     };
     const prevSlide = () => {
-        if (current == 0) setCurrent(projects.length - 1);
-        else setCurrent(current - 1);
+        if (current === 0) {
+            setCurrent(projects.length - 1);
+        } else {
+            setCurrent(current - 1);
+        }
+    };
+    const Readmorebutton = () => {
+        if (read === 0) setRead(1);
+        if (read === 1) setRead(2);
+        if (read === 2) setRead(1);
     };
     return (
-        <SectionWrapper>
-            <SectionHeader>
-                <TitleContainer>
+        <ProjectContainer>
+            <Headbarwrapper>
+                <Arrowleft onClick={prevSlide}></Arrowleft>
+                <TitlesContainer>
                     <Titles whichTitle="subTitle">{projects[current].subTitle}</Titles>
-                    <Titles whichTitle="h1">{projects[current].h1}</Titles>
-                </TitleContainer>
-                <ButtonsContainer>
-                    <Btn>
-                        <Arrows className="arrow left" onClick={prevSlide}>
-                            <div className=" arrow-bottom left" />
-                            <div className="arrow-top left" />
-                        </Arrows>
-                    </Btn>
-                    <Btn>
-                        <Arrows className="arrow right" onClick={nextSlide}>
-                            <div className="arrow-top right" />
-                            <div className="arrow-bottom right" />
-                        </Arrows>
-                    </Btn>
-                </ButtonsContainer>
-            </SectionHeader>
-
-            <SectionImgContainer src={addImagePrefix(projects[current].imageUrl)} />
-            <SectionDescriptionContainer>
-                <Titles whichTitle="h2">{projects[current].h2}</Titles>
-                <Description>{projects[current].description}</Description>
-            </SectionDescriptionContainer>
-        </SectionWrapper>
+                    <Titles whichTitle="h1">
+                        {projects[current].h1}
+                        {(read === 1 && <Readmore onClick={Readmorebutton}>Zwiń tekst...</Readmore>) || (
+                            <Readmore onClick={Readmorebutton}>Czytaj więcej...</Readmore>
+                        )}
+                    </Titles>
+                </TitlesContainer>
+                <Arrowright onClick={nextSlide}></Arrowright>
+            </Headbarwrapper>
+            <SectionImgContainer src={projects[current].imageUrl}>
+                {(read === 1 && (
+                    <WrapperProject classNamesrc="animate-fadeinup ">
+                        <Titles whichTitle="h2">{projects[current].h2}</Titles>
+                        <div className="text-sm md:text-base text-justify">{projects[current].description}</div>
+                    </WrapperProject>
+                )) ||
+                    (read === 2 && (
+                        <WrapperProject classNamesrc="animate-fadeoutdown">
+                            <Titles whichTitle="h2">{projects[current].h2}</Titles>
+                            <div className="text-sm md:text-base text-justify">{projects[current].description}</div>
+                        </WrapperProject>
+                    )) ||
+                    null}
+            </SectionImgContainer>
+        </ProjectContainer>
     );
 };
-
-export default ProjectsSectionSlider;

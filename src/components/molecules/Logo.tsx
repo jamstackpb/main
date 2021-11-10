@@ -1,12 +1,13 @@
-const full_logo1 = 'images/full_logo1.svg';
+import { addImagePrefix } from '@/src/utils';
 
 export const Logo = () => {
     return (
         <img
-            src={full_logo1}
+            className="mr-4"
+            src={addImagePrefix('/images/full_logo1.svg')}
             width="168"
             height="50"
-            style={{ border: 'none', position: 'absolute', top: '28px', right: '28px', margin: '0', padding: '0' }}
+            style={{ border: 'none' }}
         />
     );
 };

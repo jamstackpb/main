@@ -1,14 +1,7 @@
-import { Layout } from '@/src/layouts';
-import { Logo } from '@/src/components/molecules/Logo';
-import { Menu } from '@/src/components/atoms/Menu';
 import React from 'react';
 
-const Container: React.FC<{ isHomepage?: boolean }> = ({ isHomepage = false, children }) => {
-    if (isHomepage) {
-        return <div className="bg-primaryBackgroundColor pt-24 pb-24">{children}</div>;
-    } else {
-        return <div className="w-full bg-primaryBackgroundColor text-base max-h-22 h-22 z-50 ">{children}</div>;
-    }
+const Container: React.FC = ({ children }) => {
+    return <div className="bg-primaryBackgroundColor pt-24 pb-24">{children}</div>;
 };
 
 const Motto: React.FC = ({ children }) => (
@@ -16,17 +9,17 @@ const Motto: React.FC = ({ children }) => (
 );
 
 const SubTitle: React.FC = ({ children }) => (
-    <p className="max-w-full w-101 font-light text-white text-xl mb-6">{children}</p>
+    <p className="max-w-full w-102 font-light text-white text-xl mb-6">{children}</p>
 );
 
 const Title: React.FC = ({ children }) => (
-    <div className="max-w-full w-101 tracking-tight text-left font-black leading-normal text-white text-5xl pt-1 pb-6">
+    <div className="max-w-full w-102 tracking-tight text-left font-black leading-normal text-white text-5xl pt-1 pb-6">
         {children}
     </div>
 );
 
 const InputContainer: React.FC = ({ children }) => (
-    <div className="max-w-full w-101 flex flex-row pt-2 -ml-3">{children}</div>
+    <div className="max-w-full w-102 flex flex-row pt-2 -ml-3">{children}</div>
 );
 
 const Input: React.FC<{ placeHolder: string }> = ({ children, placeHolder }) => (
@@ -48,31 +41,17 @@ interface HeaderProps {
     isHomepage?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isHomepage = false }) => {
+export const Header: React.FC<HeaderProps> = () => {
     return (
-        <>
-            <Container isHomepage={isHomepage}>
-                {isHomepage ? (
-                    <>
-                        <Layout>
-                            <div style={{ position: 'absolute', top: 0, left: 0 }}>
-                                <Menu isHomepage />
-                            </div>
-                            <Logo />
-                            <Motto>
-                                <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
-                                <Title>Naucz się robić front-end wśród najlepszych </Title>
-                                <InputContainer>
-                                    <Input placeHolder="E-maill address" />
-                                    <Button>Zapisz się</Button>
-                                </InputContainer>
-                            </Motto>
-                        </Layout>
-                    </>
-                ) : (
-                    <Menu />
-                )}
-            </Container>
-        </>
+        <Container>
+            <Motto>
+                <SubTitle>Najnowsze technologie TypeScript, React, NodeJS i inne</SubTitle>
+                <Title>Naucz się robić front-end wśród najlepszych </Title>
+                <InputContainer>
+                    <Input placeHolder="E-maill address" />
+                    <Button>Zapisz się</Button>
+                </InputContainer>
+            </Motto>
+        </Container>
     );
 };
