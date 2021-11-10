@@ -3,8 +3,35 @@ module.exports = {
     mode: 'jit',
     theme: {
         extend: {
+            keyframes: {
+                'fade-out-down': {
+                    '0%': {
+                        opacity: '1',
+                        transform: 'translateY(0px)'
+                    },
+                    '100%': {
+                        opacity: '0',
+                        transform: 'translateY(200px)'
+                    },
+                },
+                'fade-in-up': {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(200px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    },
+                },
+            },
+            animation: {
+                fadeoutdown: 'fade-out-down 0.5s forwards',
+                fadeinup: 'fade-in-up 0.5s ease-out',
+            },
             backgroundImage: {
                 git: 'url("public/images/teamMembersAvatars/git_icon.svg")',
+                arrow: 'url("public/images/ProjectsSiteImgs/arrow.svg")',
             },
             backgroundSize: {
                 body: '91%',
@@ -27,7 +54,8 @@ module.exports = {
                 senaryBackgroundColor: '#bbdc65',
                 septenaryBackgroundColor: '#65efdd',
                 octonaryBackgroundColor: '#6e62d8',
-                nonaryBackgroundColor: '',
+                nonaryBackgroundColor: '#0BCCE9',
+                denaryBackgroundColor: '#E9A701',
                 primaryHoverColor: '#ffff65',
                 secondaryHoverColor: '#6699ff',
             },
@@ -41,14 +69,15 @@ module.exports = {
                 88: '22rem',
                 92: '23rem',
                 100: '26rem',
-                101: '37.5rem',
-                102: '39rem',
+                101: '28rem',
+                102: '37.5rem',
+                103: '39rem',
                 106: '44rem',
                 108: '46rem',
                 110: '50rem',
                 112: '54rem',
                 114: '58rem',
-                116: '62tem',
+                116: '62rem',
                 118: '66rem',
                 120: '70rem',
             },
@@ -308,8 +337,7 @@ module.exports = {
         transitionProperty: {
             none: 'none',
             all: 'all',
-            DEFAULT:
-                'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+            DEFAULT: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
             colors: 'background-color, border-color, color, fill, stroke',
             opacity: 'opacity',
             shadow: 'box-shadow',
@@ -383,6 +411,7 @@ module.exports = {
             40: '40',
             50: '50',
         },
+
     },
     variants: {
         backgroundImage: ['hover', 'focus'],
@@ -390,4 +419,4 @@ module.exports = {
         borderWidth: ['hover', 'focus'],
     },
     plugins: [],
-};
+}

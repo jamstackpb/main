@@ -11,7 +11,7 @@ const DropMenu: React.FC<Props> = (props) => <div className={props.className}>{p
 const DivMenu: React.FC<Props> = (props) => <div className={props.className}>{props.children}</div>;
 const DivLink: React.FC<{ link: string }> = ({ link, children }) => (
     <Link href={link}>
-        <div className="text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-800 cursor-pointer">
+        <div className="cursor-pointer text-center block font-medium -mt-12 p-5 w-full h-full leading-10 hover:no-underline hover:bg-gray-800">
             {children}
         </div>
     </Link>
