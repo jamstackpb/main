@@ -12,6 +12,7 @@ const PageTitle: React.FC = ({ children }) => (
 const projectsPage = ({ content }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Layout pageTitle="Projects">
+            <PageTitle>Projekty</PageTitle>
             <ProjectsSectionSlider projects={content}></ProjectsSectionSlider>
             <CopyRights />
         </Layout>
