@@ -57,7 +57,7 @@ interface TeamMemberProps {
     imgPath: string;
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({
+export const TeamMember: React.FC<TeamMemberProps> = ({
     memberName,
     memberRank,
     memberRankId,
@@ -80,5 +80,3 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         </MemberContainer>
     );
 };
-
-export default TeamMember;

@@ -1,5 +1,5 @@
 import { Layout } from '@/src/layouts';
-import { Header } from '@/src/components/molecules/Header';
+
 import { InferGetStaticPropsType } from 'next';
 
 import styled from '@emotion/styled';
@@ -21,7 +21,6 @@ const Autor = styled.div`
 const projectsPage = ({ authors }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Layout pageTitle="Projects">
-            <Header isHomepage={false} />
             <H1>Autorzy</H1>
             {authors.map(({ firstName, lastName }) => {
                 return <Autor key={`${firstName}-${lastName}`}>{`${firstName} ${lastName}`}</Autor>;

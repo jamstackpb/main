@@ -13,7 +13,6 @@ const Wrapper = styled.div`
         padding: 5vh 3vh;
     }
 `;
-const SectionWrapper: React.FC = ({ children }) => {
+export const SectionWrapper: React.FC = ({ children }) => {
     return <Wrapper>{children}</Wrapper>;
 };
-export default SectionWrapper;
