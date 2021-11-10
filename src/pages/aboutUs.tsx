@@ -9,7 +9,7 @@ const A1 = styled.h1`
 `;
 
 const B1 = styled.h2`
-    color: rgb(138, 51, 51);
+    color: rgb(84, 125, 221);
     padding: 2rem 8rem 6rem;
 `;
 
