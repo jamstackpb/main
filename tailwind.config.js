@@ -76,6 +76,9 @@ module.exports = {
             backgroundSize: {
                 body: '91%',
             },
+            translate: {
+                '3/7': '42.8571429%',
+            },
             contrast: {
                 0: '0',
                 50: '.5',
