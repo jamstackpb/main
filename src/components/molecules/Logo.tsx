@@ -3,7 +3,7 @@ import { addImagePrefix } from '@/src/utils';
 export const Logo = () => {
     return (
         <img
-            className="mr-4"
+            className="mr-4 z-50"
             src={addImagePrefix('/images/full_logo1.svg')}
             width="168"
             height="50"
