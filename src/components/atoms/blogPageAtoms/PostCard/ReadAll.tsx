@@ -24,7 +24,7 @@ const Button = styled.div`
 export const PostButton: React.FC<ButtonText> = ({ text, adress }) => {
     return (
         <Link href={'/posts/' + adress + ''}>
-            <Button className="flex w-40 sm:w-56 pl-4 md:pl-5 py-1 text-xs sm:text-lg ml-auto rounded-2xl bg-opacity-70 hover:bg-opacity-100 uppercase bg-quaternaryFontColor text-gray-100">
+            <Button className="flex w-40 sm:w-56 pl-4 md:pl-5 py-1 text-xs sm:text-lg ml-auto rounded-2xl bg-opacity-70 hover:bg-opacity-100 uppercase bg-quaternaryFontColor text-gray-100 hover:scale-105 duration-300">
                 {text} <DoubleRightArrow />
             </Button>
         </Link>
