@@ -53,7 +53,6 @@ const Headbarwrapper: React.FC = ({ children }) => (
 
 interface ProjectsSectionSliderProps {
     projects: Array<{
-            slug: string;
             clean: string;
             changedToMatter: {
                 [key: string]: any;
