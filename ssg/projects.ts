@@ -9,14 +9,12 @@ export const getAllProjects = () => {
     const projectsDirectoryFiles = fs.readdirSync(pathToFolderProjects);
 
     const withGrayMatter = projectsDirectoryFiles.map((adf) => {
-        const slug = adf.replace('.md', '');
         const realPath = path.join(pathToFolderProjects, adf);
         const fileContents = fs.readFileSync(realPath).toString('utf-8');
         const { data: changedToMatter, content } = matter(fileContents);
         const dirty = marked(content);
         const clean = DOMPurify.sanitize(dirty);
         return {
-            slug,
             changedToMatter,
             clean,
         };
