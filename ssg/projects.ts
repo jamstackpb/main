@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import marked from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 export const getAllProjects = () => {
     const pathToFolderProjects = path.join(process.cwd(), 'content', 'projects');
@@ -9,14 +11,12 @@ export const getAllProjects = () => {
     const withGrayMatter = projectsDirectoryFiles.map((adf) => {
         const realPath = path.join(pathToFolderProjects, adf);
         const fileContents = fs.readFileSync(realPath).toString('utf-8');
-        const changeToMatter = matter(fileContents);
-
-        return changeToMatter.data as {
-            subTitle: string;
-            h1: string;
-            h2: string;
-            imageUrl: string;
-            description: string;
+        const { data: changedToMatter, content } = matter(fileContents);
+        const dirty = marked(content);
+        const clean = DOMPurify.sanitize(dirty);
+        return {
+            changedToMatter,
+            clean,
         };
     });
     return withGrayMatter;
