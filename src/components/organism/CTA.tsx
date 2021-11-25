@@ -1,11 +1,7 @@
 import { Signup } from '../molecules/Signup';
 import { Layout } from '@/src/layouts';
 
-const Background: React.FC = ({ children }) => (
-    <div className="bg-primaryBackgroundColor py-20 px-14">
-        {children}
-    </div>
-);
+const Background: React.FC = ({ children }) => <div className="bg-primaryBackgroundColor py-20 px-14">{children}</div>;
 
 const Container: React.FC = ({ children }) => (
     <div className="flex flex-wrap justify-center gap-x-32 gap-y-6">{children}</div>
@@ -21,7 +17,7 @@ const SubTitle: React.FC = ({ children }) => (
     <div className="text-white text-4xl font-bold w-full max-w-full pb-5">{children}</div>
 );
 
-const Description: React.FC = ({ children }) => <div className="max-w-full text-xl text-white w-102">{children}</div>;
+const Description: React.FC = ({ children }) => <div className="max-w-full text-xl text-white w-150">{children}</div>;
 
 export const CTA = () => {
     return (

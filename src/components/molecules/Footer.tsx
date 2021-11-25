@@ -9,9 +9,7 @@ const in_icon = 'images/in_icon.svg';
 const logo1 = 'images/logo1.svg';
 
 const GrandFooter: React.FC = ({ children }) => (
-    <div className="bg-tertiaryBackgroundColor h-100 flex justify-center items-center flex-col gap-y-10">
-        {children}
-    </div>
+    <div className="bg-tertiaryBackgroundColor h-98 flex justify-center items-center flex-col gap-y-10">{children}</div>
 );
 const Wrapper: React.FC = ({ children }) => <div className="flex flex-col justify-center items-center">{children}</div>;
 
