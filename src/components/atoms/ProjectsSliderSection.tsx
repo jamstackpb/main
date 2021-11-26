@@ -80,7 +80,7 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
     return (
         <ProjectContainer>
             <Headbarwrapper>
-                <Arrowleft onClick={prevSlide}></Arrowleft>
+                <Arrowleft onClick={prevSlide} />
                 <TitlesContainer>
                     <Titles whichTitle="h1">
                         {projects[current].changedToMatter.h1}
@@ -89,7 +89,7 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
                         )}
                     </Titles>
                 </TitlesContainer>
-                <Arrowright onClick={nextSlide}></Arrowright>
+                <Arrowright onClick={nextSlide} />
             </Headbarwrapper>
             <SectionImgContainer src={projects[current].changedToMatter.imageUrl} />
             {(read && (
