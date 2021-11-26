@@ -6,6 +6,14 @@ module.exports = {
     darkMode: false,
     theme: {
         extend: {
+            borderWidth: {
+                DEFAULT: '1px',
+                blog: '0rem 0rem 22rem 22rem',
+            },
+            borderColor: (theme) => ({
+                ...theme('colors'),
+                blog: '#f6fafd transparent transparent #f6fafd',
+            }),
             colors: {
                 transparent: 'transparent',
                 current: 'currentColor',
@@ -29,11 +37,13 @@ module.exports = {
                 secondaryBackgroundColor: '#f7f7f9', // -||- "blue-whitebg2"
                 tertiaryBackgroundColor: '#f6fafd', // -||- "blue-whitebg"
                 quaternaryBackgroundColor: '#ffff00', // -||- "yellow-bg"
+                'orange-bg': '#E9A701',
                 octonaryBackgroundColor: '#6e62d8', // "purple-bg"
                 primaryHoverColor: '#ffff65', // "yellow-hover"
                 secondaryHoverColor: '#6699ff', // "blue-hover"
             },
             spacing: {
+                '3/7': '42.8571429%',
                 22: '5.5rem',
                 50: '12.5rem',
                 74: '18.5rem',
@@ -42,8 +52,9 @@ module.exports = {
                 88: '22rem',
                 92: '23rem',
                 98: '26rem',
+                120: '30rem',
                 150: '37.5rem',
-                400: '100rem',
+                360: '90rem',
             },
             skew: {
                 '-30': '-30deg',
@@ -80,6 +91,7 @@ module.exports = {
             content: {
                 none: 'none',
             },
+            fill: (theme) => theme('colors'),
             fontFamily: {
                 Festive: ['Festive', 'cursive'],
                 Dosis: ['Dosis', 'sans-serif'],
@@ -89,6 +101,7 @@ module.exports = {
                 backgroundImage: ['hover', 'focus'],
                 backgroundSize: ['hover', 'focus'],
                 borderWidth: ['hover', 'focus'],
+                fill: ['hover', 'focus'],
             },
             keyframes: {
                 'fade-out-down': {
