@@ -18,7 +18,7 @@ const Post = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <Layout pageTitle={postTitle}>
-            <div className="h-full w-full bg-blue-whitebg relative -top-20 pt-20">
+            <div className="h-auto w-full bg-blue-whitebg relative top-0 pt-1">
                 <div className="flex flex-row w-full h-88 mt-20 mb-14">
                     <div className="h-full w-3/7 px-7 md:px-22 xl:px-48 block z-40 bg-blue-whitebg">
                         <div className="flex flex-row transform ml-6 mb-7 h-7 w-120 2xl:w-150 items-center">
@@ -67,7 +67,6 @@ const Post = ({
                 <MarkdownContent>
                     <div dangerouslySetInnerHTML={{ __html: clean }}></div>
                 </MarkdownContent>
-
                 <CopyRights />
             </div>
         </Layout>
