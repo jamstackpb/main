@@ -51,7 +51,7 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 
 Vivamus eu erat est. Quisque ultrices commodo mauris at venenatis. Fusce non egestas nulla, vitae gravida velit.
 
-![Our logo](/images/logo1.svg 'Nasze kochane logo :D')<figcaption>Logo JamstackPB</figcaption>
+![Our logo](/main/images/logo1.svg 'Nasze kochane logo :D')<figcaption>Logo JamstackPB</figcaption>
 
 Maecenas consequat nisi et velit cursus, vitae malesuada nibh consequat. Nam eget felis nisi. Fusce porttitor, ex in interdum dictum, mi turpis efficitur eros, eget elementum augue risus ut nulla. Cras lobortis tellus eget tempor porta. Donec dignissim tempor ligula vitae varius. Aenean a turpis vel ex bibendum varius. Cras ultrices ligula sit amet erat pellentesque semper.
 
