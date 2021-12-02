@@ -2,7 +2,6 @@ import { addImagePrefix } from '@/src/utils/prefix';
 import React, { useState } from 'react';
 import { MarkdownContentProject } from '../molecules/MarkdownContentProject';
 
-
 const ProjectContainer: React.FC = ({ children }) => <div className="project-container mt-32">{children}</div>;
 const Arrowleft: React.FC<{ onClick: () => void }> = ({ onClick }) => (
     <a
@@ -21,11 +20,8 @@ const TitlesContainer: React.FC = ({ children }) => (
 );
 const Titles: React.FC<{ whichTitle: 'h1' }> = ({ whichTitle, children }) => {
     if (whichTitle === 'h1')
-        return (
-            <div className="text-white font-bold text-2xl sm:text-3xl mx-2 text-left text-center">{children}</div>
-        )
-    else 
-    return null;
+        return <div className="text-white font-bold text-2xl sm:text-3xl mx-2 text-center">{children}</div>;
+    else return null;
 };
 const SectionImgContainer: React.FC<{ src: string }> = ({ src, children }) => (
     <div className="w-10/12 h-76 md:h-[32rem] relative flex justify-center mx-auto">
@@ -34,15 +30,15 @@ const SectionImgContainer: React.FC<{ src: string }> = ({ src, children }) => (
     </div>
 );
 const Readmore: React.FC<{ onClick: () => void }> = ({ children, onClick }) => (
-    <button onClick={onClick} className="text-base text-denaryBackgroundColor hover:underline flex flex-col text-center mx-auto">
+    <button
+        onClick={onClick}
+        className="text-base text-denaryBackgroundColor hover:underline flex flex-col text-center mx-auto"
+    >
         {children}
     </button>
 );
 const WrapperProject: React.FC<{ classNamesrc: string }> = ({ classNamesrc, children }) => (
-    <div
-        className={`w-10/12 mx-auto ${classNamesrc}`}>
-        {children}
-    </div>
+    <div className={`w-10/12 mx-auto ${classNamesrc}`}>{children}</div>
 );
 
 const Headbarwrapper: React.FC = ({ children }) => (
@@ -53,11 +49,11 @@ const Headbarwrapper: React.FC = ({ children }) => (
 
 interface ProjectsSectionSliderProps {
     projects: Array<{
-            clean: string;
-            changedToMatter: {
-                [key: string]: any;
-        }
-    }>
+        clean: string;
+        changedToMatter: {
+            [key: string]: any;
+        };
+    }>;
 }
 
 export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
@@ -84,18 +80,18 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
     return (
         <ProjectContainer>
             <Headbarwrapper>
-                <Arrowleft onClick={prevSlide}></Arrowleft>
+                <Arrowleft onClick={prevSlide} />
                 <TitlesContainer>
                     <Titles whichTitle="h1">
                         {projects[current].changedToMatter.h1}
-                        {(read  && <Readmore onClick={Readmorebutton}>Zwiń tekst...</Readmore>) || (
+                        {(read && <Readmore onClick={Readmorebutton}>Zwiń tekst...</Readmore>) || (
                             <Readmore onClick={Readmorebutton}>Czytaj więcej...</Readmore>
                         )}
                     </Titles>
                 </TitlesContainer>
-                <Arrowright onClick={nextSlide}></Arrowright>
+                <Arrowright onClick={nextSlide} />
             </Headbarwrapper>
-            <SectionImgContainer src={projects[current].changedToMatter.imageUrl}/>
+            <SectionImgContainer src={projects[current].changedToMatter.imageUrl} />
             {(read && (
                 <WrapperProject classNamesrc="animate-fadeinup">
                     <MarkdownContentProject>
@@ -103,7 +99,7 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
                     </MarkdownContentProject>
                 </WrapperProject>
             )) ||
-            null}
+                null}
         </ProjectContainer>
     );
 };

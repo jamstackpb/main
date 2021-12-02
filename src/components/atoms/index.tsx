@@ -7,6 +7,7 @@ export * from './BackgroundJamstackLogo';
 export * from './Card';
 export * from './Cards';
 export * from './CustomHelmet';
+export * from './LitleArrow';
 export * from './MemberDescription';
 export * from './Menu';
 export * from './MenuIcon';

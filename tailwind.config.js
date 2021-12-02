@@ -6,6 +6,14 @@ module.exports = {
     darkMode: false,
     theme: {
         extend: {
+            borderWidth: {
+                DEFAULT: '1px',
+                blog: '0rem 0rem 22rem 22rem',
+            },
+            borderColor: (theme) => ({
+                ...theme('colors'),
+                blog: '#f6fafd transparent transparent #f6fafd',
+            }),
             colors: {
                 transparent: 'transparent',
                 current: 'currentColor',
@@ -29,36 +37,27 @@ module.exports = {
                 secondaryBackgroundColor: '#f7f7f9', // -||- "blue-whitebg2"
                 tertiaryBackgroundColor: '#f6fafd', // -||- "blue-whitebg"
                 quaternaryBackgroundColor: '#ffff00', // -||- "yellow-bg"
+                'orange-bg': '#E9A701',
                 octonaryBackgroundColor: '#6e62d8', // "purple-bg"
                 primaryHoverColor: '#ffff65', // "yellow-hover"
                 secondaryHoverColor: '#6699ff', // "blue-hover"
             },
             spacing: {
-                px: '1px',
-                '25px': '25px',
-                '50px': '50px',
-                '160px': '160px',
-                '360px': '360px',
+                '3/7': '42.8571429%',
                 22: '5.5rem',
+                50: '12.5rem',
                 74: '18.5rem',
                 76: '19rem',
-                78: '19.5rem',
-                82: '20.5rem',
                 84: '21rem',
                 88: '22rem',
                 92: '23rem',
-                100: '26rem',
-                101: '28rem',
-                102: '37.5rem',
-                103: '39rem',
-                106: '44rem',
-                108: '46rem',
-                110: '50rem',
-                112: '54rem',
-                114: '58rem',
-                116: '62rem',
-                118: '66rem',
-                120: '70rem',
+                98: '26rem',
+                120: '30rem',
+                150: '37.5rem',
+                360: '90rem',
+            },
+            skew: {
+                '-30': '-30deg',
             },
             animation: {
                 none: 'none',
@@ -92,6 +91,7 @@ module.exports = {
             content: {
                 none: 'none',
             },
+            fill: (theme) => theme('colors'),
             fontFamily: {
                 Festive: ['Festive', 'cursive'],
                 Dosis: ['Dosis', 'sans-serif'],
@@ -101,6 +101,7 @@ module.exports = {
                 backgroundImage: ['hover', 'focus'],
                 backgroundSize: ['hover', 'focus'],
                 borderWidth: ['hover', 'focus'],
+                fill: ['hover', 'focus'],
             },
             keyframes: {
                 'fade-out-down': {
