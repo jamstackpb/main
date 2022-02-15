@@ -45,9 +45,8 @@ export const Footer = () => {
                     </FootNavWords>
                     <FootIcons>
                         <InvertedButton ahref="https://www.facebook.com" imagIcon={fb_icon} />
-                        <InvertedButton ahref="https://twitter.com/?lang=pl" imagIcon={tw_icon} />
+                        <InvertedButton ahref="https://twitter.com/JamstackP" imagIcon={tw_icon} />
                         <InvertedButton ahref="https://github.com/jamstackpb" imagIcon={git_icon} />
-                        <InvertedButton ahref="https://pl.linkedin.com/" imagIcon={in_icon} />
                     </FootIcons>
                 </Wrapper>
             </Layout>
