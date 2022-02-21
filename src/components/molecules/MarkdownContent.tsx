@@ -2,12 +2,14 @@ import styled from '@emotion/styled';
 
 const Temacik = styled.div`
     width: 70%;
+
     margin-bottom: 20px;
     background: transparent;
     font-weight: bold;
     h1 {
         color: #78a0fa;
         font-size: 2.5rem;
+        margin-top: 2rem;
         margin-bottom: 0.5rem;
     }
     h2 {

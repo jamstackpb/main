@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 
 const MarkdownComponent = styled.div`
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
     background: transparent;
     h1 {
         color: #2727a3;
@@ -51,7 +52,7 @@ const MarkdownComponent = styled.div`
         margin: 1.6rem 0.8rem;
         padding-left: 2rem;
         background: #f6f6f6;
-        border-left: 4px solid #2727a3;
+        border-left: 4px solid #445566;
     }
     table {
         border-style: solid;

@@ -1,4 +1,3 @@
-import { addImagePrefix } from '@/src/utils/prefix';
 import React, { useState } from 'react';
 import { MarkdownContentProject } from '../molecules/MarkdownContentProject';
 
@@ -23,12 +22,7 @@ const Titles: React.FC<{ whichTitle: 'h1' }> = ({ whichTitle, children }) => {
         return <div className="text-white font-bold text-2xl sm:text-3xl mx-2 text-center">{children}</div>;
     else return null;
 };
-const SectionImgContainer: React.FC<{ src: string }> = ({ src, children }) => (
-    <div className="w-10/12 h-76 md:h-[32rem] relative flex justify-center mx-auto">
-        <img className="rounded-b-2xl" width="100%" src={addImagePrefix(src)} />
-        {children}
-    </div>
-);
+
 const Readmore: React.FC<{ onClick: () => void }> = ({ children, onClick }) => (
     <button
         onClick={onClick}
@@ -58,7 +52,7 @@ interface ProjectsSectionSliderProps {
 
 export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
     const [current, setCurrent] = useState(0);
-    const [read, setRead] = useState(false);
+    const read = useState(true);
     const nextSlide = () => {
         if (current === projects.length - 1) {
             setCurrent(0);
@@ -73,25 +67,17 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
             setCurrent(current - 1);
         }
     };
-    const Readmorebutton = () => {
-        if (read) setRead(false);
-        if (!read) setRead(true);
-    };
+
     return (
         <ProjectContainer>
             <Headbarwrapper>
                 <Arrowleft onClick={prevSlide} />
                 <TitlesContainer>
-                    <Titles whichTitle="h1">
-                        {projects[current].changedToMatter.h1}
-                        {(read && <Readmore onClick={Readmorebutton}>Zwiń tekst...</Readmore>) || (
-                            <Readmore onClick={Readmorebutton}>Czytaj więcej...</Readmore>
-                        )}
-                    </Titles>
+                    <Titles whichTitle="h1">{projects[current].changedToMatter.h1}</Titles>
                 </TitlesContainer>
                 <Arrowright onClick={nextSlide} />
             </Headbarwrapper>
-            <SectionImgContainer src={projects[current].changedToMatter.imageUrl} />
+
             {(read && (
                 <WrapperProject classNamesrc="animate-fadeinup">
                     <MarkdownContentProject>
