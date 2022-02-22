@@ -52,7 +52,6 @@ interface ProjectsSectionSliderProps {
 
 export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ projects }) => {
     const [current, setCurrent] = useState(0);
-    const read = useState(true);
     const nextSlide = () => {
         if (current === projects.length - 1) {
             setCurrent(0);
@@ -77,15 +76,11 @@ export const ProjectsSectionSlider: React.FC<ProjectsSectionSliderProps> = ({ pr
                 </TitlesContainer>
                 <Arrowright onClick={nextSlide} />
             </Headbarwrapper>
-
-            {(read && (
-                <WrapperProject classNamesrc="animate-fadeinup">
-                    <MarkdownContentProject>
-                        <div dangerouslySetInnerHTML={{ __html: projects[current].clean }}></div>
-                    </MarkdownContentProject>
-                </WrapperProject>
-            )) ||
-                null}
+            <WrapperProject classNamesrc="animate-fadeinup">
+                <MarkdownContentProject>
+                    <div dangerouslySetInnerHTML={{ __html: projects[current].clean }}></div>
+                </MarkdownContentProject>
+            </WrapperProject>
         </ProjectContainer>
     );
 };

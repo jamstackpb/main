@@ -52,7 +52,7 @@ const MarkdownComponent = styled.div`
         margin: 1.6rem 0.8rem;
         padding-left: 2rem;
         background: #f6f6f6;
-        border-left: 4px solid #445566;
+        border-left: 4px solid #2727a3;
     }
     table {
         border-style: solid;
