@@ -7,7 +7,7 @@ const Copyrights: React.FC = ({ children }) => (
 export const CopyRights = () => {
     return (
         <Copyrights>
-            <p>All rights reserved &copy; JAMstack PB 2021</p>
+            <p>All rights reserved &copy; JAMstack PB 2022</p>
         </Copyrights>
     );
 };

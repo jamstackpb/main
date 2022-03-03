@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 
 const MarkdownComponent = styled.div`
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
     background: transparent;
     h1 {
         color: #2727a3;

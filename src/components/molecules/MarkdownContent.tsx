@@ -8,6 +8,7 @@ const Temacik = styled.div`
     h1 {
         color: #78a0fa;
         font-size: 2.5rem;
+        margin-top: 2rem;
         margin-bottom: 0.5rem;
     }
     h2 {
