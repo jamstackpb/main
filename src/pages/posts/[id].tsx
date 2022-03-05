@@ -48,10 +48,10 @@ const Post = ({
                                 </Link>
                             </div>
                         </div>
-                        <div className="sm:block flex text-blue-darkfont font-bold md:text-5xl text-3xl text-left bg-transparent sm:w-120 w-84 2xl:w-150 sm:h-50 h-auto">
+                        <div className="sm:block flex text-blue-darkfont font-bold md:text-5xl text-3xl text-left bg-transparent sm:w-120 w-auto 2xl:w-150 sm:h-50 h-auto">
                             {postTitle}
                         </div>
-                        <div className="flex mt-7 sm:mt-4 sm:w-98 w-60">
+                        <div className="flex mt-7 sm:mt-4 sm:w-98 w-full">
                             <div
                                 style={{ backgroundImage: 'url(' + addImagePrefix(avatar) + ')' }}
                                 className="bg-cover h-16 w-16 z-30"
@@ -73,7 +73,7 @@ const Post = ({
                     ></div>
                 </div>
                 <MarkdownContent>
-                    <div className="mt-64" dangerouslySetInnerHTML={{ __html: clean }}></div>
+                    <div className="mt-32" dangerouslySetInnerHTML={{ __html: clean }}></div>
                 </MarkdownContent>
                 <CopyRights />
             </div>
