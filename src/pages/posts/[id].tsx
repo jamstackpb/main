@@ -20,30 +20,38 @@ const Post = ({
         <Layout pageTitle={postTitle}>
             <div className="h-auto w-full bg-blue-whitebg relative top-0 pt-1">
                 <div className="flex flex-row w-full h-88 mt-20 mb-14">
-                    <div className="h-full w-3/7 px-7 md:px-22 xl:px-48 block z-40 bg-blue-whitebg">
-                        <div className="flex flex-row transform ml-6 mb-7 h-7 w-120 2xl:w-150 items-center">
+                    <div className="sm:h-88 h-64 sm:w-3/7 w-full px-7 md:px-22 xl:px-48 block z-40 bg-blue-whitebg border-0">
+                        <div className="flex flex-row transform ml-6 mb-7 sm:h-7 h-auto sm:w-120 w-60 2xl:w-150 items-center">
                             <div>
                                 <Link href="/">
-                                    <a className="text-xl text-blue-font  font-bold hover:no-underline">HOME </a>
+                                    <a className="sm:text-xl text-base text-blue-font  font-bold hover:no-underline">
+                                        HOME{' '}
+                                    </a>
                                 </Link>
                             </div>
                             <LitleArrow color="fill-blue-font h-6 w-6" />
                             <div>
                                 <Link href="/blogsPage">
-                                    <a className="text-xl text-blue-font  font-bold hover:no-underline"> NEWS</a>
+                                    <a className="sm:text-xl text-base text-blue-font  font-bold hover:no-underline">
+                                        {' '}
+                                        NEWS
+                                    </a>
                                 </Link>
                             </div>
                             <LitleArrow color="fill-blue-font h-6 w-6" />
                             <div>
                                 <Link href="#">
-                                    <a className="text-xl text-blue-font  font-bold hover:no-underline"> ARTICLE</a>
+                                    <a className="sm:text-xl text-base text-blue-font  font-bold hover:no-underline">
+                                        {' '}
+                                        ARTICLE
+                                    </a>
                                 </Link>
                             </div>
                         </div>
-                        <div className="block text-blue-darkfont font-bold md:text-5xl text-3xl text-left bg-transparent w-120 2xl:w-150 h-50">
+                        <div className="sm:block flex text-blue-darkfont font-bold md:text-5xl text-3xl text-left bg-transparent sm:w-120 w-84 2xl:w-150 sm:h-50 h-auto">
                             {postTitle}
                         </div>
-                        <div className="flex mt-7 w-98">
+                        <div className="flex mt-7 sm:mt-4 sm:w-98 w-60">
                             <div
                                 style={{ backgroundImage: 'url(' + addImagePrefix(avatar) + ')' }}
                                 className="bg-cover h-16 w-16 z-30"
@@ -54,9 +62,9 @@ const Post = ({
                             </div>
                         </div>
                     </div>
-                    <div className="w-0 h-0 border-solid border-blog relative left-0 z-30" />
+                    <div className="w-0 h-0 border-0 sm:border-solid sm:border-blog relative -left-1 z-30" />
                     <div
-                        className="h-88 w-360 block z-10 absolute right-7 md:right-22 xl:right-48"
+                        className="sm:h-84 h-44 sm:w-360 w-5/6 block z-10 absolute right-7 md:right-22 xl:right-48 sm:top-22 top-92"
                         style={{
                             backgroundPosition: 'right',
                             backgroundRepeat: 'no-repeat',
@@ -65,7 +73,7 @@ const Post = ({
                     ></div>
                 </div>
                 <MarkdownContent>
-                    <div dangerouslySetInnerHTML={{ __html: clean }}></div>
+                    <div className="mt-64" dangerouslySetInnerHTML={{ __html: clean }}></div>
                 </MarkdownContent>
                 <CopyRights />
             </div>

@@ -5,7 +5,7 @@ interface TitlesProps {
 }
 export const Titles: React.FC<TitlesProps> = ({ title, firstSubTitle, secondSubTitle }) => (
     <>
-        <h1 className="text-6xl py-12 font-sans font-medium uppercase text-primaryBackgroundColor text-center">
+        <h1 className="text-5xl sm:text-6xl py-12 font-sans font-medium uppercase text-primaryBackgroundColor text-center ">
             {title}
         </h1>
         <h2 className="text-2xl  font-medium  text-gray-700 text-center ">{firstSubTitle}</h2>
