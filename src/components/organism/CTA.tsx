@@ -29,7 +29,7 @@ export const CTA = () => {
                         <SubTitle>Nie czekaj! Świat już nie czeka.</SubTitle>
                         <Description>
                             Jeżeli jeszcze zastanawiasz czy warto dołączyć do międzywydziałowego koła JAMStack PB, nie
-                            trać ani chwili i zapisz się do nas!
+                            trać ani chwili i zapisz się do nas
                         </Description>
                     </Column>
                     <Signup />
