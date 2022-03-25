@@ -1,117 +1,26 @@
 ---
-h1: Lorem ipsum dolor sit amet.
+h1: Informator Politechniki Białostockiej
 ---
 
-# Markdown Cheat Sheet
+# Cel projektu
 
-Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
+Celem projektu jest wykonanie interaktywnego informatora dla przyszłych studentów Politechniki Białostockiej, który umożliwi im zaznajomienie się z ofertą uczelni, wymaganiami i oferowanymi udogodnieniami. Korzystający z niego kandydaci powinni mieć możliwość poznania szczegółów odnośnie wybranego kierunku oraz za pomocą kalkulatora obliczyć swoje punkty bazując na wynikach matur.
 
-This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax) and [extended syntax](https://www.markdownguide.org/extended-syntax).
+### Wyzwania projektu
 
-## Basic Syntax
+Wyzwaniem projektu było wykonanie informatora jako interaktywnej książki, na jej stronach rozmieszczenie informacje o uczelni i jej ofercie oraz kalkulatora punktów. Zadbano również o estetyczny wygląd.
 
-These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
+## Wykorzystane technologie
 
-### Heading
+Do wykonania informatora wykorzystaliśmy między innymi :
 
-# H1
+-   TypeScript
+-   React JS
+-   Next JS
+-   Tailwindcss
+-   Git
+-   Babel.js
 
-## H2
+### Kod źródłowy
 
-### H3
-
-#### H4
-
-##### H5
-
-###### H6
-
-### Bold
-
-**bold text**
-
-### Italic
-
-_italicized text_
-
-### Blockquote
-
-> blockquote
->
-> blockquote
->
-> blockquote
-
-### Ordered List
-
-1. First item
-2. Second item
-3. Third item
-
-### Unordered List
-
--   First item
--   Second item
--   Third item
-
-### Code
-
-`code`
-
-### Horizontal Rule
-
----
-
-### Link
-
-[Markdown Guide](https://www.markdownguide.org)
-
-### Image
-
-![alt text](https://www.markdownguide.org/assets/images/tux.png)
-
-## Extended Syntax
-
-These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.
-
-### Table
-
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
-| Paragraph | Text        |
-
-### Fenced Code Block
-
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-
-### Footnote
-
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
-
-### Heading ID
-
-### My Great Heading {#custom-id}
-
-### Definition List
-
-term
-: definition
-
-### Strikethrough
-
-~~The world is flat.~~
-
-### Task List
-
--   [x] Write the press release
--   [ ] Update the website
--   [ ] Contact the media
+Kod strony znajduje sie [TUTAJ](https://github.com/jamstackpb/informatorpb)
