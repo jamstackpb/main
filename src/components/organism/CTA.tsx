@@ -25,7 +25,7 @@ export const CTA = () => {
             <Layout>
                 <Container>
                     <Column>
-                        <Title>SING UP</Title>
+                        <Title>SIGN UP</Title>
                         <SubTitle>Nie czekaj! Świat już nie czeka.</SubTitle>
                         <Description>
                             Jeżeli jeszcze zastanawiasz czy warto dołączyć do międzywydziałowego koła JAMStack PB, nie

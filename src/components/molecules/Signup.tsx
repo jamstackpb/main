@@ -59,10 +59,13 @@ const Button_send_again: React.FC = ({ children }) => (
 
 export const Signup = () => {
     const [isSend, setIsSend] = useState(false);
+    const [isSending, setIsSending] = useState(false);
     const form = useRef() as React.MutableRefObject<HTMLFormElement>;
 
     function SendEmail(e: any) {
         e.preventDefault();
+
+        setIsSending(true);
 
         emailjs.sendForm('service_jid49fz', 'template_ijvjd7x', form.current, 'user_vRYoj55RH0ZyhSZWOS5ju').then(
             (result) => {
@@ -84,10 +87,14 @@ export const Signup = () => {
                 <Description>Odkryj jak naprawdę pracuje front-end developer</Description>
                 {!isSend ? (
                     <form ref={form} onSubmit={SendEmail}>
-                        <InputContainer>
-                            <Input placeHolder="E-mail address" />
-                            <Button>Zapisz się</Button>
-                        </InputContainer>
+                        {isSending ? (
+                            <SubTitle>Wysyłanie...</SubTitle>
+                        ) : (
+                            <InputContainer>
+                                <Input placeHolder="E-mail address" />
+                                <Button>Zapisz się</Button>
+                            </InputContainer>
+                        )}
                     </form>
                 ) : (
                     <div>
@@ -96,6 +103,7 @@ export const Signup = () => {
                         <button
                             onClick={() => {
                                 setIsSend(false);
+                                setIsSending(false);
                             }}
                         >
                             <Button_send_again>RESEND</Button_send_again>
