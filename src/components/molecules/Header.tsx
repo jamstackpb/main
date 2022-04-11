@@ -35,19 +35,19 @@ const Input: React.FC<{ placeHolder: string }> = ({ placeHolder }) => (
     ></input>
 );
 
+const Button_send_again: React.FC = ({ children }) => (
+    <input
+        value="RESEND"
+        className="max-w-full flex justify-center items-center bg-quaternaryBackgroundColor w-3/5 text-black font-bold text-base uppercase text-center cursor-pointer border-0
+ hover:bg-primaryHoverColor focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+    ></input>
+);
+
 const Button: React.FC = ({ children }) => (
     <input
         value="Send"
         type="submit"
         className="max-w-full flex justify-center items-center bg-quaternaryBackgroundColor w-2/5 text-black font-bold text-base uppercase text-center cursor-pointer border-0
- hover:bg-primaryHoverColor focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
-    ></input>
-);
-
-const Button_send_again: React.FC = ({ children }) => (
-    <input
-        value="RESEND"
-        className="max-w-full flex justify-center items-center bg-quaternaryBackgroundColor w-3/5 text-black font-bold text-base uppercase text-center cursor-pointer border-0
  hover:bg-primaryHoverColor focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
     ></input>
 );
@@ -58,10 +58,13 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = () => {
     const [isSend, setIsSend] = useState(false);
+    const [isSending, setIsSending] = useState(false);
     const form = useRef() as React.MutableRefObject<HTMLFormElement>;
 
     function SendEmail(e: any) {
         e.preventDefault();
+
+        setIsSending(true);
 
         emailjs.sendForm('service_jid49fz', 'template_ijvjd7x', form.current, 'user_vRYoj55RH0ZyhSZWOS5ju').then(
             (result) => {
@@ -82,10 +85,14 @@ export const Header: React.FC<HeaderProps> = () => {
                 <Title>Naucz się robić front-end wśród najlepszych </Title>
                 {!isSend ? (
                     <form ref={form} onSubmit={SendEmail}>
-                        <InputContainer>
-                            <Input placeHolder="E-mail address" />
-                            <Button>Zapisz się</Button>
-                        </InputContainer>
+                        {isSending ? (
+                            <SubTitle>Wysyłanie...</SubTitle>
+                        ) : (
+                            <InputContainer>
+                                <Input placeHolder="E-mail address" />
+                                <Button>Zapisz się</Button>
+                            </InputContainer>
+                        )}
                     </form>
                 ) : (
                     <div>
@@ -94,6 +101,7 @@ export const Header: React.FC<HeaderProps> = () => {
                         <button
                             onClick={() => {
                                 setIsSend(false);
+                                setIsSending(false);
                             }}
                         >
                             <Button_send_again>RESEND</Button_send_again>
