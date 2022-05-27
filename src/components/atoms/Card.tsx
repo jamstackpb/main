@@ -7,9 +7,6 @@ const CardTitle: React.FC = ({ children }) => (
 );
 
 const CardText: React.FC = ({ children }) => <p className="mb-6 text-gray-700">{children}</p>;
-const More: React.FC = ({ children }) => (
-    <a className="bg-white block ml-auto px-4 py-2 text-blue-darkfont font-bold rounded-lg">{children}</a>
-);
 
 export const Card: React.FC<{ src: string; title: string; text: string }> = ({ src, title, text }) => {
     return (
@@ -17,7 +14,6 @@ export const Card: React.FC<{ src: string; title: string; text: string }> = ({ s
             <ImgCard src={src} />
             <CardTitle>{title}</CardTitle>
             <CardText>{text}</CardText>
-            <More>Więcej</More>
         </Main>
     );
 };
